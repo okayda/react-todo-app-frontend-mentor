@@ -1,17 +1,17 @@
+@import "variables";
 .header {
   position: absolute;
   width: 100%;
   top: 4rem;
   padding: 0 2rem;
   transition: all 0.4s;
-  // #ffc404 #08444c #08c4bc
 
   h3 {
-    color: #08444c;
+    color: $dark-green;
   }
 
   &__box {
-    background-color: #fff;
+    background-color: $very-light-gray;
     padding: 0.8rem;
     border-radius: 6px;
   }
@@ -24,7 +24,7 @@
 
   .icon {
     transition: all 0.4s;
-    color: #08444c;
+    color: $dark-green;
     font-size: 1.5rem;
   }
 
@@ -36,7 +36,7 @@
     padding-bottom: 1.6rem;
     padding: 0.8rem;
     border-radius: 6px;
-    background-color: #f0f4fc;
+    background-color: $tint-purple;
     &_title {
       font-size: 1.7rem;
       margin-bottom: 1.6rem;
@@ -49,8 +49,8 @@
       list-style: none;
 
       button {
-        border: 2px solid #08444c;
-        color: #08444c;
+        border: 2px solid $dark-green;
+        color: $dark-green;
         border-radius: 6px;
         background-color: transparent;
         padding: 0.8rem 0;
@@ -60,16 +60,15 @@
 
       .active_btn {
         font-weight: bold;
-        border-color: #7676b5;
-        background-color: #e1e1fd;
+        border-color: $shade-purple;
+        background-color: $light-shade-purple;
       }
     }
   }
 
   &__setting {
-    background-color: #f4fcf4;
+    background-color: $tint-green;
     border-radius: 6px;
-    // shades #dcf4ec
 
     &_button {
       padding: 1rem;
@@ -117,9 +116,8 @@
   }
 
   &__delete {
-    background-color: #fff4ec;
+    background-color: $tint-orange;
     border-radius: 6px;
-    // shades #fcccbc
 
     &_button {
       padding: 1rem;
@@ -179,8 +177,8 @@
           font-size: 1.5rem;
           font-weight: bold;
           border-radius: 6px;
-          background-color: #ffdad0;
-          border: 2px solid #f86939;
+          background-color: $light-shade-orange;
+          border: 2px solid $shade-orange;
           padding: 0.8rem 0;
           width: 100%;
         }

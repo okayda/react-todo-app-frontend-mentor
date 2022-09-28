@@ -5,7 +5,6 @@
   padding: 4rem 2rem;
   margin: 0 auto;
   height: 100%;
-  color: $very-light-gray;
 
   &__title_box {
     display: flex;
@@ -46,37 +45,6 @@
     margin-bottom: 1rem;
     padding: 1.4rem;
   }
-
-  &__task_container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  &__task {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.4rem;
-    font-size: 1.45rem;
-    color: $very-light-gray;
-    background-color: #fff;
-    border-radius: 6px;
-
-    &:last-child {
-      border-radius: 0;
-      border-radius: 6px 6px 0 0;
-    }
-
-    &_input {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      color: $very-dark-blue;
-    }
-  }
-
-  // #ffc404 #08444c #08c4bc
 
   &__illustration_container {
     margin-top: 4rem;

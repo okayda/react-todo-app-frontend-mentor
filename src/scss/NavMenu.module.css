@@ -9,7 +9,7 @@
   color: #08444c;
 }
 .header__box {
-  background-color: #fff;
+  background-color: hsl(0deg, 0%, 98%);
   padding: 0.8rem;
   border-radius: 6px;
 }

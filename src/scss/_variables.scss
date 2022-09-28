@@ -1,14 +1,16 @@
-// ? Primary
-$bright-blue: hsl(220, 98%, 61%);
-$check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
-
-// ? Neutral
 // todo Light Theme
-$very-light-gray: hsl(0, 0%, 98%);
-$very-light-grayish-blue: hsl(236, 33%, 92%);
-$light-grayish-blue: hsl(233, 11%, 84%);
-$dark-grayish-blue: hsl(236, 9%, 61%);
-$very-dark-grayish-blue: hsl(235, 19%, 35%);
+$dark-green: #08444c;
+
+$tint-purple: #f0f4fc;
+$light-shade-purple: #e1e1fd;
+$shade-purple: #7676b5;
+
+$tint-green: #f4fcf4;
+$shade-green: #dcf4ec;
+
+$tint-orange: #fff4ec;
+$light-shade-orange: #ffdad0;
+$shade-orange: #f86939;
 
 // todo Dark Theme
 $very-dark-blue: hsl(235, 21%, 11%);
@@ -17,4 +19,3 @@ $light-grayish-blue: hsl(234, 39%, 85%);
 $light-grayish-blue-hover: hsl(236, 33%, 92%);
 $dark-grayish-blue: hsl(234, 11%, 52%);
 $very-dark-grayish-blue: hsl(233, 14%, 35%);
-$very-dark-grayish-blue: hsl(237, 14%, 26%);
