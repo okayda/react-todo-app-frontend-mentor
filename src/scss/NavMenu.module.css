@@ -1,0 +1,162 @@
+.header {
+  position: absolute;
+  width: 100%;
+  top: 4rem;
+  padding: 0 2rem;
+  transition: all 0.4s;
+}
+.header h3 {
+  color: #08444c;
+}
+.header__box {
+  background-color: #fff;
+  padding: 0.8rem;
+  border-radius: 6px;
+}
+.header__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+.header .icon {
+  transition: all 0.4s;
+  color: #08444c;
+  font-size: 1.5rem;
+}
+.header .active_icon {
+  transform: rotate(90deg);
+}
+.header__show {
+  padding-bottom: 1.6rem;
+  padding: 0.8rem;
+  border-radius: 6px;
+  background-color: #f0f4fc;
+}
+.header__show_title {
+  font-size: 1.7rem;
+  margin-bottom: 1.6rem;
+}
+.header__show_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+  list-style: none;
+}
+.header__show_list button {
+  border: 2px solid #08444c;
+  color: #08444c;
+  border-radius: 6px;
+  background-color: transparent;
+  padding: 0.8rem 0;
+  font-size: 1.45rem;
+  width: 100%;
+}
+.header__show_list .active_btn {
+  font-weight: bold;
+  border-color: #7676b5;
+  background-color: #e1e1fd;
+}
+.header__setting {
+  background-color: #f4fcf4;
+  border-radius: 6px;
+}
+.header__setting_button {
+  padding: 1rem;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__setting_button h3 {
+  font-size: 1.7rem;
+}
+.header__setting_content {
+  max-height: 0;
+  transition: all 0.4s ease-in-out;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+.header__setting_active {
+  padding: 2rem 1rem;
+  max-height: 200px;
+}
+.header__setting .toggle__container {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+.header__setting .toggle__container input {
+  border-radius: 3px;
+  width: 25%;
+  padding: 0.4rem;
+  font-size: 1.4rem;
+}
+.header__setting .toggle__container span {
+  font-size: 1.5rem;
+}
+.header__delete {
+  background-color: #fff4ec;
+  border-radius: 6px;
+}
+.header__delete_button {
+  padding: 1rem;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__delete_button h3 {
+  font-size: 1.7rem;
+}
+.header__delete_content {
+  max-height: 0;
+  transition: all 0.4s ease-in-out;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+.header__delete_content .switch__container {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+.header__delete_content .switch__container span {
+  font-size: 1.5rem;
+}
+.header__delete_content .radio__container {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+.header__delete_content .radio__container label {
+  font-size: 1.5rem;
+}
+.header__delete_content .radio__container input[type=radio] {
+  transform: scale(1.1);
+}
+.header__delete_content .button__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+}
+.header__delete_content .button__container button {
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 6px;
+  background-color: #ffdad0;
+  border: 2px solid #f86939;
+  padding: 0.8rem 0;
+  width: 100%;
+}
+.header__delete_active {
+  padding: 2rem 1rem;
+  max-height: 400px;
+}

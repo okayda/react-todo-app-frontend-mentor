@@ -1,7 +1,8 @@
 import { GoGrabber } from "react-icons/go";
 import { AnimatePresence, Reorder } from "framer-motion";
 import { useState, useEffect } from "react";
-import style from "./scss/Todo.module.css";
+
+import style from "../scss/Todo.module.css";
 
 const submitFunc = function (e) {
   e.preventDefault();
@@ -50,7 +51,7 @@ const Todo = function () {
 
       <div className={style.todo__illustration_container}>
         <img
-          src={require("./images/calendar.png")}
+          src={require("../images/calendar.png")}
           className={style.calendar}
         />
         <h2 className={style.date}>September 22, 2022</h2>

@@ -1,6 +1,8 @@
+import ReactDOM from "react-dom";
+import { useEffect } from "react";
 import "./scss/global.css";
-
-import Todo from "./Todo";
+import NavMenu from "./components/menu/NavMenu";
+import Todo from "./components/Todo";
 
 function App() {
   // const [items, setItems] = useState([1, 2, 3, 4, 5, 6]);
@@ -47,7 +49,16 @@ function App() {
   //     </Reorder.Group>
   //   </div>
   // );
-  return <Todo />;
+
+  return (
+    <>
+      {ReactDOM.createPortal(
+        <NavMenu />,
+        document.querySelector(".header-container")
+      )}
+      <Todo />;
+    </>
+  );
 }
 
 export default App;
