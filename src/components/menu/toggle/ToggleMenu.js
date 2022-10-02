@@ -14,7 +14,7 @@ const ToggleMenu = function (prop) {
       <ToggleContent
         header__setting_content={prop.header__setting_content}
         header__setting_active={prop.header__setting_active}
-        toggle__container={prop.toggle__container}
+        header__setting_toggles={prop.header__setting_toggles}
         toggleIsActive={prop.toggleIsActive}
       />
     </div>

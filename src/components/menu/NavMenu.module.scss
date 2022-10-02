@@ -1,63 +1,66 @@
 @import "../../scss/variables";
+
 .header {
   position: absolute;
   width: 100%;
   top: 4rem;
   padding: 0 2rem;
-  transition: all 0.4s;
 
-  &__box {
-    background-color: $very-light-gray;
-    padding: 0.8rem;
-    border-radius: 6px;
-  }
-
-  // Global Selectors
+  // Available Global Selectors at Menu
   h3 {
     color: $dark-green;
+    font-size: 1.65rem;
+  }
+
+  button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
   }
 
   .icon {
     transition: all 0.4s;
     color: $dark-green;
     font-size: 1.5rem;
+
     &_active {
       transform: rotate(90deg);
     }
   }
-
   // =======================
+
+  // Parent Elements box => nav
+  &__box {
+    background-color: $very-light-gray;
+    padding: 0.8rem;
+    border-radius: 6px;
+  }
 
   &__nav {
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
   }
+  // =======================
 
+  // Show Specific Todo
   &__show {
     padding-bottom: 1.6rem;
     padding: 0.8rem;
     border-radius: 6px;
     background-color: $tint-purple;
+
     &_title {
       display: flex;
       justify-content: space-between;
       align-items: center;
-
-      h3 {
-        font-size: 1.7rem;
-      }
+      margin-bottom: 2.4rem;
 
       button {
-        cursor: pointer;
         color: $dark-green;
-        background-color: transparent;
-        border: none;
         font-size: 2.4rem;
         height: 2.4rem;
       }
-
-      margin-bottom: 2.4rem;
     }
 
     &_list {
@@ -70,7 +73,6 @@
         border: 2px solid $dark-green;
         color: $dark-green;
         border-radius: 6px;
-        background-color: transparent;
         padding: 0.8rem 0;
         font-size: 1.45rem;
         width: 100%;
@@ -83,32 +85,27 @@
       }
     }
   }
+  // =======================
 
+  // Toggles Setting
   &__setting {
     background-color: $tint-green;
     border-radius: 6px;
 
     &_button {
-      padding: 1rem;
-      background-color: transparent;
-      border: none;
-      width: 100%;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
-
-      h3 {
-        font-size: 1.7rem;
-      }
+      padding: 1rem;
+      width: 100%;
     }
-    &_content {
-      max-height: 0;
-      transition: all 0.4s ease-in-out;
-      overflow: hidden;
 
+    &_content {
       display: flex;
       flex-direction: column;
+      max-height: 0;
+      transition: all 0.4s;
+      overflow: hidden;
       gap: 1.8rem;
     }
 
@@ -117,95 +114,91 @@
       max-height: 200px;
     }
 
-    .toggle__container {
+    &_toggles {
       display: flex;
       align-items: center;
       gap: 1.4rem;
+
       input {
         border-radius: 3px;
         width: 25%;
         padding: 0.4rem;
         font-size: 1.4rem;
       }
+
       span {
         font-size: 1.5rem;
       }
     }
   }
+  // =======================
 
+  // Delete Todos
   &__delete {
     background-color: $tint-orange;
     border-radius: 6px;
 
     &_button {
-      padding: 1rem;
-      background-color: transparent;
-      border: none;
-      width: 100%;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
-
-      h3 {
-        font-size: 1.7rem;
-      }
+      padding: 1rem;
+      width: 100%;
     }
 
     &_content {
-      max-height: 0;
-      transition: all 0.4s ease-in-out;
-      overflow: hidden;
-
       display: flex;
       flex-direction: column;
       gap: 1.8rem;
-
-      .switch__container {
-        display: flex;
-        align-items: center;
-        gap: 1.4rem;
-
-        span {
-          font-size: 1.5rem;
-        }
-      }
-
-      .radio__container {
-        display: flex;
-        align-items: center;
-        gap: 1.4rem;
-
-        label {
-          font-size: 1.5rem;
-        }
-
-        input[type="radio"] {
-          transform: scale(1.1);
-        }
-      }
-
-      .button__container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.4rem;
-
-        button {
-          cursor: pointer;
-          font-size: 1.5rem;
-          font-weight: bold;
-          border-radius: 6px;
-          background-color: $light-shade-orange;
-          border: 2px solid $shade-orange;
-          padding: 0.8rem 0;
-          width: 100%;
-        }
-      }
+      max-height: 0;
+      transition: all 0.4s;
+      overflow: hidden;
     }
 
     &_active {
       padding: 2rem 1rem;
       max-height: 400px;
     }
+
+    &_switches {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+
+      span {
+        font-size: 1.5rem;
+      }
+    }
+
+    &_radios {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+
+      label {
+        font-size: 1.5rem;
+      }
+
+      input[type="radio"] {
+        transform: scale(1.1);
+      }
+    }
+
+    &_buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.4rem;
+
+      button {
+        font-size: 1.5rem;
+        font-weight: bold;
+        border-radius: 6px;
+        background-color: $light-shade-orange;
+        border: 2px solid $shade-orange;
+        padding: 0.8rem 0;
+        width: 100%;
+      }
+    }
   }
+  // =======================
 }

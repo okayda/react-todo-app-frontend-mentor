@@ -14,9 +14,9 @@ const DeleteMenu = function (prop) {
       <DeleteContent
         header__delete_content={prop.header__delete_content}
         header__delete_active={prop.header__delete_active}
-        switch__container={prop.switch__container}
-        radio__container={prop.radio__container}
-        button__container={prop.button__container}
+        header__delete_switches={prop.header__delete_switches}
+        header__delete_radios={prop.header__delete_radios}
+        header__delete_buttons={prop.header__delete_buttons}
         deleteIsActive={prop.deleteIsActive}
       />
     </div>

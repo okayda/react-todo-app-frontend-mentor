@@ -41,10 +41,6 @@ const Todo = function () {
     setTodoInput(e.target.value);
   };
 
-  const lol = function () {
-    console.log("lol");
-  };
-
   return (
     <section className={style.todo}>
       <div className={style.todo__title}>
@@ -55,13 +51,12 @@ const Todo = function () {
       </div>
 
       <form className={style.todo__form} onSubmit={submitFunc}>
-        <input
+        <textarea
           type="text"
           className={style.todo__form_input}
           placeholder="Create a new todo..."
           onChange={inputTodoValue}
           value={todoInput}
-          rows={4}
         />
         <br />
 

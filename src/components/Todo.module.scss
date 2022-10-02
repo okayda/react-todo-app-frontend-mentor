@@ -35,18 +35,20 @@
     margin-bottom: 2rem;
 
     &_input {
+      transition: all 0.4s;
+      width: 100%;
+      height: 50px;
+      padding: 1.4rem;
       border-radius: 6px;
       border: 2px solid $dark-green;
-
       color: $very-dark-blue;
       font-size: 1.6rem;
       background-color: transparent;
-      width: 100%;
       margin-bottom: 1rem;
-      padding: 1.4rem;
     }
 
     &_input:focus {
+      height: 100px;
       border: 2px solid $shade-orange;
     }
 
@@ -56,16 +58,17 @@
 
       .todo__form_add,
       .todo__form_date {
+        font-size: 1.6rem;
         padding: 1rem 2rem;
       }
     }
 
     &_buttons {
-      opacity: 0;
-      max-height: 0;
       display: flex;
       justify-content: space-between;
       transition: all 0.4s;
+      max-height: 0;
+      opacity: 0;
     }
 
     &_add,
@@ -74,7 +77,7 @@
       border-radius: 6px;
       border: none;
       font-weight: bold;
-      font-size: 1.6rem;
+      font-size: 0.4rem;
       padding: 0;
     }
 

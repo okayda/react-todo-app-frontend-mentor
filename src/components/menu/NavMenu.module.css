@@ -3,15 +3,15 @@
   width: 100%;
   top: 4rem;
   padding: 0 2rem;
-  transition: all 0.4s;
-}
-.header__box {
-  background-color: #fff;
-  padding: 0.8rem;
-  border-radius: 6px;
 }
 .header h3 {
   color: #08444c;
+  font-size: 1.65rem;
+}
+.header button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
 .header .icon {
   transition: all 0.4s;
@@ -20,6 +20,11 @@
 }
 .header .icon_active {
   transform: rotate(90deg);
+}
+.header__box {
+  background-color: #fff;
+  padding: 0.8rem;
+  border-radius: 6px;
 }
 .header__nav {
   display: flex;
@@ -38,14 +43,8 @@
   align-items: center;
   margin-bottom: 2.4rem;
 }
-.header__show_title h3 {
-  font-size: 1.7rem;
-}
 .header__show_title button {
-  cursor: pointer;
   color: #08444c;
-  background-color: transparent;
-  border: none;
   font-size: 2.4rem;
   height: 2.4rem;
 }
@@ -59,7 +58,6 @@
   border: 2px solid #08444c;
   color: #08444c;
   border-radius: 6px;
-  background-color: transparent;
   padding: 0.8rem 0;
   font-size: 1.45rem;
   width: 100%;
@@ -74,41 +72,36 @@
   border-radius: 6px;
 }
 .header__setting_button {
-  padding: 1rem;
-  background-color: transparent;
-  border: none;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.header__setting_button h3 {
-  font-size: 1.7rem;
+  padding: 1rem;
+  width: 100%;
 }
 .header__setting_content {
-  max-height: 0;
-  transition: all 0.4s ease-in-out;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
+  max-height: 0;
+  transition: all 0.4s;
+  overflow: hidden;
   gap: 1.8rem;
 }
 .header__setting_active {
   padding: 2rem 1rem;
   max-height: 200px;
 }
-.header__setting .toggle__container {
+.header__setting_toggles {
   display: flex;
   align-items: center;
   gap: 1.4rem;
 }
-.header__setting .toggle__container input {
+.header__setting_toggles input {
   border-radius: 3px;
   width: 25%;
   padding: 0.4rem;
   font-size: 1.4rem;
 }
-.header__setting .toggle__container span {
+.header__setting_toggles span {
   font-size: 1.5rem;
 }
 .header__delete {
@@ -116,51 +109,49 @@
   border-radius: 6px;
 }
 .header__delete_button {
-  padding: 1rem;
-  background-color: transparent;
-  border: none;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.header__delete_button h3 {
-  font-size: 1.7rem;
+  padding: 1rem;
+  width: 100%;
 }
 .header__delete_content {
-  max-height: 0;
-  transition: all 0.4s ease-in-out;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 1.8rem;
+  max-height: 0;
+  transition: all 0.4s;
+  overflow: hidden;
 }
-.header__delete_content .switch__container {
+.header__delete_active {
+  padding: 2rem 1rem;
+  max-height: 400px;
+}
+.header__delete_switches {
   display: flex;
   align-items: center;
   gap: 1.4rem;
 }
-.header__delete_content .switch__container span {
+.header__delete_switches span {
   font-size: 1.5rem;
 }
-.header__delete_content .radio__container {
+.header__delete_radios {
   display: flex;
   align-items: center;
   gap: 1.4rem;
 }
-.header__delete_content .radio__container label {
+.header__delete_radios label {
   font-size: 1.5rem;
 }
-.header__delete_content .radio__container input[type=radio] {
+.header__delete_radios input[type=radio] {
   transform: scale(1.1);
 }
-.header__delete_content .button__container {
+.header__delete_buttons {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.4rem;
 }
-.header__delete_content .button__container button {
-  cursor: pointer;
+.header__delete_buttons button {
   font-size: 1.5rem;
   font-weight: bold;
   border-radius: 6px;
@@ -168,8 +159,4 @@
   border: 2px solid #f86939;
   padding: 0.8rem 0;
   width: 100%;
-}
-.header__delete_active {
-  padding: 2rem 1rem;
-  max-height: 400px;
 }

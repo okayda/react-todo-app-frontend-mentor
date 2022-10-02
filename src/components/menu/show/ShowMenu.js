@@ -12,6 +12,7 @@ const ShowMenu = function (prop) {
     <div className={prop.header__show}>
       <div className={prop.header__show_title}>
         <h3>Show Specific Todo</h3>
+
         <button onClick={hideMenu}>
           <FaTimes />
         </button>
