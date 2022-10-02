@@ -3,19 +3,19 @@ import { FaArrowRight } from "react-icons/fa";
 
 const ToggleMenu = function (prop) {
   return (
-    <div className={prop.headerSetting}>
-      <button className={prop.headerSettingBtn} onClick={prop.onClickBtn}>
+    <div className={prop.header__setting}>
+      <button className={prop.header__setting_button} onClick={prop.onClick}>
         <h3>U.I Toggles Settings</h3>
         <FaArrowRight
-          className={`${prop.icon} ${prop.isActive && prop.activeIcon}`}
+          className={`${prop.icon} ${prop.toggleIsActive && prop.icon_active}`}
         />
       </button>
 
       <ToggleContent
-        headerSettingContent={prop.headerSettingContent}
-        isActive={prop.isActive}
-        headerSettingActive={prop.headerSettingActive}
-        toggleContainer={prop.toggleContainer}
+        header__setting_content={prop.header__setting_content}
+        header__setting_active={prop.header__setting_active}
+        toggle__container={prop.toggle__container}
+        toggleIsActive={prop.toggleIsActive}
       />
     </div>
   );

@@ -7,7 +7,7 @@ import "./scss/global.css";
 
 function App() {
   const {
-    menu: { isActiveMenu, menuElement },
+    menu: { isActiveMenu, menuModal },
   } = useContext(TodoContext);
 
   // const [items, setItems] = useState([1, 2, 3, 4, 5, 6]);
@@ -57,7 +57,7 @@ function App() {
 
   return (
     <>
-      {isActiveMenu && menuElement}
+      {isActiveMenu && menuModal}
       <Todo />;
     </>
   );

@@ -18,7 +18,7 @@
   color: #08444c;
   font-size: 1.5rem;
 }
-.header .active_icon {
+.header .icon_active {
   transform: rotate(90deg);
 }
 .header__nav {

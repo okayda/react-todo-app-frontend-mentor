@@ -1,18 +1,25 @@
+import { useContext } from "react";
+import { TodoContext } from "../../methods/TodoContext";
+
 import { FaTimes } from "react-icons/fa";
 
 const ShowMenu = function (prop) {
+  const {
+    menu: { hideMenu },
+  } = useContext(TodoContext);
+
   return (
-    <div className={prop.classShow}>
-      <div className={prop.showTitle}>
+    <div className={prop.header__show}>
+      <div className={prop.header__show_title}>
         <h3>Show Specific Todo</h3>
-        <button onClick={prop.deactivateMenu}>
+        <button onClick={hideMenu}>
           <FaTimes />
         </button>
       </div>
 
-      <ul className={prop.showList}>
+      <ul className={prop.header__show_list}>
         <li>
-          <button className={prop.active}>All</button>
+          <button className={prop.active_btn}>All</button>
         </li>
         <li>
           <button>Active</button>

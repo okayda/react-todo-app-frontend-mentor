@@ -15,7 +15,7 @@ const limitWords = 24;
 const Todo = function () {
   const {
     todo: { todos, setTodos },
-    menu: { activateMenuFunc },
+    menu: { showMenu },
   } = useContext(TodoContext);
 
   const [todoInput, setTodoInput] = useState("");
@@ -49,7 +49,7 @@ const Todo = function () {
     <section className={style.todo}>
       <div className={style.todo__title}>
         <h2>todo</h2>
-        <button onClick={activateMenuFunc}>
+        <button onClick={showMenu}>
           <GoGrabber />
         </button>
       </div>

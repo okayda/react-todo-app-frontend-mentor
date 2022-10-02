@@ -8,16 +8,16 @@ export const TodoProvider = function (prop) {
   const [todos, setTodos] = useState([]);
   const [isActiveMenu, setActiveMenu] = useState(false);
 
-  const activateMenuFunc = function () {
+  const showMenu = function () {
     setActiveMenu(true);
   };
 
-  const deactivateMenuFunc = function () {
+  const hideMenu = function () {
     setActiveMenu(false);
   };
 
-  const menuElement = ReactDOM.createPortal(
-    <NavMenu deactivateMenu={deactivateMenuFunc} />,
+  const menuModal = ReactDOM.createPortal(
+    <NavMenu />,
     document.querySelector("header")
   );
 
@@ -25,7 +25,7 @@ export const TodoProvider = function (prop) {
     <TodoContext.Provider
       value={{
         todo: { todos, setTodos },
-        menu: { isActiveMenu, activateMenuFunc, menuElement },
+        menu: { isActiveMenu, showMenu, hideMenu, menuModal },
       }}
     >
       {prop.children}

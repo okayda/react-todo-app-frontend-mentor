@@ -21,11 +21,11 @@
     transition: all 0.4s;
     color: $dark-green;
     font-size: 1.5rem;
+    &_active {
+      transform: rotate(90deg);
+    }
   }
 
-  .active_icon {
-    transform: rotate(90deg);
-  }
   // =======================
 
   &__nav {

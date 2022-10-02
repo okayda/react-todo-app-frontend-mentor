@@ -7,15 +7,15 @@ import DeleteMenu from "./delete/DeleteMenu";
 import style from "./NavMenu.module.css";
 
 const NavMenu = function (prop) {
-  const [isActive, setActive] = useState(false);
+  const [toggleIsActive, setToggleActive] = useState(false);
   const [deleteIsActive, setDeleteActive] = useState(false);
 
   const settingDrop = function () {
-    setActive((cur) => (cur ? false : true));
+    setToggleActive((cur) => !cur);
   };
 
   const deleteDrop = function () {
-    setDeleteActive((cur) => (cur ? false : true));
+    setDeleteActive((cur) => !cur);
   };
 
   return (
@@ -23,37 +23,36 @@ const NavMenu = function (prop) {
       <div className={style.header__box}>
         <nav className={style.header__nav}>
           <ShowMenu
-            classShow={style.header__show}
-            showTitle={style.header__show_title}
-            showList={style.header__show_list}
-            active={style.active_btn}
-            deactivateMenu={prop.deactivateMenu}
+            header__show={style.header__show}
+            header__show_title={style.header__show_title}
+            header__show_list={style.header__show_list}
+            active_btn={style.active_btn}
           />
 
           <ToggleMenu
-            headerSetting={style.header__setting}
-            headerSettingBtn={style.header__setting_button}
-            onClickBtn={settingDrop}
+            header__setting={style.header__setting}
+            header__setting_button={style.header__setting_button}
+            header__setting_content={style.header__setting_content}
+            header__setting_active={style.header__setting_active}
+            toggle__container={style.toggle__container}
+            onClick={settingDrop}
             icon={style.icon}
-            activeIcon={style.active_icon}
-            headerSettingContent={style.header__setting_content}
-            isActive={isActive}
-            headerSettingActive={style.header__setting_active}
-            toggleContainer={style.toggle__container}
+            icon_active={style.icon_active}
+            toggleIsActive={toggleIsActive}
           />
 
           <DeleteMenu
-            headerDelete={style.header__delete}
-            headerDeleteButton={style.header__delete_button}
-            onClickBtn={deleteDrop}
+            header__delete={style.header__delete}
+            header__delete_button={style.header__delete_button}
+            header__delete_content={style.header__delete_content}
+            header__delete_active={style.header__delete_active}
+            switch__container={style.switch__container}
+            radio__container={style.radio__container}
+            button__container={style.button__container}
+            onClick={deleteDrop}
             icon={style.icon}
+            icon_active={style.icon_active}
             deleteIsActive={deleteIsActive}
-            activeIcon={style.active_icon}
-            headerDeleteContent={style.header__delete_content}
-            headerDeleteActive={style.header__delete_active}
-            switchContainer={style.switch__container}
-            radioContainer={style.radio__container}
-            buttonContainer={style.button__container}
           />
         </nav>
       </div>
