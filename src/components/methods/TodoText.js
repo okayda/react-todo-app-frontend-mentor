@@ -15,7 +15,8 @@ const TodoText = function (prop) {
 
   const wordsInput = prop.children.split(" ");
   const isManyWords = wordsInput.length > prop.limit;
-  let words = [];
+
+  const words = [];
 
   if (isManyWords) {
     for (let i = 0; i < prop.limit; i++) {
@@ -23,9 +24,8 @@ const TodoText = function (prop) {
     }
   }
 
-  const displatText = function () {
+  const displayText = function () {
     if (isReadMoreShown) return prop.children;
-
     if (!isManyWords) return prop.children;
 
     return words.join(" ");
@@ -33,7 +33,7 @@ const TodoText = function (prop) {
 
   return (
     <p>
-      {displatText()}
+      {displayText()}
       {isManyWords && readBtn}
     </p>
   );

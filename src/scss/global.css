@@ -27,3 +27,7 @@ header {
 main {
   height: 100%;
 }
+
+textarea {
+  resize: none;
+}
