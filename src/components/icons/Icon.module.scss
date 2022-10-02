@@ -1,0 +1,12 @@
+@import "../../scss/variables";
+
+.icons {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: dotted $dark-green 3px;
+  padding-bottom: 1rem;
+
+  &__icon {
+    font-size: 1.8rem;
+  }
+}

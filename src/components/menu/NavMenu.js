@@ -6,7 +6,7 @@ import DeleteMenu from "./delete/DeleteMenu";
 
 import style from "../../scss/NavMenu.module.css";
 
-const NavMenu = function () {
+const NavMenu = function (prop) {
   const [isActive, setActive] = useState(false);
   const [deleteIsActive, setDeleteActive] = useState(false);
 
@@ -27,6 +27,7 @@ const NavMenu = function () {
             showTitle={style.header__show_title}
             showList={style.header__show_list}
             active={style.active_btn}
+            deactivateMenu={prop.deactivateMenu}
           />
 
           <ToggleMenu

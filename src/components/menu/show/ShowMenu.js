@@ -1,7 +1,14 @@
+import { FaTimes } from "react-icons/fa";
+
 const ShowMenu = function (prop) {
   return (
     <div className={prop.classShow}>
-      <h3 className={prop.showTitle}>Show Specific Todo</h3>
+      <div className={prop.showTitle}>
+        <h3>Show Specific Todo</h3>
+        <button onClick={prop.deactivateMenu}>
+          <FaTimes />
+        </button>
+      </div>
 
       <ul className={prop.showList}>
         <li>

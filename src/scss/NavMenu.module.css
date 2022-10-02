@@ -5,18 +5,13 @@
   padding: 0 2rem;
   transition: all 0.4s;
 }
-.header h3 {
-  color: #08444c;
-}
 .header__box {
-  background-color: hsl(0deg, 0%, 98%);
+  background-color: #fff;
   padding: 0.8rem;
   border-radius: 6px;
 }
-.header__nav {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
+.header h3 {
+  color: #08444c;
 }
 .header .icon {
   transition: all 0.4s;
@@ -26,6 +21,11 @@
 .header .active_icon {
   transform: rotate(90deg);
 }
+.header__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
 .header__show {
   padding-bottom: 1.6rem;
   padding: 0.8rem;
@@ -33,8 +33,21 @@
   background-color: #f0f4fc;
 }
 .header__show_title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.4rem;
+}
+.header__show_title h3 {
   font-size: 1.7rem;
-  margin-bottom: 1.6rem;
+}
+.header__show_title button {
+  cursor: pointer;
+  color: #08444c;
+  background-color: transparent;
+  border: none;
+  font-size: 2.4rem;
+  height: 2.4rem;
 }
 .header__show_list {
   display: grid;

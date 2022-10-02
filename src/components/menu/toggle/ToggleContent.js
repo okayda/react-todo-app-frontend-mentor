@@ -12,6 +12,10 @@ const ToggleContent = function (prop) {
       </div>
 
       <div className={prop.toggleContainer}>
+        <ReactSwitch /> <span>Modify Todo</span>
+      </div>
+
+      <div className={prop.toggleContainer}>
         <ReactSwitch /> <span>Theme</span>
       </div>
 

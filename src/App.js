@@ -1,10 +1,28 @@
 import ReactDOM from "react-dom";
-import { useEffect } from "react";
-import "./scss/global.css";
+import { useState, useEffect } from "react";
+import { TodoProvider } from "./components/TodoContext";
+
 import NavMenu from "./components/menu/NavMenu";
 import Todo from "./components/Todo";
 
+import "./scss/global.css";
+
 function App() {
+  const [activeMenu, setActiveMenu] = useState(false);
+
+  const activateMenu = function () {
+    setActiveMenu(true);
+  };
+
+  const deactivateMenu = function () {
+    setActiveMenu(false);
+  };
+
+  const menu = ReactDOM.createPortal(
+    <NavMenu deactivateMenu={deactivateMenu} />,
+    document.querySelector("header")
+  );
+
   // const [items, setItems] = useState([1, 2, 3, 4, 5, 6]);
   // const [animate, noAni] = useState(true);
 
@@ -52,11 +70,10 @@ function App() {
 
   return (
     <>
-      {ReactDOM.createPortal(
-        <NavMenu />,
-        document.querySelector(".header-container")
-      )}
-      <Todo />;
+      <TodoProvider>
+        {activeMenu && menu}
+        <Todo activateMenu={activateMenu} />
+      </TodoProvider>
     </>
   );
 }

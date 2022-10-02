@@ -1,0 +1,9 @@
+.icons {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: dotted #08444c 3px;
+  padding-bottom: 1rem;
+}
+.icons__icon {
+  font-size: 1.8rem;
+}

@@ -6,20 +6,15 @@
   padding: 0 2rem;
   transition: all 0.4s;
 
-  h3 {
-    color: $dark-green;
-  }
-
   &__box {
     background-color: $very-light-gray;
     padding: 0.8rem;
     border-radius: 6px;
   }
 
-  &__nav {
-    display: flex;
-    flex-direction: column;
-    gap: 1.6rem;
+  // Global Selectors
+  h3 {
+    color: $dark-green;
   }
 
   .icon {
@@ -31,6 +26,13 @@
   .active_icon {
     transform: rotate(90deg);
   }
+  // =======================
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
 
   &__show {
     padding-bottom: 1.6rem;
@@ -38,8 +40,24 @@
     border-radius: 6px;
     background-color: $tint-purple;
     &_title {
-      font-size: 1.7rem;
-      margin-bottom: 1.6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h3 {
+        font-size: 1.7rem;
+      }
+
+      button {
+        cursor: pointer;
+        color: $dark-green;
+        background-color: transparent;
+        border: none;
+        font-size: 2.4rem;
+        height: 2.4rem;
+      }
+
+      margin-bottom: 2.4rem;
     }
 
     &_list {
