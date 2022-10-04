@@ -3,7 +3,12 @@
   justify-content: space-around;
   border-bottom: dotted #08444c 3px;
   padding-bottom: 1rem;
+  list-style: none;
 }
-.icons__icon {
+.icons button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  line-height: 0;
   font-size: 1.8rem;
 }

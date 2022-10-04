@@ -85,8 +85,8 @@
 .todo__task_list {
   background-color: rgba(255, 255, 255, 0.8);
   border-left: solid 4px #7676b5;
-  color: hsl(235deg, 21%, 11%);
   border-radius: 3px;
+  color: hsl(235deg, 21%, 11%);
   padding: 1.4rem 0;
   display: grid;
   gap: 1.2rem;

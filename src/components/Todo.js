@@ -3,10 +3,10 @@ import { GoGrabber } from "react-icons/go";
 import { AnimatePresence, Reorder } from "framer-motion";
 import { useState, useEffect, useContext } from "react";
 
-import { TodoContext } from "./methods/TodoContext";
+import { TodoContext } from "./Methods/TodoContext";
 
-import Icons from "./icons/Icons";
-import TodoText from "./methods/TodoText";
+import Icons from "./TodoIcons/Icons";
+import TodoText from "./Methods/TodoText";
 
 import style from "./Todo.module.css";
 
@@ -14,7 +14,7 @@ const limitWords = 24;
 
 const Todo = function () {
   const {
-    todo: { todos, setTodos },
+    todo: { todos, dispatch },
     menu: { showMenu },
   } = useContext(TodoContext);
 
@@ -26,13 +26,11 @@ const Todo = function () {
     const submitter = e.nativeEvent.submitter.name;
     if (submitter === "date") return;
 
-    setTodos((cur) => [
-      ...cur,
-      {
-        text: todoInput,
-        id: Math.random(),
-      },
-    ]);
+    dispatch({
+      type: "add-todo",
+      id: Math.random().toString(),
+      payload: { text: todoInput, isCompleted: false },
+    });
 
     setTodoInput("");
   };
@@ -78,18 +76,22 @@ const Todo = function () {
       </form>
 
       <ul className={style.todo__task}>
-        {todos.map((todo) => (
-          <li key={todo.id} className={style.todo__task_list}>
-            <Icons />
+        {todos.map((todo) => {
+          if (todo.isCompleted) return;
 
-            <TodoText
-              limit={limitWords}
-              todo__read_button={style.todo__task_read}
-            >
-              {todo.text}
-            </TodoText>
-          </li>
-        ))}
+          return (
+            <li key={todo.id} className={style.todo__task_list}>
+              <Icons id={todo.id} />
+
+              <TodoText
+                limit={limitWords}
+                todo__read_button={style.todo__task_read}
+              >
+                {todo.text}
+              </TodoText>
+            </li>
+          );
+        })}
       </ul>
 
       <div className={style.todo__background}>

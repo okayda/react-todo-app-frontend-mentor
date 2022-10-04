@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
+import { TodoContext } from "../Methods/TodoContext";
 
 import ShowMenu from "./show/ShowMenu";
 import ToggleMenu from "./toggle/ToggleMenu";
@@ -6,7 +7,11 @@ import DeleteMenu from "./delete/DeleteMenu";
 
 import style from "./NavMenu.module.css";
 
-const NavMenu = function (prop) {
+const NavMenu = function () {
+  const {
+    menu: { isActiveMenu },
+  } = useContext(TodoContext);
+
   const [toggleIsActive, setToggleActive] = useState(false);
   const [deleteIsActive, setDeleteActive] = useState(false);
 

@@ -5,8 +5,13 @@
   justify-content: space-around;
   border-bottom: dotted $dark-green 3px;
   padding-bottom: 1rem;
+  list-style: none;
 
-  &__icon {
+  button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    line-height: 0;
     font-size: 1.8rem;
   }
 }

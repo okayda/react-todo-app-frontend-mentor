@@ -1,8 +1,10 @@
 .header {
+  transition: all 1s !important;
   position: absolute;
-  width: 100%;
   top: 4rem;
+  width: 100%;
   padding: 0 2rem;
+  z-index: 10;
 }
 .header h3 {
   color: #08444c;

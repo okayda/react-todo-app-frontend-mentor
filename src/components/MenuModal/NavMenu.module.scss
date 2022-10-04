@@ -1,10 +1,12 @@
 @import "../../scss/variables";
 
 .header {
+  transition: all 1s !important;
   position: absolute;
-  width: 100%;
   top: 4rem;
+  width: 100%;
   padding: 0 2rem;
+  z-index: 10;
 
   // Available Global Selectors at Menu
   h3 {
@@ -30,6 +32,7 @@
   // =======================
 
   // Parent Elements box => nav
+
   &__box {
     background-color: $very-light-gray;
     padding: 0.8rem;
