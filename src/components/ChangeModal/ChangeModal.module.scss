@@ -1,0 +1,79 @@
+@import "../../scss/variables";
+
+.change {
+  display: none;
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  width: 100%;
+  padding: 0 2rem;
+
+  &__box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    border-radius: 6px;
+    padding: 2rem 0.8rem;
+    background-image: linear-gradient(
+      70deg,
+      $light-shade-purple,
+      $light-shade-orange
+    );
+  }
+
+  &__exit {
+    border: none;
+    background-color: transparent;
+    line-height: 0;
+    font-size: 2.4rem;
+  }
+
+  &__button {
+    color: $very-dark-blue;
+    font-weight: bold;
+    background-image: linear-gradient(
+      to bottom,
+      $light-shade-orange,
+      $light-shade-purple
+    );
+    border: 1px solid $shade-purple;
+    border-radius: 6px;
+    padding: 0.6rem 1.2rem;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+
+    h2 {
+      font-size: 2.4rem;
+    }
+  }
+
+  &__form {
+    textarea {
+      border: 1px solid $shade-purple;
+      background-color: rgba($color: #fff, $alpha: 0.5);
+      border-radius: 6px;
+      padding: 1rem;
+      font-size: 1.5rem;
+      height: 100px;
+      margin-bottom: 1rem;
+    }
+
+    textarea:focus {
+      outline: none;
+    }
+
+    &_date {
+      margin-bottom: 3rem;
+    }
+
+    &_edit {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

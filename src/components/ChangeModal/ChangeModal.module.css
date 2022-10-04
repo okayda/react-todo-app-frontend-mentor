@@ -1,0 +1,58 @@
+.change {
+  display: none;
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  width: 100%;
+  padding: 0 2rem;
+}
+.change__box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  border-radius: 6px;
+  padding: 2rem 0.8rem;
+  background-image: linear-gradient(70deg, #e1e1fd, #ffdad0);
+}
+.change__exit {
+  border: none;
+  background-color: transparent;
+  line-height: 0;
+  font-size: 2.4rem;
+}
+.change__button {
+  color: hsl(235deg, 21%, 11%);
+  font-weight: bold;
+  background-image: linear-gradient(to bottom, #ffdad0, #e1e1fd);
+  border: 1px solid #7676b5;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+}
+.change__title {
+  display: flex;
+  justify-content: space-between;
+}
+.change__title h2 {
+  font-size: 2.4rem;
+}
+.change__form textarea {
+  border: 1px solid #7676b5;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+  padding: 1rem;
+  font-size: 1.5rem;
+  height: 100px;
+  margin-bottom: 1rem;
+}
+.change__form textarea:focus {
+  outline: none;
+}
+.change__form_date {
+  margin-bottom: 3rem;
+}
+.change__form_edit {
+  display: flex;
+  justify-content: space-between;
+}

@@ -21,9 +21,7 @@ const reducer = function (state, action) {
 
   if (action.type === "turn-completed") {
     return state.map((todo) => {
-      if (action.payload.id === todo.id) {
-        todo.isCompleted = true;
-      }
+      if (action.payload.id === todo.id) todo.isCompleted = true;
       return todo;
     });
   }
@@ -43,8 +41,6 @@ export const TodoProvider = function (prop) {
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
-
-  console.log(todos);
 
   const [isActiveMenu, setActiveMenu] = useState(false);
   const showMenu = function () {

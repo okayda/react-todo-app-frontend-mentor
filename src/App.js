@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { TodoContext } from "./components/Methods/TodoContext";
 
+import ChangeModal from "./components/ChangeModal/ChangeModal";
 import Todo from "./components/Todo";
 
 import "./scss/global.css";
@@ -58,7 +59,10 @@ function App() {
   return (
     <>
       {isActiveMenu && menuModal}
-      <Todo />;
+      <div className="change-container">
+        <ChangeModal />
+      </div>
+      <Todo />
     </>
   );
 }
