@@ -13,6 +13,7 @@ import style from "./Icon.module.css";
 const Icons = function ({ id }) {
   const {
     todo: { dispatch },
+    change: { isActiveChange, showChange, hideChange },
   } = useContext(TodoContext);
 
   const removeTodo = function () {
@@ -37,7 +38,7 @@ const Icons = function ({ id }) {
         </button>
       </li>
       <li>
-        <button>
+        <button onClick={showChange}>
           <FaRegEdit />
         </button>
       </li>

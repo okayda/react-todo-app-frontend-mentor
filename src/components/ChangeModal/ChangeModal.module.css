@@ -1,5 +1,4 @@
 .change {
-  display: none;
   position: absolute;
   top: 4rem;
   left: 0;
@@ -16,6 +15,13 @@
   padding: 2rem 0.8rem;
   background-image: linear-gradient(70deg, #e1e1fd, #ffdad0);
 }
+.change__title {
+  display: flex;
+  justify-content: space-between;
+}
+.change__title h2 {
+  font-size: 2.4rem;
+}
 .change__exit {
   border: none;
   background-color: transparent;
@@ -30,12 +36,10 @@
   border-radius: 6px;
   padding: 0.6rem 1.2rem;
 }
-.change__title {
+.change__form {
   display: flex;
-  justify-content: space-between;
-}
-.change__title h2 {
-  font-size: 2.4rem;
+  flex-direction: column;
+  gap: 1rem;
 }
 .change__form textarea {
   border: 1px solid #7676b5;
@@ -44,13 +48,12 @@
   padding: 1rem;
   font-size: 1.5rem;
   height: 100px;
-  margin-bottom: 1rem;
 }
 .change__form textarea:focus {
   outline: none;
 }
 .change__form_date {
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 .change__form_edit {
   display: flex;

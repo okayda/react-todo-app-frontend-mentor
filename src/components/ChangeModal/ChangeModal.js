@@ -1,10 +1,16 @@
 import { FaTimes } from "react-icons/fa";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { TodoContext } from "../Methods/TodoContext";
+
 import style from "./ChangeModal.module.css";
 
 const ChangeModal = function () {
   const [textInput, setTextInput] = useState("LOL");
+
+  const {
+    change: { hideChange },
+  } = useContext(TodoContext);
 
   const storedTextInput = function (e) {
     setTextInput(e.target.value);
@@ -16,7 +22,7 @@ const ChangeModal = function () {
         <div className={style.change__title}>
           <h2>Replacing</h2>
 
-          <button className={style.change__exit}>
+          <button className={style.change__exit} onClick={hideChange}>
             <FaTimes />
           </button>
         </div>

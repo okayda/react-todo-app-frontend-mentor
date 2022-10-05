@@ -13,12 +13,12 @@ import style from "./Todo.module.css";
 const limitWords = 24;
 
 const Todo = function () {
+  const [todoInput, setTodoInput] = useState("");
+
   const {
     todo: { todos, dispatch },
     menu: { showMenu },
   } = useContext(TodoContext);
-
-  const [todoInput, setTodoInput] = useState("");
 
   const submitFunc = function (e) {
     e.preventDefault();
