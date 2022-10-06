@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom";
 import { useState, createContext, useEffect, useReducer } from "react";
 
+import Overlay from "./overlay/Overlay";
 import NavMenu from "../MenuModal/NavMenu";
 import ChangeModal from "../ChangeModal/ChangeModal";
 
@@ -63,6 +64,16 @@ export const TodoProvider = function (prop) {
     setActiveChange(false);
   };
 
+  const removeModals = function () {
+    if (isActiveMenu) setActiveMenu(false);
+    if (isActiveChange) setActiveChange(false);
+  };
+
+  const overlay = ReactDOM.createPortal(
+    <Overlay />,
+    document.querySelector(".overlay-container")
+  );
+
   const menuModal = ReactDOM.createPortal(
     <NavMenu />,
     document.querySelector("header")
@@ -79,6 +90,7 @@ export const TodoProvider = function (prop) {
         todo: { todos, dispatch },
         menu: { isActiveMenu, showMenu, hideMenu, menuModal },
         change: { isActiveChange, showChange, hideChange, changeModal },
+        overlay: { overlay, removeModals },
       }}
     >
       {prop.children}

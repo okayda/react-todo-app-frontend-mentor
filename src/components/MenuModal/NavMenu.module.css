@@ -24,7 +24,7 @@
   transform: rotate(90deg);
 }
 .header__box {
-  background-color: #fff;
+  background-image: linear-gradient(70deg, #e1e1fd, #ffdad0);
   padding: 0.8rem;
   border-radius: 6px;
 }

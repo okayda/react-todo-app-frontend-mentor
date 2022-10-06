@@ -87,7 +87,7 @@
     }
 
     &_date {
-      background-color: $very-light-gray;
+      background-color: $light-shade-orange;
       color: $very-dark-blue;
     }
   }
@@ -101,7 +101,7 @@
     &_list {
       background-color: rgba($very-light-gray, 0.8);
       border-left: solid 4px $shade-purple;
-      border-radius: 3px;
+      border-radius: 0 6px 6px 0;
       color: $very-dark-blue;
       padding: 1.4rem 0;
       display: grid;
