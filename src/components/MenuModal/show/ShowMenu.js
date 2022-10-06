@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { TodoContext } from "../../Methods/TodoContext";
+import { TodoContext } from "../../Methods/Context/TodoContext";
 
 import { FaTimes } from "react-icons/fa";
 

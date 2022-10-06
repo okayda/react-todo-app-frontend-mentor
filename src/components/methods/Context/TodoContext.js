@@ -1,9 +1,9 @@
 import ReactDOM from "react-dom";
 import { useState, createContext, useEffect, useReducer } from "react";
 
-import Overlay from "./overlay/Overlay";
-import NavMenu from "../MenuModal/NavMenu";
-import ChangeModal from "../ChangeModal/ChangeModal";
+import Overlay from "../Overlay/Overlay";
+import NavMenu from "../../MenuModal/NavMenu";
+import ChangeModal from "../../ChangeModal/ChangeModal";
 
 const reducer = function (state, action) {
   if (action.type === "add-todo") {
@@ -44,6 +44,8 @@ export const TodoProvider = function (prop) {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
+  const [showTask, setShowTask] = useState("All");
+
   const [isActiveMenu, setActiveMenu] = useState(false);
 
   const [isActiveChange, setActiveChange] = useState(false);
@@ -65,14 +67,16 @@ export const TodoProvider = function (prop) {
   };
 
   const removeModals = function () {
-    if (isActiveMenu) setActiveMenu(false);
-    if (isActiveChange) setActiveChange(false);
-  };
+    if (isActiveMenu) {
+      setActiveMenu(false);
+      return;
+    }
 
-  const overlay = ReactDOM.createPortal(
-    <Overlay />,
-    document.querySelector(".overlay-container")
-  );
+    if (isActiveChange) {
+      setActiveChange(false);
+      return;
+    }
+  };
 
   const menuModal = ReactDOM.createPortal(
     <NavMenu />,
@@ -82,6 +86,11 @@ export const TodoProvider = function (prop) {
   const changeModal = ReactDOM.createPortal(
     <ChangeModal />,
     document.querySelector(".change-container")
+  );
+
+  const overlay = ReactDOM.createPortal(
+    <Overlay />,
+    document.querySelector(".overlay-container")
   );
 
   return (

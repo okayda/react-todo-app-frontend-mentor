@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { TodoContext } from "../Methods/TodoContext";
+import { TodoContext } from "../../Methods/Context/TodoContext";
 
 import {
   FaRegEdit,
@@ -13,7 +13,7 @@ import style from "./Icon.module.css";
 const Icons = function ({ id }) {
   const {
     todo: { dispatch },
-    change: { isActiveChange, showChange, hideChange },
+    change: { showChange },
   } = useContext(TodoContext);
 
   const removeTodo = function () {

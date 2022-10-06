@@ -9,7 +9,6 @@
 
   // Available Global Selectors at Menu
   h3 {
-    color: $dark-green;
     font-size: 1.65rem;
   }
 
@@ -33,11 +32,7 @@
   // Parent Elements box => nav
 
   &__box {
-    background-image: linear-gradient(
-      70deg,
-      $light-shade-purple,
-      $light-shade-orange
-    );
+    background-color: $very-light-gray;
     padding: 0.8rem;
     border-radius: 6px;
   }
@@ -76,7 +71,7 @@
       list-style: none;
 
       button {
-        border: 2px solid $dark-green;
+        border: 1px solid $dark-green;
         color: $dark-green;
         border-radius: 6px;
         padding: 0.8rem 0;
@@ -96,6 +91,7 @@
   // Toggles Setting
   &__setting {
     background-color: $tint-green;
+
     border-radius: 6px;
 
     &_button {
@@ -196,11 +192,11 @@
       gap: 1.4rem;
 
       button {
-        font-size: 1.5rem;
+        font-size: 1.45rem;
         font-weight: bold;
         border-radius: 6px;
         background-color: $light-shade-orange;
-        border: 2px solid $shade-orange;
+        border: 1px solid $shade-orange;
         padding: 0.8rem 0;
         width: 100%;
       }

@@ -3,20 +3,17 @@ import { GoGrabber } from "react-icons/go";
 import { AnimatePresence, Reorder } from "framer-motion";
 import { useState, useEffect, useContext } from "react";
 
-import { TodoContext } from "./Methods/TodoContext";
+import { TodoContext } from "./Methods/Context/TodoContext";
 
-import Icons from "./TodoIcons/Icons";
-import TodoText from "./Methods/TodoText";
+import TodoList from "./RenderedList/TodoList";
 
 import style from "./Todo.module.css";
-
-const limitWords = 24;
 
 const Todo = function () {
   const [todoInput, setTodoInput] = useState("");
 
   const {
-    todo: { todos, dispatch },
+    todo: { dispatch },
     menu: { showMenu },
   } = useContext(TodoContext);
 
@@ -47,7 +44,6 @@ const Todo = function () {
           <GoGrabber />
         </button>
       </div>
-
       <form className={style.todo__form} onSubmit={submitFunc}>
         <textarea
           type="text"
@@ -75,24 +71,12 @@ const Todo = function () {
         </div>
       </form>
 
-      <ul className={style.todo__task}>
-        {todos.map((todo) => {
-          if (todo.isCompleted) return;
-
-          return (
-            <li key={todo.id} className={style.todo__task_list}>
-              <Icons id={todo.id} />
-
-              <TodoText
-                limit={limitWords}
-                todo__read_button={style.todo__task_read}
-              >
-                {todo.text}
-              </TodoText>
-            </li>
-          );
-        })}
-      </ul>
+      {/* Rendered Todo List */}
+      <TodoList
+        todo__task={style.todo__task}
+        todo__task_list={style.todo__task_list}
+        todo__task_read={style.todo__task_read}
+      />
 
       <div className={style.todo__background}>
         <img
@@ -101,7 +85,6 @@ const Todo = function () {
         />
         <h2 className={style.todo__background_date}>September 22, 2022</h2>
       </div>
-
       <div className={style.todo__guide}>
         <p className={style.todo__guide_text}>Design & Created by Jhon</p>
       </div>

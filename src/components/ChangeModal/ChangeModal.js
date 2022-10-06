@@ -1,7 +1,7 @@
 import { FaTimes } from "react-icons/fa";
 
 import { useState, useContext } from "react";
-import { TodoContext } from "../Methods/TodoContext";
+import { TodoContext } from "../Methods/Context/TodoContext";
 
 import style from "./ChangeModal.module.css";
 

@@ -4,10 +4,8 @@
   top: 4rem;
   width: 100%;
   padding: 0 2rem;
-  z-index: 10;
 }
 .header h3 {
-  color: #08444c;
   font-size: 1.65rem;
 }
 .header button {
@@ -24,7 +22,7 @@
   transform: rotate(90deg);
 }
 .header__box {
-  background-image: linear-gradient(70deg, #e1e1fd, #ffdad0);
+  background-color: #fff;
   padding: 0.8rem;
   border-radius: 6px;
 }
@@ -57,7 +55,7 @@
   list-style: none;
 }
 .header__show_list button {
-  border: 2px solid #08444c;
+  border: 1px solid #08444c;
   color: #08444c;
   border-radius: 6px;
   padding: 0.8rem 0;
@@ -154,11 +152,11 @@
   gap: 1.4rem;
 }
 .header__delete_buttons button {
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   font-weight: bold;
   border-radius: 6px;
   background-color: #ffdad0;
-  border: 2px solid #f86939;
+  border: 1px solid #f86939;
   padding: 0.8rem 0;
   width: 100%;
 }

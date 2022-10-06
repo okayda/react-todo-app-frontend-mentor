@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { TodoContext } from "./components/Methods/TodoContext";
+import { TodoContext } from "./components/Methods/Context/TodoContext";
 
 import Todo from "./components/Todo";
 

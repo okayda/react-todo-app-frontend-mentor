@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+const limitWords = 24;
+
 const TodoText = function (prop) {
   const [isReadMoreShown, setReadMoreShown] = useState(false);
 
@@ -14,12 +16,12 @@ const TodoText = function (prop) {
   );
 
   const wordsInput = prop.children.split(" ");
-  const isManyWords = wordsInput.length > prop.limit;
+  const isManyWords = wordsInput.length > limitWords;
 
   const words = [];
 
   if (isManyWords) {
-    for (let i = 0; i < prop.limit; i++) {
+    for (let i = 0; i < limitWords; i++) {
       words.push(wordsInput[i]);
     }
   }

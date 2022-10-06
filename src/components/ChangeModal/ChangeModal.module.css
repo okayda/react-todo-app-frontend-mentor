@@ -13,7 +13,7 @@
   width: 100%;
   border-radius: 6px;
   padding: 2rem 0.8rem;
-  background-image: linear-gradient(70deg, #e1e1fd, #ffdad0);
+  background-color: #f4fcf4;
 }
 .change__title {
   display: flex;
@@ -31,8 +31,8 @@
 .change__button {
   color: hsl(235deg, 21%, 11%);
   font-weight: bold;
-  background-image: linear-gradient(to bottom, #ffdad0, #e1e1fd);
-  border: 1px solid #7676b5;
+  background-color: #dcf4ec;
+  border: 1px solid #488c75;
   border-radius: 6px;
   padding: 0.6rem 1.2rem;
 }
@@ -42,8 +42,8 @@
   gap: 1rem;
 }
 .change__form textarea {
-  border: 1px solid #7676b5;
-  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #488c75;
+  background-color: rgba(255, 255, 255, 0.4);
   border-radius: 6px;
   padding: 1rem;
   font-size: 1.5rem;
