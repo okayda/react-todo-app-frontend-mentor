@@ -1,6 +1,3 @@
-import { useContext } from "react";
-import { TodoContext } from "../../Methods/Context/TodoContext";
-
 import {
   FaRegEdit,
   FaRegCheckCircle,
@@ -10,47 +7,20 @@ import {
 
 import style from "./Icon.module.css";
 
-const Icons = function ({ id }) {
-  const {
-    todo: { dispatch },
-    change: { showChange },
-  } = useContext(TodoContext);
-
-  const removeTodo = function () {
-    dispatch({
-      type: "delete-todo",
-      payload: { id: id },
-    });
-  };
-
-  const completedTodo = function () {
-    dispatch({
-      type: "turn-completed",
-      payload: { id: id },
-    });
-  };
-
+const Icons = function () {
   return (
     <ul className={style.icons}>
-      <li>
-        <button>
-          <FaRegHandPaper />
-        </button>
+      <li className="move">
+        <FaRegHandPaper />
       </li>
-      <li>
-        <button onClick={showChange}>
-          <FaRegEdit />
-        </button>
+      <li className="replace">
+        <FaRegEdit />
       </li>
-      <li>
-        <button onClick={completedTodo}>
-          <FaRegCheckCircle />
-        </button>
+      <li className="complete">
+        <FaRegCheckCircle />
       </li>
-      <li>
-        <button onClick={removeTodo}>
-          <FaTimes />
-        </button>
+      <li className="remove">
+        <FaTimes />
       </li>
     </ul>
   );

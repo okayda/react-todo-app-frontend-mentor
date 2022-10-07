@@ -4,11 +4,8 @@
   border-bottom: dotted #08444c 3px;
   padding-bottom: 1rem;
   list-style: none;
-}
-.icons button {
   color: #08444c;
   cursor: pointer;
-  border: none;
   background-color: transparent;
   line-height: 0;
   font-size: 1.8rem;

@@ -17,15 +17,15 @@ const reducer = function (state, action) {
     ];
   }
 
-  if (action.type === "delete-todo") {
-    return state.filter((todo) => todo.id !== action.payload.id);
-  }
-
   if (action.type === "turn-completed") {
     return state.map((todo) => {
       if (action.payload.id === todo.id) todo.isCompleted = true;
       return todo;
     });
+  }
+
+  if (action.type === "turn-deleted") {
+    return state.filter((todo) => todo.id !== action.payload.id);
   }
 };
 
