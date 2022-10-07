@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import ShowMenu from "./show/ShowMenu";
-import ToggleMenu from "./toggle/ToggleMenu";
-import DeleteMenu from "./delete/DeleteMenu";
+import ShowMenu from "./Show/ShowMenu";
+import ToggleMenu from "./Toggle/ToggleMenu";
+import DeleteMenu from "./Delete/DeleteMenu";
 
 import style from "./NavMenu.module.css";
 

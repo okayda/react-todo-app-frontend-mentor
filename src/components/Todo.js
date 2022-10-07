@@ -1,75 +1,28 @@
-import { GoGrabber } from "react-icons/go";
-
 import { AnimatePresence, Reorder } from "framer-motion";
-import { useState, useEffect, useContext } from "react";
+import { useEffect } from "react";
 
-import { TodoContext } from "./Methods/Context/TodoContext";
-
+import Nav from "./Nav/Nav";
+import TodoForm from "./TodoForm/TodoForm";
 import TodoList from "./RenderedList/TodoList";
+import EmptyBackground from "./EmptyBackground/EmptyBackground";
+import Footer from "./Footer/Footer";
 
 import style from "./Todo.module.css";
 
 const Todo = function () {
-  const [todoInput, setTodoInput] = useState("");
-
-  const {
-    todo: { dispatch },
-    menu: { showMenu },
-  } = useContext(TodoContext);
-
-  const submitFunc = function (e) {
-    e.preventDefault();
-
-    const submitter = e.nativeEvent.submitter.name;
-    if (submitter === "date") return;
-
-    dispatch({
-      type: "add-todo",
-      id: Math.random().toString(),
-      payload: { text: todoInput, isCompleted: false },
-    });
-
-    setTodoInput("");
-  };
-
-  const inputTodoValue = function (e) {
-    setTodoInput(e.target.value);
-  };
-
   return (
     <section className={style.todo}>
-      <div className={style.todo__title}>
-        <h2>todo</h2>
-        <button onClick={showMenu}>
-          <GoGrabber />
-        </button>
-      </div>
-      <form className={style.todo__form} onSubmit={submitFunc}>
-        <textarea
-          type="text"
-          className={style.todo__form_input}
-          placeholder="Create a new todo..."
-          onChange={inputTodoValue}
-          value={todoInput}
-        />
-        <br />
+      {/* Logo title & Burger menu */}
+      <Nav todo__title={style.todo__title} />
 
-        <div className={style.todo__form_buttons}>
-          <input
-            type="submit"
-            className={style.todo__form_add}
-            name="add"
-            value="Add"
-          />
-
-          <input
-            type="submit"
-            className={style.todo__form_date}
-            name="date"
-            value="Pick Date"
-          />
-        </div>
-      </form>
+      {/* Textarea Todo */}
+      <TodoForm
+        todo__form={style.todo__form}
+        todo__form_input={style.todo__form_input}
+        todo__form_buttons={style.todo__form_buttons}
+        todo__form_add={style.todo__form_add}
+        todo__form_date={style.todo__form_date}
+      />
 
       {/* Rendered Todo List */}
       <TodoList
@@ -78,16 +31,17 @@ const Todo = function () {
         todo__task_read={style.todo__task_read}
       />
 
-      <div className={style.todo__background}>
-        <img
-          src={require("../images/calendar.png")}
-          className={style.todo__background_calendar}
-        />
-        <h2 className={style.todo__background_date}>September 22, 2022</h2>
-      </div>
-      <div className={style.todo__guide}>
-        <p className={style.todo__guide_text}>Design & Created by Jhon</p>
-      </div>
+      {/* U.I Introduction */}
+      <EmptyBackground
+        todo__background={style.todo__background}
+        todo__background_calendar={style.todo__background_calendar}
+        todo__background_date={style.todo__background_date}
+      />
+
+      <Footer
+        todo__guide={style.todo__guide}
+        todo__guide_text={style.todo__guide_text}
+      />
     </section>
   );
 };
