@@ -115,11 +115,9 @@
     }
 
     &_read {
-      color: $shade-orange;
-      background-color: transparent;
       font-weight: bold;
-      margin-left: 0.6rem;
-      border: none;
+      color: $shade-purple;
+      // margin-left: 0.6rem;
     }
   }
 

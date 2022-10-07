@@ -1,8 +1,10 @@
+import ReactReadMoreReadLess from "react-read-more-read-less";
 import { useContext, useRef } from "react";
 import { TodoContext } from "../Methods/Context/TodoContext";
 
 import Icons from "./TodoIcons/Icons";
-import TodoText from "./TodoText";
+
+const charactersLimit = 100;
 
 const TodoList = function (prop) {
   const {
@@ -10,7 +12,7 @@ const TodoList = function (prop) {
     change: { showChange },
   } = useContext(TodoContext);
 
-  // For manipulating the Todo task array in TodoContext
+  // For manipulating the Todo task array in the TodoContext
   const dynamicTodo = function (type, id) {
     dispatch({
       type: type,
@@ -60,9 +62,17 @@ const TodoList = function (prop) {
           <li key={todo.id} className={prop.todo__task_list} data-id={todo.id}>
             <Icons />
 
-            <TodoText todo__read_button={prop.todo__task_read}>
-              {todo.text}
-            </TodoText>
+            <p>
+              <ReactReadMoreReadLess
+                charLimit={charactersLimit}
+                readMoreText="read more"
+                readLessText="read less"
+                readMoreClassName={prop.todo__task_read}
+                readLessClassName={prop.todo__task_read}
+              >
+                {todo.text}
+              </ReactReadMoreReadLess>
+            </p>
           </li>
         );
       })}
