@@ -1,18 +1,18 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect, useRef } from "react";
 import { TodoContext } from "../Methods/Context/TodoContext";
+
+import flatpickr from "flatpickr";
 
 const TodoForm = function (prop) {
   const [inputValue, setInputValue] = useState("");
 
   const {
     todo: { dispatch },
+    calendar: { showCalendarOverlay, hideCalendarOverlay },
   } = useContext(TodoContext);
 
   const submitForm = function (e) {
     e.preventDefault();
-
-    const submitBtn = e.nativeEvent.submitter.name;
-    if (submitBtn === "date") return;
 
     dispatch({
       type: "add-todo",
@@ -27,9 +27,30 @@ const TodoForm = function (prop) {
     setInputValue(e.target.value);
   };
 
+  //Functionality of calendar
+  const ref = useRef(null);
+
+  const focusTextArea = function () {
+    ref.current.focus();
+  };
+
+  useEffect(() => {
+    flatpickr(`.${prop.todo__form_date}`, {
+      dateFormat: "Y-m-d",
+      disableMobile: true,
+      onOpen: focusTextArea,
+      onClose: function () {
+        focusTextArea();
+        hideCalendarOverlay();
+      },
+      onMonthChange: focusTextArea,
+    });
+  }, []);
+
   return (
     <form className={prop.todo__form} onSubmit={submitForm}>
       <textarea
+        ref={ref}
         type="text"
         className={prop.todo__form_input}
         placeholder="Create a new todo..."
@@ -47,10 +68,10 @@ const TodoForm = function (prop) {
         />
 
         <input
-          type="submit"
+          type="text"
           className={prop.todo__form_date}
-          name="date"
-          value="Pick Date"
+          placeholder="Calendar"
+          onClick={showCalendarOverlay}
         />
       </div>
     </form>

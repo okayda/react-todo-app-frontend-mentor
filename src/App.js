@@ -9,6 +9,7 @@ function App() {
   const {
     menu: { isActiveMenu, menuModal },
     change: { isActiveChange, changeModal },
+    calendar: { isActiveCalendar },
     overlay: { overlay },
   } = useContext(TodoContext);
 
@@ -59,7 +60,7 @@ function App() {
 
   return (
     <>
-      {(isActiveMenu || isActiveChange) && overlay}
+      {(isActiveMenu || isActiveChange || isActiveCalendar) && overlay}
       {isActiveMenu && menuModal}
       {isActiveChange && changeModal}
       <Todo />

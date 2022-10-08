@@ -50,6 +50,8 @@ export const TodoProvider = function (prop) {
 
   const [isActiveChange, setActiveChange] = useState(false);
 
+  const [isActiveCalendar, setActiveCalendar] = useState(false);
+
   const showMenu = function () {
     setActiveMenu(true);
   };
@@ -66,6 +68,14 @@ export const TodoProvider = function (prop) {
     setActiveChange(false);
   };
 
+  const showCalendarOverlay = function () {
+    setActiveCalendar(true);
+  };
+
+  const hideCalendarOverlay = function () {
+    setActiveCalendar(false);
+  };
+
   const removeModals = function () {
     if (isActiveMenu) {
       setActiveMenu(false);
@@ -74,6 +84,11 @@ export const TodoProvider = function (prop) {
 
     if (isActiveChange) {
       setActiveChange(false);
+      return;
+    }
+
+    if (isActiveCalendar) {
+      setActiveCalendar(false);
       return;
     }
   };
@@ -99,6 +114,11 @@ export const TodoProvider = function (prop) {
         todo: { todos, dispatch },
         menu: { isActiveMenu, showMenu, hideMenu, menuModal },
         change: { isActiveChange, showChange, hideChange, changeModal },
+        calendar: {
+          isActiveCalendar,
+          showCalendarOverlay,
+          hideCalendarOverlay,
+        },
         overlay: { overlay, removeModals },
       }}
     >

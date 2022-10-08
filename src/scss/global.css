@@ -34,3 +34,16 @@ textarea {
   width: 100%;
   resize: none;
 }
+
+.flatpickr-input[readonly] {
+  width: 40%;
+  cursor: pointer;
+  text-align: center;
+}
+
+.flatpickr-calendar {
+  top: 260px !important;
+  left: 50% !important;
+  right: 0 !important;
+  transform: translateX(-50%) !important;
+}
