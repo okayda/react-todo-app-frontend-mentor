@@ -1,6 +1,8 @@
 import ReactDOM from "react-dom";
 import { useState, createContext, useEffect, useReducer } from "react";
 
+import flatpickr from "flatpickr";
+
 import Overlay from "../Overlay/Overlay";
 import NavMenu from "../../MenuModal/NavMenu";
 import ChangeModal from "../../ChangeModal/ChangeModal";
@@ -12,6 +14,7 @@ const reducer = function (state, action) {
       {
         id: action.id,
         text: action.payload.text,
+        date: action.payload.date,
         isCompleted: action.payload.isCompleted,
       },
     ];
@@ -40,18 +43,27 @@ export const TodoContext = createContext();
 export const TodoProvider = function (prop) {
   const [todos, dispatch] = useReducer(reducer, getLocalStorage());
 
+  // save todos and update at localStorage
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
+  // <================>
 
+  // show menu state at menu modal
   const [showTask, setShowTask] = useState("All");
+  // <================>
 
+  // modal state
   const [isActiveMenu, setActiveMenu] = useState(false);
-
   const [isActiveChange, setActiveChange] = useState(false);
+  // <================>
 
+  // calendar state
   const [isActiveCalendar, setActiveCalendar] = useState(false);
+  const [calendarValue, setCalendarValue] = useState("");
+  // <================>
 
+  // calendar modal not included
   const showMenu = function () {
     setActiveMenu(true);
   };
@@ -67,16 +79,12 @@ export const TodoProvider = function (prop) {
   const hideChange = function () {
     setActiveChange(false);
   };
+  // <================>
 
-  const showCalendarOverlay = function () {
-    setActiveCalendar(true);
-  };
+  // calendar modal not included
+  const removeModals = function (e) {
+    e.stopPropagation();
 
-  const hideCalendarOverlay = function () {
-    setActiveCalendar(false);
-  };
-
-  const removeModals = function () {
     if (isActiveMenu) {
       setActiveMenu(false);
       return;
@@ -86,13 +94,35 @@ export const TodoProvider = function (prop) {
       setActiveChange(false);
       return;
     }
+  };
+  // <================>
 
-    if (isActiveCalendar) {
-      setActiveCalendar(false);
-      return;
-    }
+  // Calendar object
+  // only for calendar overlay
+  const toggleOverlay = function (bool) {
+    setTimeout(() => {
+      setActiveCalendar(bool);
+    }, 100);
   };
 
+  const FlatpickrConfig = {
+    disableMobile: true,
+    wrap: true,
+
+    onOpen: function () {
+      toggleOverlay(true);
+    },
+
+    onClose: function (_, dateStr) {
+      toggleOverlay(false);
+
+      if (!dateStr) return;
+      setCalendarValue(dateStr);
+    },
+  };
+  // <================>
+
+  // HTML element Render
   const menuModal = ReactDOM.createPortal(
     <NavMenu />,
     document.querySelector("header")
@@ -107,6 +137,7 @@ export const TodoProvider = function (prop) {
     <Overlay />,
     document.querySelector(".overlay-container")
   );
+  // <================>
 
   return (
     <TodoContext.Provider
@@ -115,9 +146,12 @@ export const TodoProvider = function (prop) {
         menu: { isActiveMenu, showMenu, hideMenu, menuModal },
         change: { isActiveChange, showChange, hideChange, changeModal },
         calendar: {
+          flatpickr,
+          FlatpickrConfig,
+          calendarValue,
+          setCalendarValue,
           isActiveCalendar,
-          showCalendarOverlay,
-          hideCalendarOverlay,
+          toggleOverlay,
         },
         overlay: { overlay, removeModals },
       }}

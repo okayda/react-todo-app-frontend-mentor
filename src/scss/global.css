@@ -36,7 +36,6 @@ textarea {
 }
 
 .flatpickr-input[readonly] {
-  width: 40%;
   cursor: pointer;
   text-align: center;
 }

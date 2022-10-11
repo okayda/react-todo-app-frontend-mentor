@@ -57,7 +57,6 @@ const TodoList = function (prop) {
     <ul className={prop.todo__task} onClick={eventDelegation}>
       {todos.map((todo) => {
         if (todo.isCompleted) return;
-
         return (
           <li key={todo.id} className={prop.todo__task_list} data-id={todo.id}>
             <Icons />
@@ -73,6 +72,10 @@ const TodoList = function (prop) {
                 {todo.text}
               </ReactReadMoreReadLess>
             </p>
+
+            <br />
+
+            <span className={prop.todo__task_date}>{todo.date}</span>
           </li>
         );
       })}

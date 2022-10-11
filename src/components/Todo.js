@@ -21,7 +21,10 @@ const Todo = function () {
         todo__form_input={style.todo__form_input}
         todo__form_buttons={style.todo__form_buttons}
         todo__form_add={style.todo__form_add}
-        todo__form_date={style.todo__form_date}
+        todo__form_clear={style.todo__form_clear}
+        todo__form_dateContainer={style.todo__form_dateContainer}
+        todo__form_dateInput={style.todo__form_dateInput}
+        todo__form_clearDate={style.todo__form_clearDate}
       />
 
       {/* Rendered Todo List */}
@@ -29,6 +32,7 @@ const Todo = function () {
         todo__task={style.todo__task}
         todo__task_list={style.todo__task_list}
         todo__task_read={style.todo__task_read}
+        todo__task_date={style.todo__task_date}
       />
 
       {/* U.I Introduction */}
