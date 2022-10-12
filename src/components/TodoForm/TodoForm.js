@@ -1,9 +1,11 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import { TodoContext } from "../Methods/Context/TodoContext";
 
 import Calendar from "./Calendar";
 
 const TodoForm = function (prop) {
+  const ref = useRef(null);
+
   const [inputValue, setInputValue] = useState("");
 
   const {
@@ -37,9 +39,15 @@ const TodoForm = function (prop) {
     setInputValue(e.target.value);
   };
 
+  const clearTextArea = function () {
+    setInputValue("");
+    ref.current.focus();
+  };
+
   return (
     <form className={prop.todo__form} onSubmit={submitForm}>
       <textarea
+        ref={ref}
         type="text"
         className={prop.todo__form_input}
         placeholder="Create a new todo..."
@@ -53,7 +61,11 @@ const TodoForm = function (prop) {
           Add
         </button>
 
-        <button className={prop.todo__form_clear} name="clear">
+        <button
+          className={prop.todo__form_clear}
+          onClick={clearTextArea}
+          name="clear"
+        >
           Clear
         </button>
 
