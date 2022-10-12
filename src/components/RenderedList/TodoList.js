@@ -25,7 +25,7 @@ const TodoList = function (prop) {
     if (className === "move") return;
 
     if (className === "replace") {
-      showChange();
+      showChange(id);
       return;
     }
 

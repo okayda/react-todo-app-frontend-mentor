@@ -56,15 +56,40 @@
       border-radius: 6px;
       padding: 1rem;
       font-size: 1.5rem;
-      height: 100px;
+      height: 200px;
     }
 
     textarea:focus {
       outline: none;
     }
 
-    &_date {
+    &_inputButton {
+      display: flex;
+      gap: 1.6rem;
       margin-bottom: 1rem;
+    }
+
+    &_date {
+      display: flex;
+      input {
+        background-color: $shade-green;
+        border-radius: 6px 0 0 6px;
+        width: 45%;
+        border: 1px solid $dark-green;
+      }
+
+      input:focus {
+        outline: none;
+      }
+
+      button {
+        color: $very-light-gray;
+        border-radius: 0 6px 6px 0;
+        border: none;
+        background-color: $darker-green;
+        line-height: 0;
+        padding: 0.4rem 0.6rem;
+      }
     }
 
     &_edit {

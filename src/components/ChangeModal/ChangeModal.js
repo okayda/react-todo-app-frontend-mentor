@@ -1,20 +1,69 @@
-import { FaTimes } from "react-icons/fa";
+import { useState, useContext, useEffect, useRef } from "react";
 
-import { useState, useContext } from "react";
+import { FaTimes } from "react-icons/fa";
 import { TodoContext } from "../Methods/Context/TodoContext";
 
 import style from "./ChangeModal.module.css";
 
 const ChangeModal = function () {
-  const [textInput, setTextInput] = useState("LOL");
-
   const {
-    change: { hideChange },
+    todo: { dispatch },
+    change: {
+      hideChange,
+      changeModalValue,
+      changeId,
+      setChangeId,
+      changeDate,
+      setChangeDate,
+    },
+    calendar: { flatpickr },
   } = useContext(TodoContext);
 
-  const storedTextInput = function (e) {
-    setTextInput(e.target.value);
+  const [currentValue, setCurrentValue] = useState(changeModalValue);
+  const [newChangeDate, setNewChangeDate] = useState();
+
+  const ref = useRef(null);
+
+  const storedInputValue = function (e) {
+    setCurrentValue(e.target.value);
   };
+
+  const submitChange = function (e) {
+    e.preventDefault();
+
+    const submitter = e.nativeEvent.submitter.name;
+    if (submitter === "cancel") {
+      hideChange();
+      return;
+    }
+
+    if (submitter === "clear") {
+      setCurrentValue("");
+      ref.current.focus();
+      return;
+    }
+
+    if (submitter === "remove-date") return;
+
+    dispatch({
+      type: "replace-text",
+      payload: { id: changeId, text: currentValue, date: newChangeDate },
+    });
+    setCurrentValue("");
+    setChangeId(null);
+    hideChange();
+  };
+
+  useEffect(() => {
+    flatpickr(`.${style.change__form_date}`, {
+      disableMobile: true,
+      wrap: true,
+
+      onClose: function (_, dateStr) {
+        setNewChangeDate(dateStr);
+      },
+    }).setDate(changeDate);
+  }, []);
 
   return (
     <div className={style.change}>
@@ -27,28 +76,39 @@ const ChangeModal = function () {
           </button>
         </div>
 
-        <form className={style.change__form}>
-          <textarea onChange={storedTextInput} value={textInput} />
+        <form onSubmit={submitChange} className={style.change__form}>
+          <textarea
+            onChange={storedInputValue}
+            value={currentValue}
+            ref={ref}
+          />
 
-          <div className={style.change__form_date}>
-            <input
-              type="submit"
-              value="1 / 20 / 2022"
-              className={style.change__button}
-            />
+          <div className={style.change__form_inputButton}>
+            <button type="submit" name="clear" className={style.change__button}>
+              Clear
+            </button>
+
+            <div className={style.change__form_date}>
+              <input type="text" placeholder="Calendar" data-input />
+
+              <button name="remove-date" title="clear" data-clear>
+                <FaTimes />
+              </button>
+            </div>
           </div>
 
           <div className={style.change__form_edit}>
-            <input
+            <button type="submit" className={style.change__button} name="save">
+              Save
+            </button>
+
+            <button
               type="submit"
-              value="Turn in"
               className={style.change__button}
-            />
-            <input
-              type="submit"
-              value="Cancel"
-              className={style.change__button}
-            />
+              name="cancel"
+            >
+              Cancel
+            </button>
           </div>
         </form>
       </div>

@@ -30,6 +30,16 @@ const reducer = function (state, action) {
   if (action.type === "turn-deleted") {
     return state.filter((todo) => todo.id !== action.payload.id);
   }
+
+  if (action.type === "replace-text") {
+    return state.map((todo) => {
+      if (action.payload.id === todo.id) {
+        todo.text = action.payload.text;
+        todo.date = action.payload.date;
+      }
+      return todo;
+    });
+  }
 };
 
 const getLocalStorage = function () {
@@ -72,7 +82,19 @@ export const TodoProvider = function (prop) {
     setActiveMenu(false);
   };
 
-  const showChange = function () {
+  const [changeId, setChangeId] = useState(null);
+  const [changeDate, setChangeDate] = useState();
+  const [changeModalValue, setChangeModalValue] = useState("");
+
+  const showChange = function (id) {
+    for (let i = 0; i < todos.length; i++) {
+      if (id === todos[i].id) {
+        setChangeModalValue(todos[i].text);
+        setChangeDate(todos[i].date);
+        break;
+      }
+    }
+    setChangeId(id);
     setActiveChange(true);
   };
 
@@ -144,7 +166,16 @@ export const TodoProvider = function (prop) {
       value={{
         todo: { todos, dispatch },
         menu: { isActiveMenu, showMenu, hideMenu, menuModal },
-        change: { isActiveChange, showChange, hideChange, changeModal },
+        change: {
+          isActiveChange,
+          showChange,
+          hideChange,
+          changeModal,
+          changeModalValue,
+          changeId,
+          setChangeId,
+          changeDate,
+        },
         calendar: {
           flatpickr,
           FlatpickrConfig,

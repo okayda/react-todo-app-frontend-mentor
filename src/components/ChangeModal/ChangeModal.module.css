@@ -47,13 +47,35 @@
   border-radius: 6px;
   padding: 1rem;
   font-size: 1.5rem;
-  height: 100px;
+  height: 200px;
 }
 .change__form textarea:focus {
   outline: none;
 }
-.change__form_date {
+.change__form_inputButton {
+  display: flex;
+  gap: 1.6rem;
   margin-bottom: 1rem;
+}
+.change__form_date {
+  display: flex;
+}
+.change__form_date input {
+  background-color: #dcf4ec;
+  border-radius: 6px 0 0 6px;
+  width: 45%;
+  border: 1px solid #08444c;
+}
+.change__form_date input:focus {
+  outline: none;
+}
+.change__form_date button {
+  color: #fff;
+  border-radius: 0 6px 6px 0;
+  border: none;
+  background-color: #488c75;
+  line-height: 0;
+  padding: 0.4rem 0.6rem;
 }
 .change__form_edit {
   display: flex;
