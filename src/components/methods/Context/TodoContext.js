@@ -70,7 +70,7 @@ export const TodoProvider = function (prop) {
   // <================>
 
   // calendar state
-  const [isActiveCalendar, setActiveCalendar] = useState(false);
+  const [activeCalendar, setActiveCalendar] = useState(false);
   const [calendarValue, setCalendarValue] = useState("");
 
   const toggleOverlay = function (bool) {
@@ -79,7 +79,7 @@ export const TodoProvider = function (prop) {
     }, 100);
   };
 
-  // calendar config only for Calendar file
+  // this calendar config only for Calendar & TodoForm file
   const FlatpickrConfig = {
     disableMobile: true,
     wrap: true,
@@ -91,6 +91,7 @@ export const TodoProvider = function (prop) {
     onClose: function (_, dateStr) {
       toggleOverlay(false);
 
+      // will be stored the user picked date at setCalendarValue()
       if (!dateStr) return;
       setCalendarValue(dateStr);
     },
@@ -198,7 +199,7 @@ export const TodoProvider = function (prop) {
           calendarValue,
           setCalendarValue,
 
-          isActiveCalendar,
+          activeCalendar,
           toggleOverlay,
         },
         overlay: { overlay, removeModals },

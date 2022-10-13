@@ -20,7 +20,7 @@ const ChangeModal = function () {
       currentReplaceDate,
       setCurrentReplaceDate,
     },
-    calendar: { flatpickr },
+    calendar: { flatpickr, resetCalendarValue },
   } = useContext(TodoContext);
 
   const ref = useRef(null);
@@ -32,6 +32,10 @@ const ChangeModal = function () {
 
   const textAreaValue = function (e) {
     setCurrentReplaceText(e.target.value);
+  };
+
+  const resetReplaceCalendarValue = function () {
+    setCurrentReplaceDate("");
   };
 
   const submitReplace = function (e) {
@@ -49,19 +53,23 @@ const ChangeModal = function () {
       },
     });
     setTaskId(null);
-    setCurrentReplaceText("");
+    resetReplaceCalendarValue();
     hideChange();
   };
 
+  // once the DOM is rendered will be executed the flatpickr library
   useEffect(() => {
-    flatpickr(`.${style.change__form_date}`, {
+    const calendar = flatpickr(`.${style.change__form_date}`, {
       disableMobile: true,
       wrap: true,
 
       onClose: function (_, dateStr) {
         setCurrentReplaceDate(dateStr);
       },
-    }).setDate(currentReplaceDate);
+    });
+
+    // will execute this if the date on a task list is exist
+    if (currentReplaceDate) calendar.setDate(currentReplaceDate);
   }, []);
 
   return (
@@ -84,8 +92,8 @@ const ChangeModal = function () {
 
           <div className={style.change__form_inputButton}>
             <button
+              type="button"
               onClick={clearFocus}
-              type="submit"
               name="clear"
               className={style.change__button}
             >
@@ -95,7 +103,12 @@ const ChangeModal = function () {
             <div className={style.change__form_date}>
               <input type="text" placeholder="Calendar" data-input />
 
-              <button name="remove-date" title="clear" data-clear>
+              <button
+                type="button"
+                name="remove-date"
+                data-clear
+                onClick={resetReplaceCalendarValue}
+              >
                 <FaTimes />
               </button>
             </div>
@@ -107,10 +120,10 @@ const ChangeModal = function () {
             </button>
 
             <button
-              onClick={hideChange}
-              type="submit"
-              className={style.change__button}
+              type="button"
               name="cancel"
+              onClick={hideChange}
+              className={style.change__button}
             >
               Cancel
             </button>

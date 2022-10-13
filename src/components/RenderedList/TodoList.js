@@ -75,7 +75,9 @@ const TodoList = function (prop) {
 
             <br />
 
-            <span className={prop.todo__task_date}>{todo.date}</span>
+            <span className={prop.todo__task_date}>
+              {todo.date || "No Date"}
+            </span>
           </li>
         );
       })}

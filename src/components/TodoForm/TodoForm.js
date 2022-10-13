@@ -24,7 +24,7 @@ const TodoForm = function (prop) {
       id: Math.random().toString(),
       payload: {
         text: inputValue,
-        date: calendarValue ? calendarValue : "No Date",
+        date: calendarValue ? calendarValue : null,
         isCompleted: false,
       },
     });
