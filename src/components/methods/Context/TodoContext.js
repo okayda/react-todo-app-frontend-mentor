@@ -5,7 +5,7 @@ import flatpickr from "flatpickr";
 
 import Overlay from "../Overlay/Overlay";
 import NavMenu from "../../MenuModal/NavMenu";
-import ChangeModal from "../../ChangeModal/ChangeModal";
+import ChangeModal from "../../ReplaceModal/ReplaceModal";
 
 const reducer = function (state, action) {
   if (action.type === "add-todo") {
@@ -63,70 +63,23 @@ export const TodoProvider = function (prop) {
   const [showTask, setShowTask] = useState("All");
   // <================>
 
+  // calendar modal not included
   // modal state
-  const [isActiveMenu, setActiveMenu] = useState(false);
-  const [isActiveChange, setActiveChange] = useState(false);
+  const [activeMenu, setActiveMenu] = useState(false);
+  const [activeReplace, setActiveReplace] = useState(false);
   // <================>
 
   // calendar state
   const [isActiveCalendar, setActiveCalendar] = useState(false);
   const [calendarValue, setCalendarValue] = useState("");
-  // <================>
 
-  // calendar modal not included
-  const showMenu = function () {
-    setActiveMenu(true);
-  };
-
-  const hideMenu = function () {
-    setActiveMenu(false);
-  };
-
-  const [changeId, setChangeId] = useState(null);
-  const [changeDate, setChangeDate] = useState();
-  const [changeModalValue, setChangeModalValue] = useState("");
-
-  const showChange = function (id) {
-    for (let i = 0; i < todos.length; i++) {
-      if (id === todos[i].id) {
-        setChangeModalValue(todos[i].text);
-        setChangeDate(todos[i].date);
-        break;
-      }
-    }
-    setChangeId(id);
-    setActiveChange(true);
-  };
-
-  const hideChange = function () {
-    setActiveChange(false);
-  };
-  // <================>
-
-  // calendar modal not included
-  const removeModals = function (e) {
-    e.stopPropagation();
-
-    if (isActiveMenu) {
-      setActiveMenu(false);
-      return;
-    }
-
-    if (isActiveChange) {
-      setActiveChange(false);
-      return;
-    }
-  };
-  // <================>
-
-  // Calendar object
-  // only for calendar overlay
   const toggleOverlay = function (bool) {
     setTimeout(() => {
       setActiveCalendar(bool);
     }, 100);
   };
 
+  // calendar config only for Calendar file
   const FlatpickrConfig = {
     disableMobile: true,
     wrap: true,
@@ -144,13 +97,70 @@ export const TodoProvider = function (prop) {
   };
   // <================>
 
+  // replace state
+  const [taskId, setTaskId] = useState(null);
+  const [currentReplaceText, setCurrentReplaceText] = useState("");
+  const [currentReplaceDate, setCurrentReplaceDate] = useState("");
+
+  // 1) Retrieving data
+  // 2) Append to the replace modal
+  const retriveData = function (id) {
+    setTaskId(id);
+
+    for (let i = 0; i < todos.length; i++) {
+      if (id === todos[i].id) {
+        setCurrentReplaceText(todos[i].text);
+        setCurrentReplaceDate(todos[i].date);
+        break;
+      }
+    }
+  };
+  // <================>
+
+  // calendar modal not included
+  // modals display
+  const showMenu = function () {
+    setActiveMenu(true);
+  };
+
+  const hideMenu = function () {
+    setActiveMenu(false);
+  };
+
+  const showChange = function (id) {
+    retriveData(id);
+    setActiveReplace(true);
+  };
+
+  const hideChange = function () {
+    setActiveReplace(false);
+  };
+  // <================>
+
+  // calendar modal not included
+  // if the overlay clicked will be executed this
+  const removeModals = function (e) {
+    e.stopPropagation();
+
+    if (activeMenu) {
+      setActiveMenu(false);
+      return;
+    }
+
+    if (activeReplace) {
+      setActiveReplace(false);
+      return;
+    }
+  };
+  // <================>
+
   // HTML element Render
   const menuModal = ReactDOM.createPortal(
     <NavMenu />,
     document.querySelector("header")
   );
 
-  const changeModal = ReactDOM.createPortal(
+  const replaceModal = ReactDOM.createPortal(
     <ChangeModal />,
     document.querySelector(".change-container")
   );
@@ -165,22 +175,29 @@ export const TodoProvider = function (prop) {
     <TodoContext.Provider
       value={{
         todo: { todos, dispatch },
-        menu: { isActiveMenu, showMenu, hideMenu, menuModal },
-        change: {
-          isActiveChange,
+        menu: { activeMenu, showMenu, hideMenu, menuModal },
+        replace: {
+          replaceModal,
+          activeReplace,
           showChange,
           hideChange,
-          changeModal,
-          changeModalValue,
-          changeId,
-          setChangeId,
-          changeDate,
+
+          taskId,
+          setTaskId,
+
+          currentReplaceText,
+          setCurrentReplaceText,
+
+          currentReplaceDate,
+          setCurrentReplaceDate,
         },
         calendar: {
           flatpickr,
           FlatpickrConfig,
+
           calendarValue,
           setCalendarValue,
+
           isActiveCalendar,
           toggleOverlay,
         },

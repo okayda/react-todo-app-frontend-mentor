@@ -7,9 +7,9 @@ import "./scss/global.css";
 
 function App() {
   const {
-    menu: { isActiveMenu, menuModal },
-    change: { isActiveChange, changeModal },
-    calendar: { isActiveCalendar },
+    menu: { activeMenu, menuModal },
+    replace: { activeReplace, replaceModal },
+    calendar: { activeCalendar },
     overlay: { overlay },
   } = useContext(TodoContext);
 
@@ -60,9 +60,9 @@ function App() {
 
   return (
     <>
-      {(isActiveMenu || isActiveChange || isActiveCalendar) && overlay}
-      {isActiveMenu && menuModal}
-      {isActiveChange && changeModal}
+      {(activeMenu || activeReplace || activeCalendar) && overlay}
+      {activeMenu && menuModal}
+      {activeReplace && replaceModal}
       <Todo />
     </>
   );

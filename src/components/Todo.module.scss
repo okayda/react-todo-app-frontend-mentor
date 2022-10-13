@@ -6,6 +6,7 @@
   margin: 0 auto;
   height: 100%;
 
+  // h2 & burger menu
   &__title {
     display: flex;
     justify-content: space-between;
@@ -31,6 +32,7 @@
     }
   }
 
+  // To-Do input type & add, clear, calendar buttons
   &__form {
     margin-bottom: 2rem;
 
@@ -107,6 +109,7 @@
     }
   }
 
+  // To-Do per list
   &__task {
     list-style: none;
     display: flex;
@@ -132,7 +135,6 @@
     &_read {
       font-weight: bold;
       color: $shade-purple;
-      // margin-left: 0.6rem;
     }
 
     &_date {
@@ -142,6 +144,7 @@
     }
   }
 
+  // Introduction background
   &__background {
     margin-top: 4rem;
     text-align: center;
@@ -159,6 +162,7 @@
     }
   }
 
+  // Footer text
   &__guide {
     position: absolute;
     left: 50%;

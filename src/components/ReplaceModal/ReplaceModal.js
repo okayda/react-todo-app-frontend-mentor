@@ -1,56 +1,55 @@
-import { useState, useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 
 import { FaTimes } from "react-icons/fa";
 import { TodoContext } from "../Methods/Context/TodoContext";
 
-import style from "./ChangeModal.module.css";
+import style from "./ReplaceModal.module.css";
 
 const ChangeModal = function () {
   const {
     todo: { dispatch },
-    change: {
+    replace: {
       hideChange,
-      changeModalValue,
-      changeId,
-      setChangeId,
-      changeDate,
-      setChangeDate,
+
+      taskId,
+      setTaskId,
+
+      currentReplaceText,
+      setCurrentReplaceText,
+
+      currentReplaceDate,
+      setCurrentReplaceDate,
     },
     calendar: { flatpickr },
   } = useContext(TodoContext);
 
-  const [currentValue, setCurrentValue] = useState(changeModalValue);
-  const [newChangeDate, setNewChangeDate] = useState();
-
   const ref = useRef(null);
 
-  const storedInputValue = function (e) {
-    setCurrentValue(e.target.value);
+  const clearFocus = function () {
+    setCurrentReplaceText("");
+    ref.current.focus();
   };
 
-  const submitChange = function (e) {
+  const textAreaValue = function (e) {
+    setCurrentReplaceText(e.target.value);
+  };
+
+  const submitReplace = function (e) {
     e.preventDefault();
 
     const submitter = e.nativeEvent.submitter.name;
-    if (submitter === "cancel") {
-      hideChange();
-      return;
-    }
-
-    if (submitter === "clear") {
-      setCurrentValue("");
-      ref.current.focus();
-      return;
-    }
-
-    if (submitter === "remove-date") return;
+    if (submitter !== "save") return;
 
     dispatch({
       type: "replace-text",
-      payload: { id: changeId, text: currentValue, date: newChangeDate },
+      payload: {
+        id: taskId,
+        text: currentReplaceText,
+        date: currentReplaceDate,
+      },
     });
-    setCurrentValue("");
-    setChangeId(null);
+    setTaskId(null);
+    setCurrentReplaceText("");
     hideChange();
   };
 
@@ -60,9 +59,9 @@ const ChangeModal = function () {
       wrap: true,
 
       onClose: function (_, dateStr) {
-        setNewChangeDate(dateStr);
+        setCurrentReplaceDate(dateStr);
       },
-    }).setDate(changeDate);
+    }).setDate(currentReplaceDate);
   }, []);
 
   return (
@@ -76,15 +75,20 @@ const ChangeModal = function () {
           </button>
         </div>
 
-        <form onSubmit={submitChange} className={style.change__form}>
+        <form onSubmit={submitReplace} className={style.change__form}>
           <textarea
-            onChange={storedInputValue}
-            value={currentValue}
+            onChange={textAreaValue}
+            value={currentReplaceText}
             ref={ref}
           />
 
           <div className={style.change__form_inputButton}>
-            <button type="submit" name="clear" className={style.change__button}>
+            <button
+              onClick={clearFocus}
+              type="submit"
+              name="clear"
+              className={style.change__button}
+            >
               Clear
             </button>
 
@@ -103,6 +107,7 @@ const ChangeModal = function () {
             </button>
 
             <button
+              onClick={hideChange}
               type="submit"
               className={style.change__button}
               name="cancel"

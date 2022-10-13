@@ -9,7 +9,7 @@ const charactersLimit = 100;
 const TodoList = function (prop) {
   const {
     todo: { todos, dispatch },
-    change: { showChange },
+    replace: { showChange },
   } = useContext(TodoContext);
 
   // For manipulating the Todo task array in the TodoContext
