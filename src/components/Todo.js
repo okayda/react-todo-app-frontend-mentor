@@ -42,10 +42,10 @@ const Todo = function () {
         todo__background_date={style.todo__background_date}
       />
 
-      <Footer
+      {/* <Footer
         todo__guide={style.todo__guide}
         todo__guide_text={style.todo__guide_text}
-      />
+      /> */}
     </section>
   );
 };

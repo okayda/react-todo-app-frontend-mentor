@@ -87,21 +87,23 @@
   }
 }
 .todo__task {
-  list-style: none;
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
+  list-style: none;
 }
 .todo__task_list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
   background-color: rgba(255, 255, 255, 0.8);
   border-left: solid 4px #7676b5;
   border-radius: 0 6px 6px 0;
   color: hsl(235deg, 21%, 11%);
   padding: 1.4rem 0;
-  display: grid;
-  gap: 1.2rem;
 }
 .todo__task_list p {
+  overflow-wrap: break-word;
   font-size: 1.6rem;
   padding: 0 1rem;
   line-height: 1.3;

@@ -73,8 +73,6 @@ const TodoList = function (prop) {
               </ReactReadMoreReadLess>
             </p>
 
-            <br />
-
             <span className={prop.todo__task_date}>
               {todo.date || "No Date"}
             </span>
