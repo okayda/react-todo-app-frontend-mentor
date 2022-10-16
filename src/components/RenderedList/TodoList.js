@@ -1,5 +1,6 @@
+import { AnimatePresence, Reorder } from "framer-motion";
 import ReactReadMoreReadLess from "react-read-more-read-less";
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useState } from "react";
 import { TodoContext } from "../Methods/Context/TodoContext";
 
 import Icons from "./TodoIcons/Icons";
@@ -53,12 +54,28 @@ const TodoList = function (prop) {
     iconsFunctionality(classNameList, parentId);
   };
 
+  const [item, setItem] = useState(todos);
+
+  useEffect(() => {
+    setItem(todos);
+  }, [todos]);
+
   return (
-    <ul className={prop.todo__task} onClick={eventDelegation}>
-      {todos.map((todo) => {
+    <Reorder.Group
+      values={todos}
+      onReorder={setItem}
+      className={prop.todo__task}
+      onClick={eventDelegation}
+    >
+      {item.map((todo) => {
         if (todo.isCompleted) return;
         return (
-          <li key={todo.id} className={prop.todo__task_list} data-id={todo.id}>
+          <Reorder.Item
+            key={todo.id}
+            value={todo}
+            className={prop.todo__task_list}
+            data-id={todo.id}
+          >
             <Icons />
 
             <p>
@@ -76,10 +93,10 @@ const TodoList = function (prop) {
             <span className={prop.todo__task_date}>
               {todo.date || "No Date"}
             </span>
-          </li>
+          </Reorder.Item>
         );
       })}
-    </ul>
+    </Reorder.Group>
   );
 };
 

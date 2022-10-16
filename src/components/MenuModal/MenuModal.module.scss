@@ -1,13 +1,11 @@
 @import "../../scss/variables";
 
 .header {
-  transition: all 1s !important;
-  position: absolute;
-  top: 4rem;
-  width: 100%;
+  flex-grow: 1;
+  max-width: 380px;
   padding: 0 2rem;
 
-  // Available Global Selectors at Menu
+  // Global Selectors at Menu
   h3 {
     font-size: 1.65rem;
   }

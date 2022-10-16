@@ -1,8 +1,6 @@
 .header {
-  transition: all 1s !important;
-  position: absolute;
-  top: 4rem;
-  width: 100%;
+  flex-grow: 1;
+  max-width: 380px;
   padding: 0 2rem;
 }
 .header h3 {

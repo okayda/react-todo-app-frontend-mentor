@@ -1,11 +1,15 @@
+import { motion } from "framer-motion";
 import { useContext, useEffect, useRef } from "react";
 
 import { FaTimes } from "react-icons/fa";
 import { TodoContext } from "../Methods/Context/TodoContext";
 
+import Animation from "../Animation/Animation";
+import Backdrop from "../Backdrop/Backdrop";
+
 import style from "./ReplaceModal.module.css";
 
-const ChangeModal = function () {
+const ReplaceModal = function () {
   const {
     todo: { dispatch },
     replace: {
@@ -73,65 +77,78 @@ const ChangeModal = function () {
   }, []);
 
   return (
-    <div className={style.change}>
-      <div className={style.change__box}>
-        <div className={style.change__title}>
-          <h2>Replacing</h2>
+    <Backdrop onClick={hideChange}>
+      <motion.div
+        onClick={(e) => e.stopPropagation()}
+        className={style.change}
+        variants={Animation}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+      >
+        <div className={style.change__box}>
+          <div className={style.change__title}>
+            <h2>Replacing</h2>
 
-          <button className={style.change__exit} onClick={hideChange}>
-            <FaTimes />
-          </button>
-        </div>
-
-        <form onSubmit={submitReplace} className={style.change__form}>
-          <textarea
-            onChange={textAreaValue}
-            value={currentReplaceText}
-            ref={ref}
-          />
-
-          <div className={style.change__form_inputButton}>
-            <button
-              type="button"
-              onClick={clearFocus}
-              name="clear"
-              className={style.change__button}
-            >
-              Clear
+            <button className={style.change__exit} onClick={hideChange}>
+              <FaTimes />
             </button>
+          </div>
 
-            <div className={style.change__form_date}>
-              <input type="text" placeholder="Calendar" data-input />
+          <form onSubmit={submitReplace} className={style.change__form}>
+            <textarea
+              onChange={textAreaValue}
+              value={currentReplaceText}
+              ref={ref}
+            />
+
+            <div className={style.change__form_inputButton}>
+              <button
+                type="button"
+                onClick={clearFocus}
+                name="clear"
+                className={style.change__button}
+              >
+                Clear
+              </button>
+
+              <div className={style.change__form_date}>
+                <input type="text" placeholder="Calendar" data-input />
+
+                <button
+                  type="button"
+                  name="remove-date"
+                  data-clear
+                  onClick={resetReplaceCalendarValue}
+                >
+                  <FaTimes />
+                </button>
+              </div>
+            </div>
+
+            <div className={style.change__form_edit}>
+              <button
+                type="submit"
+                className={style.change__button}
+                name="save"
+              >
+                Save
+              </button>
 
               <button
                 type="button"
-                name="remove-date"
-                data-clear
-                onClick={resetReplaceCalendarValue}
+                name="cancel"
+                onClick={hideChange}
+                className={style.change__button}
               >
-                <FaTimes />
+                Cancel
               </button>
             </div>
-          </div>
-
-          <div className={style.change__form_edit}>
-            <button type="submit" className={style.change__button} name="save">
-              Save
-            </button>
-
-            <button
-              type="button"
-              name="cancel"
-              onClick={hideChange}
-              className={style.change__button}
-            >
-              Cancel
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
+          </form>
+        </div>
+      </motion.div>
+    </Backdrop>
   );
 };
 
-export default ChangeModal;
+export default ReplaceModal;

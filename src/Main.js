@@ -1,14 +1,18 @@
-import { useState, useEffect, useContext } from "react";
+import ReactDOM from "react-dom";
+import { AnimatePresence } from "framer-motion";
+import { useContext } from "react";
 import { TodoContext } from "./components/Methods/Context/TodoContext";
 
 import Todo from "./components/Todo";
+import MenuModal from "./components/MenuModal/MenuModal";
+import ReplaceModal from "./components/ReplaceModal/ReplaceModal";
 
 import "./scss/global.css";
 
-function App() {
+function Main() {
   const {
-    menu: { activeMenu, menuModal },
-    replace: { activeReplace, replaceModal },
+    menu: { activeMenu },
+    replace: { activeReplace },
     calendar: { activeCalendar },
     overlay: { overlay },
   } = useContext(TodoContext);
@@ -60,12 +64,35 @@ function App() {
 
   return (
     <>
-      {(activeMenu || activeReplace || activeCalendar) && overlay}
-      {activeMenu && menuModal}
-      {activeReplace && replaceModal}
+      {/*
+      //*  I tried to used AnimatePresence but is not working
+      //*  when the create Portal is used to the <MenuModal /> & <ReplaceModal />
+      //*  target rendered <header> & "change-container"
+
+      //* AnimatePresence is working when I tried to used <MenuModal /> & <ReplaceModal /> only
+      //* create portal is not attached 
+      //* it will not render on the "menu-modal" & "replace-modal" container
+       */}
+
+      {/*  <AnimatePresence >
+       {activeMenu &&
+       ReactDOM.createPortal(<MenuModal />, document.querySelector("header"))}
+
+       {activeReplace &&
+         ReactDOM.createPortal(
+          <ReplaceModal />,
+           document.querySelector(".change-container")
+         )}
+      </AnimatePresence> */}
+
+      {activeCalendar && overlay}
+      <AnimatePresence>
+        {activeReplace && <ReplaceModal />}
+        {activeMenu && <MenuModal />}
+      </AnimatePresence>
       <Todo />
     </>
   );
 }
 
-export default App;
+export default Main;

@@ -4,10 +4,12 @@ import { useState, createContext, useEffect, useReducer } from "react";
 import flatpickr from "flatpickr";
 
 import Overlay from "../Overlay/Overlay";
-import NavMenu from "../../MenuModal/NavMenu";
+import NavMenu from "../../MenuModal/MenuModal";
 import ChangeModal from "../../ReplaceModal/ReplaceModal";
 
 const reducer = function (state, action) {
+  if (action.type === "move") return state;
+
   if (action.type === "add-todo") {
     return [
       ...state,
@@ -138,33 +140,7 @@ export const TodoProvider = function (prop) {
   };
   // <================>
 
-  // calendar modal not included
-  // if the overlay clicked will be executed this
-  const removeModals = function (e) {
-    e.stopPropagation();
-
-    if (activeMenu) {
-      setActiveMenu(false);
-      return;
-    }
-
-    if (activeReplace) {
-      setActiveReplace(false);
-      return;
-    }
-  };
-  // <================>
-
   // HTML element Render
-  const menuModal = ReactDOM.createPortal(
-    <NavMenu />,
-    document.querySelector("header")
-  );
-
-  const replaceModal = ReactDOM.createPortal(
-    <ChangeModal />,
-    document.querySelector(".change-container")
-  );
 
   const overlay = ReactDOM.createPortal(
     <Overlay />,
@@ -176,9 +152,8 @@ export const TodoProvider = function (prop) {
     <TodoContext.Provider
       value={{
         todo: { todos, dispatch },
-        menu: { activeMenu, showMenu, hideMenu, menuModal },
+        menu: { activeMenu, showMenu, hideMenu },
         replace: {
-          replaceModal,
           activeReplace,
           showChange,
           hideChange,
@@ -202,7 +177,7 @@ export const TodoProvider = function (prop) {
           activeCalendar,
           toggleOverlay,
         },
-        overlay: { overlay, removeModals },
+        overlay: { overlay },
       }}
     >
       {prop.children}
