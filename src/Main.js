@@ -6,6 +6,7 @@ import { TodoContext } from "./components/Methods/Context/TodoContext";
 import Todo from "./components/Todo";
 import MenuModal from "./components/MenuModal/MenuModal";
 import ReplaceModal from "./components/ReplaceModal/ReplaceModal";
+import Backdrop from "./components/Backdrop/Backdrop";
 
 import "./scss/global.css";
 
@@ -13,8 +14,7 @@ function Main() {
   const {
     menu: { activeMenu },
     replace: { activeReplace },
-    calendar: { activeCalendar },
-    overlay: { overlay },
+    calendar: { activeCalendar, setActiveCalendar },
   } = useContext(TodoContext);
 
   // const [items, setItems] = useState([1, 2, 3, 4, 5, 6]);
@@ -67,25 +67,27 @@ function Main() {
       {/*
       //*  I tried to used AnimatePresence but is not working
       //*  when the create Portal is used to the <MenuModal /> & <ReplaceModal />
-      //*  target rendered <header> & "change-container"
+      //*  target rendered "menu-modal" & "replace-modal"
 
-      //* AnimatePresence is working when I tried to used <MenuModal /> & <ReplaceModal /> only
+      //* AnimatePresence is working when I tried to used <MenuModal /> & <ReplaceModal /> only.
       //* create portal is not attached 
-      //* it will not render on the "menu-modal" & "replace-modal" container
+      //* it will not render to the "menu-modal" & "replace-modal" container
        */}
 
       {/*  <AnimatePresence >
        {activeMenu &&
-       ReactDOM.createPortal(<MenuModal />, document.querySelector("header"))}
+       ReactDOM.createPortal(<MenuModal />, document.querySelector(".menu-modal"))}
 
        {activeReplace &&
          ReactDOM.createPortal(
           <ReplaceModal />,
-           document.querySelector(".change-container")
+           document.querySelector(".replace-modal")
          )}
       </AnimatePresence> */}
 
-      {activeCalendar && overlay}
+      {/* this calendar is only for form  */}
+      {activeCalendar && <Backdrop onClick={setActiveCalendar} />}
+
       <AnimatePresence>
         {activeReplace && <ReplaceModal />}
         {activeMenu && <MenuModal />}

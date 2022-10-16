@@ -4,7 +4,7 @@ import { FaTimes } from "react-icons/fa";
 
 const Calendar = function (prop) {
   const {
-    calendar: { flatpickr, FlatpickrConfig, setCalendarValue },
+    calendar: { flatpickr, FlatpickrConfigForm, setCalendarValue },
   } = useContext(TodoContext);
 
   const resetCalendarValue = function () {
@@ -12,7 +12,7 @@ const Calendar = function (prop) {
   };
 
   useEffect(() => {
-    flatpickr(`.${prop.todo__form_dateContainer}`, FlatpickrConfig);
+    flatpickr(`.${prop.todo__form_dateContainer}`, FlatpickrConfigForm);
   }, []);
 
   return (

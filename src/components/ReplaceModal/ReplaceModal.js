@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { useContext, useEffect, useRef } from "react";
-
-import { FaTimes } from "react-icons/fa";
 import { TodoContext } from "../Methods/Context/TodoContext";
+import { FaTimes } from "react-icons/fa";
 
 import Animation from "../Animation/Animation";
 import Backdrop from "../Backdrop/Backdrop";
@@ -10,6 +9,8 @@ import Backdrop from "../Backdrop/Backdrop";
 import style from "./ReplaceModal.module.css";
 
 const ReplaceModal = function () {
+  const ref = useRef(null);
+
   const {
     todo: { dispatch },
     replace: {
@@ -24,10 +25,8 @@ const ReplaceModal = function () {
       currentReplaceDate,
       setCurrentReplaceDate,
     },
-    calendar: { flatpickr, resetCalendarValue },
+    calendar: { flatpickr, FlatpickrConfigReplace },
   } = useContext(TodoContext);
-
-  const ref = useRef(null);
 
   const clearFocus = function () {
     setCurrentReplaceText("");
@@ -61,18 +60,13 @@ const ReplaceModal = function () {
     hideChange();
   };
 
-  // once the DOM is rendered will be executed the flatpickr library
   useEffect(() => {
-    const calendar = flatpickr(`.${style.change__form_date}`, {
-      disableMobile: true,
-      wrap: true,
+    const calendar = flatpickr(
+      `.${style.change__form_date}`,
+      FlatpickrConfigReplace
+    );
 
-      onClose: function (_, dateStr) {
-        setCurrentReplaceDate(dateStr);
-      },
-    });
-
-    // will execute this if the date on a task list is exist
+    // will execute this if the date on the task list is exist
     if (currentReplaceDate) calendar.setDate(currentReplaceDate);
   }, []);
 

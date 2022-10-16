@@ -1,11 +1,10 @@
-import ReactDOM from "react-dom";
 import { useState, createContext, useEffect, useReducer } from "react";
 
 import flatpickr from "flatpickr";
-
-import Overlay from "../Overlay/Overlay";
-import NavMenu from "../../MenuModal/MenuModal";
-import ChangeModal from "../../ReplaceModal/ReplaceModal";
+import {
+  CalendarConfigForm,
+  CalendarConfigReplace,
+} from "../CalendarConfig/CalendarConfig";
 
 const reducer = function (state, action) {
   if (action.type === "move") return state;
@@ -65,45 +64,30 @@ export const TodoProvider = function (prop) {
   const [showTask, setShowTask] = useState("All");
   // <================>
 
-  // calendar modal not included
   // modal state
   const [activeMenu, setActiveMenu] = useState(false);
   const [activeReplace, setActiveReplace] = useState(false);
+  // <================>
+
+  // Replace modal state
+  const [taskId, setTaskId] = useState(null);
+  const [currentReplaceText, setCurrentReplaceText] = useState("");
+  const [currentReplaceDate, setCurrentReplaceDate] = useState("");
   // <================>
 
   // calendar state
   const [activeCalendar, setActiveCalendar] = useState(false);
   const [calendarValue, setCalendarValue] = useState("");
 
-  const toggleOverlay = function (bool) {
-    setTimeout(() => {
-      setActiveCalendar(bool);
-    }, 100);
-  };
+  // this config only for Calendar TodoForm.js
+  const FlatpickrConfigForm = CalendarConfigForm(
+    setActiveCalendar,
+    setCalendarValue
+  );
 
-  // this calendar config only for Calendar & TodoForm file
-  const FlatpickrConfig = {
-    disableMobile: true,
-    wrap: true,
-
-    onOpen: function () {
-      toggleOverlay(true);
-    },
-
-    onClose: function (_, dateStr) {
-      toggleOverlay(false);
-
-      // will be stored the user picked date at setCalendarValue()
-      if (!dateStr) return;
-      setCalendarValue(dateStr);
-    },
-  };
+  // this config only for Calendar ReplaceModal.js
+  const FlatpickrConfigReplace = CalendarConfigReplace(setCurrentReplaceDate);
   // <================>
-
-  // replace state
-  const [taskId, setTaskId] = useState(null);
-  const [currentReplaceText, setCurrentReplaceText] = useState("");
-  const [currentReplaceDate, setCurrentReplaceDate] = useState("");
 
   // 1) Retrieving data
   // 2) Append to the replace modal
@@ -140,14 +124,6 @@ export const TodoProvider = function (prop) {
   };
   // <================>
 
-  // HTML element Render
-
-  const overlay = ReactDOM.createPortal(
-    <Overlay />,
-    document.querySelector(".overlay-container")
-  );
-  // <================>
-
   return (
     <TodoContext.Provider
       value={{
@@ -169,15 +145,16 @@ export const TodoProvider = function (prop) {
         },
         calendar: {
           flatpickr,
-          FlatpickrConfig,
+
+          FlatpickrConfigForm,
+          FlatpickrConfigReplace,
 
           calendarValue,
           setCalendarValue,
 
+          setActiveCalendar,
           activeCalendar,
-          toggleOverlay,
         },
-        overlay: { overlay },
       }}
     >
       {prop.children}

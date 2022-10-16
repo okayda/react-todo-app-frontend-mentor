@@ -10,7 +10,12 @@ const TodoForm = function (prop) {
 
   const {
     todo: { dispatch },
-    calendar: { flatpickr, FlatpickrConfig, calendarValue, setCalendarValue },
+    calendar: {
+      flatpickr,
+      FlatpickrConfigForm,
+      calendarValue,
+      setCalendarValue,
+    },
   } = useContext(TodoContext);
 
   const submitForm = function (e) {
@@ -29,7 +34,7 @@ const TodoForm = function (prop) {
       },
     });
 
-    flatpickr(`.${prop.todo__form_dateContainer}`, FlatpickrConfig).clear();
+    flatpickr(`.${prop.todo__form_dateContainer}`, FlatpickrConfigForm).clear();
 
     setCalendarValue("");
     setInputValue("");
