@@ -7,11 +7,11 @@ import {
 
 import style from "./Icon.module.css";
 
-const Icons = function () {
+const Icons = function (prop) {
   return (
     <ul className={style.icons}>
       <li className="move">
-        <FaRegHandPaper />
+        <FaRegHandPaper onPointerDown={prop.onPointerDown} />
       </li>
       <li className="replace">
         <FaRegEdit />

@@ -36,11 +36,11 @@ const Todo = function () {
       />
 
       {/* U.I Introduction */}
-      <EmptyBackground
+      {/* <EmptyBackground
         todo__background={style.todo__background}
         todo__background_calendar={style.todo__background_calendar}
         todo__background_date={style.todo__background_date}
-      />
+      /> */}
 
       {/* <Footer
         todo__guide={style.todo__guide}
