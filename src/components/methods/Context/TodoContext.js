@@ -7,8 +7,6 @@ import {
 } from "../CalendarConfig/CalendarConfig";
 
 const reducer = function (state, action) {
-  if (action.type === "move") return state;
-
   if (action.type === "add-todo") {
     return [
       ...state,
@@ -40,6 +38,10 @@ const reducer = function (state, action) {
       }
       return todo;
     });
+  }
+
+  if (action.type === "reorder-save") {
+    return (state = action.payload.currentOrderTodoData);
   }
 };
 

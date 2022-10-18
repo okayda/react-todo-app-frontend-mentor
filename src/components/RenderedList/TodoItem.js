@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import ReactReadMoreReadLess from "react-read-more-read-less";
 import { useMotionValue, Reorder, useDragControls } from "framer-motion";
 

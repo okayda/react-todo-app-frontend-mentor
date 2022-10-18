@@ -1,10 +1,4 @@
-import {
-  AnimatePresence,
-  motion,
-  Reorder,
-  useDragControls,
-} from "framer-motion";
-import ReactReadMoreReadLess from "react-read-more-read-less";
+import { AnimatePresence, Reorder } from "framer-motion";
 import { useContext, useEffect, useState } from "react";
 import { TodoContext } from "../Methods/Context/TodoContext";
 
@@ -26,6 +20,27 @@ const TodoList = function (prop) {
   useEffect(() => {
     setAnimation(true);
   }, []);
+
+  useEffect(() => {
+    // the reorder save functionality it will only work if the
+    // todos container array in the localStorage length is 2 if it's true.
+    // you can swap the todo and if the user swap the todo the saving mechanism
+    // will trigger after 1 second of swapped to prevent multiple execution of saving
+
+    // todos !== todosData it will check if the previous one is todos[data] is
+    // not equal to the current new reordered todos[data] if it's true means
+    // the user swapped the todo and the timeout will trigger to save the swap
+
+    const timerSaveTodosOrder = setTimeout(() => {
+      if (todos.length >= 2 && todos !== todosData)
+        dispatch({
+          type: "reorder-save",
+          payload: { currentOrderTodoData: todosData },
+        });
+    }, 1000);
+
+    return () => clearTimeout(timerSaveTodosOrder);
+  }, [todosData]);
 
   // For manipulating the Todo task array in the TodoContext
   const dynamicTodo = function (type, id) {
@@ -70,41 +85,16 @@ const TodoList = function (prop) {
 
   return (
     <Reorder.Group
+      // onReorder={test}
       onReorder={setTodosData}
       values={todos}
       className={prop.todo__task}
       onClick={eventDelegation}
     >
       <AnimatePresence>
-        {todosData.map((todo, i) => {
+        {todosData.map((todo) => {
           if (todo.isCompleted) return;
           return (
-            // <Reorder.Item
-            //   key={todo.id}
-            //   className={prop.todo__task_list}
-            //   data-id={todo.id}
-            //   value={todo}
-            //   dragListener={false}
-            //   dragControls={control}
-            // >
-            //   {/* <Icons /> */}
-
-            //   <p>
-            //     <ReactReadMoreReadLess
-            //       charLimit={charactersLimit}
-            //       readMoreText="read more"
-            //       readLessText="read less"
-            //       readMoreClassName={prop.todo__task_read}
-            //       readLessClassName={prop.todo__task_read}
-            //     >
-            //       {todo.text}
-            //     </ReactReadMoreReadLess>
-            //   </p>
-
-            //   <span className={prop.todo__task_date}>
-            //     {todo.date || "No Date"}
-            //   </span>
-            // </Reorder.Item>
             <TodoItem
               key={todo.id}
               todo={todo}
