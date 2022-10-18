@@ -14,22 +14,11 @@
   font-size: 1.8rem;
 
   .move {
-    position: relative;
-    overflow: hidden;
-    &::before {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(45deg);
-      content: " ";
-      width: 2px;
-      height: 4rem;
-      background-color: $dark-green;
-    }
+    // color: $dark-grayish-blue;
+    // opacity: 0.2;
   }
 
   li {
-    background-color: $light-shade-orange;
     padding: 0.3rem;
     border-radius: 3px;
   }

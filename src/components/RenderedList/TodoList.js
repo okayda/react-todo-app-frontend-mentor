@@ -2,10 +2,11 @@ import { AnimatePresence, Reorder } from "framer-motion";
 import { useContext, useEffect, useState } from "react";
 import { TodoContext } from "../Methods/Context/TodoContext";
 
-import TodoItem from "./TodoItem";
+import TodoItem from "./TodoItem/TodoItem";
 
 const TodoList = function (prop) {
   const {
+    show: { showTask },
     todo: { todos, dispatch },
     replace: { showChange },
   } = useContext(TodoContext);
@@ -93,7 +94,9 @@ const TodoList = function (prop) {
     >
       <AnimatePresence>
         {todosData.map((todo) => {
-          if (todo.isCompleted) return;
+          if (showTask === "completed-todo" && !todo.isCompleted) return;
+          if (showTask === "active-todo" && todo.isCompleted) return;
+
           return (
             <TodoItem
               key={todo.id}

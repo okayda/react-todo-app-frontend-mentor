@@ -1,10 +1,9 @@
-import { animate, MotionValue, useMotionValue } from "framer-motion";
+import { animate, useMotionValue } from "framer-motion";
 import { useEffect } from "react";
-
-const inactiveShadow = "0px 0px 0px rgba(0,0,0,0.8)";
+const inActiveShadow = "rgba(0, 0, 0, 0.09) 0px 3px 12px";
 
 const TodoItemShadow = function (value) {
-  const boxShadow = useMotionValue(inactiveShadow);
+  const boxShadow = useMotionValue(inActiveShadow);
 
   useEffect(() => {
     let isActive = false;
@@ -13,12 +12,15 @@ const TodoItemShadow = function (value) {
       if (latest !== 0) {
         isActive = true;
         if (isActive !== wasActive) {
-          animate(boxShadow, "5px 5px 10px rgba(0,0,0,0.3)");
+          animate(
+            boxShadow,
+            "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset"
+          );
         }
       } else {
         isActive = false;
         if (isActive !== wasActive) {
-          animate(boxShadow, inactiveShadow);
+          animate(boxShadow, inActiveShadow);
         }
       }
     });

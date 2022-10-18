@@ -42,7 +42,8 @@ const MenuModal = function () {
             <ShowMenu
               header__show={style.header__show}
               header__show_title={style.header__show_title}
-              header__show_list={style.header__show_list}
+              // header__show_list={style.header__show_list}
+              header__show_form={style.header__show_form}
               active_btn={style.active_btn}
             />
 

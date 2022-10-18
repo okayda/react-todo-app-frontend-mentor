@@ -46,24 +46,28 @@
   font-size: 2.4rem;
   height: 2.4rem;
 }
-.header__show_list {
+.header__show_form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.6rem;
-  list-style: none;
 }
-.header__show_list button {
+.header__show_form input {
+  display: none;
+}
+.header__show_form input[type=radio]:checked + label {
+  font-weight: bold;
+  border-color: #7676b5;
+  background-color: #e1e1fd;
+}
+.header__show_form label {
+  display: block;
+  text-align: center;
   border: 1px solid #08444c;
   color: #08444c;
   border-radius: 6px;
   padding: 0.8rem 0;
   font-size: 1.45rem;
-  width: 100%;
-}
-.header__show_list .active_btn {
-  font-weight: bold;
-  border-color: #7676b5;
-  background-color: #e1e1fd;
+  transition: all 0.3s;
 }
 .header__setting {
   background-color: #f4fcf4;

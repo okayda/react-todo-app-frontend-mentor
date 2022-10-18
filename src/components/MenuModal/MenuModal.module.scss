@@ -62,25 +62,30 @@
       }
     }
 
-    &_list {
+    &_form {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.6rem;
-      list-style: none;
 
-      button {
+      input {
+        display: none;
+      }
+
+      input[type="radio"]:checked + label {
+        font-weight: bold;
+        border-color: $shade-purple;
+        background-color: $light-shade-purple;
+      }
+
+      label {
+        display: block;
+        text-align: center;
         border: 1px solid $dark-green;
         color: $dark-green;
         border-radius: 6px;
         padding: 0.8rem 0;
         font-size: 1.45rem;
-        width: 100%;
-      }
-
-      .active_btn {
-        font-weight: bold;
-        border-color: $shade-purple;
-        background-color: $light-shade-purple;
+        transition: all 0.3s;
       }
     }
   }

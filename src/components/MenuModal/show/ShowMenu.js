@@ -3,10 +3,25 @@ import { TodoContext } from "../../Methods/Context/TodoContext";
 
 import { FaTimes } from "react-icons/fa";
 
+import ShowMenuForm from "./ShowMenuFom";
+
 const ShowMenu = function (prop) {
   const {
+    show: { setShowTask },
     menu: { hideMenu },
   } = useContext(TodoContext);
+
+  const allBtn = function (e) {
+    setShowTask("all-todo");
+  };
+
+  const activeBtn = function () {
+    setShowTask("active-todo");
+  };
+
+  const completedBtn = function () {
+    setShowTask("completed-todo");
+  };
 
   return (
     <div className={prop.header__show}>
@@ -18,17 +33,7 @@ const ShowMenu = function (prop) {
         </button>
       </div>
 
-      <ul className={prop.header__show_list}>
-        <li>
-          <button className={prop.active_btn}>All</button>
-        </li>
-        <li>
-          <button>Active</button>
-        </li>
-        <li>
-          <button>Completed</button>
-        </li>
-      </ul>
+      <ShowMenuForm header__show_form={prop.header__show_form} />
     </div>
   );
 };

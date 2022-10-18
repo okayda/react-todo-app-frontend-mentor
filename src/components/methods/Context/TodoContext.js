@@ -63,7 +63,8 @@ export const TodoProvider = function (prop) {
   // <================>
 
   // show menu state at menu modal
-  const [showTask, setShowTask] = useState("All");
+  const [showTask, setShowTask] = useState("all-todo");
+
   // <================>
 
   // modal state
@@ -129,6 +130,11 @@ export const TodoProvider = function (prop) {
   return (
     <TodoContext.Provider
       value={{
+        show: {
+          showTask,
+          setShowTask,
+        },
+
         todo: { todos, dispatch },
         menu: { activeMenu, showMenu, hideMenu },
         replace: {

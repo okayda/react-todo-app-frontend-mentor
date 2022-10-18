@@ -1,9 +1,9 @@
 import ReactReadMoreReadLess from "react-read-more-read-less";
 import { useMotionValue, Reorder, useDragControls } from "framer-motion";
 
-import { taskAnimation } from "../Animation/Animation";
+import { taskAnimation } from "../../Animation/Animation";
 import TodoItemShadow from "./TodoItemShadow";
-import Icons from "./TodoIcons/Icons";
+import Icons from "../TodoIcons/Icons";
 
 const charactersLimit = 100;
 
