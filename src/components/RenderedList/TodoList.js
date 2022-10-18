@@ -1,4 +1,9 @@
-import { motion, Reorder, useDragControls } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  Reorder,
+  useDragControls,
+} from "framer-motion";
 import ReactReadMoreReadLess from "react-read-more-read-less";
 import { useContext, useEffect, useState } from "react";
 import { TodoContext } from "../Methods/Context/TodoContext";
@@ -10,6 +15,17 @@ const TodoList = function (prop) {
     todo: { todos, dispatch },
     replace: { showChange },
   } = useContext(TodoContext);
+
+  const [todosData, setTodosData] = useState(todos);
+  const [animationActive, setAnimation] = useState(false);
+
+  useEffect(() => {
+    setTodosData(todos);
+  }, [todos]);
+
+  useEffect(() => {
+    setAnimation(true);
+  }, []);
 
   // For manipulating the Todo task array in the TodoContext
   const dynamicTodo = function (type, id) {
@@ -52,59 +68,54 @@ const TodoList = function (prop) {
     iconsFunctionality(classNameList, parentId);
   };
 
-  const [item, setItem] = useState(todos);
-
-  useEffect(() => {
-    setItem(todos);
-  }, [todos]);
-
-  const control = useDragControls();
-
   return (
     <Reorder.Group
-      onReorder={setItem}
+      onReorder={setTodosData}
       values={todos}
       className={prop.todo__task}
       onClick={eventDelegation}
     >
-      {item.map((todo) => {
-        if (todo.isCompleted) return;
-        return (
-          // <Reorder.Item
-          //   key={todo.id}
-          //   className={prop.todo__task_list}
-          //   data-id={todo.id}
-          //   value={todo}
-          //   dragListener={false}
-          //   dragControls={control}
-          // >
-          //   {/* <Icons /> */}
+      <AnimatePresence>
+        {todosData.map((todo, i) => {
+          if (todo.isCompleted) return;
+          return (
+            // <Reorder.Item
+            //   key={todo.id}
+            //   className={prop.todo__task_list}
+            //   data-id={todo.id}
+            //   value={todo}
+            //   dragListener={false}
+            //   dragControls={control}
+            // >
+            //   {/* <Icons /> */}
 
-          //   <p>
-          //     <ReactReadMoreReadLess
-          //       charLimit={charactersLimit}
-          //       readMoreText="read more"
-          //       readLessText="read less"
-          //       readMoreClassName={prop.todo__task_read}
-          //       readLessClassName={prop.todo__task_read}
-          //     >
-          //       {todo.text}
-          //     </ReactReadMoreReadLess>
-          //   </p>
+            //   <p>
+            //     <ReactReadMoreReadLess
+            //       charLimit={charactersLimit}
+            //       readMoreText="read more"
+            //       readLessText="read less"
+            //       readMoreClassName={prop.todo__task_read}
+            //       readLessClassName={prop.todo__task_read}
+            //     >
+            //       {todo.text}
+            //     </ReactReadMoreReadLess>
+            //   </p>
 
-          //   <span className={prop.todo__task_date}>
-          //     {todo.date || "No Date"}
-          //   </span>
-          // </Reorder.Item>
-          <TodoItem
-            key={todo.id}
-            todo={todo}
-            todo__task_list={prop.todo__task_list}
-            todo__task_read={prop.todo__task_read}
-            todo__task_date={prop.todo__task_date}
-          />
-        );
-      })}
+            //   <span className={prop.todo__task_date}>
+            //     {todo.date || "No Date"}
+            //   </span>
+            // </Reorder.Item>
+            <TodoItem
+              key={todo.id}
+              todo={todo}
+              animationActive={animationActive}
+              todo__task_list={prop.todo__task_list}
+              todo__task_read={prop.todo__task_read}
+              todo__task_date={prop.todo__task_date}
+            />
+          );
+        })}
+      </AnimatePresence>
     </Reorder.Group>
   );
 };

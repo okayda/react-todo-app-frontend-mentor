@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-around;
   border-bottom: dotted #08444c 3px;
-  padding-bottom: 1rem;
+  padding-bottom: 0.6rem;
   list-style: none;
   color: #08444c;
   cursor: pointer;
@@ -10,7 +10,22 @@
   line-height: 0;
   font-size: 1.8rem;
 }
-.icons__svg {
-  font-size: 2.4rem;
-  padding: 0.4rem 0;
+.icons .move {
+  position: relative;
+  overflow: hidden;
+}
+.icons .move::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  content: " ";
+  width: 2px;
+  height: 4rem;
+  background-color: #08444c;
+}
+.icons li {
+  background-color: #ffdad0;
+  padding: 0.3rem;
+  border-radius: 3px;
 }

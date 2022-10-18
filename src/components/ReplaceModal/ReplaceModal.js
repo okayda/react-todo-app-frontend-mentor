@@ -3,7 +3,8 @@ import { useContext, useEffect, useRef } from "react";
 import { TodoContext } from "../Methods/Context/TodoContext";
 import { FaTimes } from "react-icons/fa";
 
-import Animation from "../Animation/Animation";
+import { modalAnimation } from "../Animation/Animation";
+
 import Backdrop from "../Backdrop/Backdrop";
 
 import style from "./ReplaceModal.module.css";
@@ -75,7 +76,7 @@ const ReplaceModal = function () {
       <motion.div
         onClick={(e) => e.stopPropagation()}
         className={style.change}
-        variants={Animation}
+        variants={modalAnimation}
         initial="hidden"
         animate="visible"
         exit="exit"

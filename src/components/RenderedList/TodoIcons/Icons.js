@@ -7,11 +7,12 @@ import {
 
 import style from "./Icon.module.css";
 
+// prop.onPointerDown
 const Icons = function (prop) {
   return (
     <ul className={style.icons}>
-      <li className="move">
-        <FaRegHandPaper onPointerDown={prop.onPointerDown} />
+      <li className={`move ${style.move}`}>
+        <FaRegHandPaper className={style.icons__move} />
       </li>
       <li className="replace">
         <FaRegEdit />

@@ -1,5 +1,8 @@
+import { useState, useEffect } from "react";
 import ReactReadMoreReadLess from "react-read-more-read-less";
 import { useMotionValue, Reorder, useDragControls } from "framer-motion";
+
+import { taskAnimation } from "../Animation/Animation";
 import TodoItemShadow from "./TodoItemShadow";
 import Icons from "./TodoIcons/Icons";
 
@@ -13,11 +16,15 @@ const TodoItem = function (prop) {
   return (
     <Reorder.Item
       style={{ boxShadow, y }}
-      dragListener={false}
+      dragListener={true}
       dragControls={control}
       value={prop.todo}
       data-id={prop.todo.id}
       className={prop.todo__task_list}
+      variants={taskAnimation}
+      initial={prop.animationActive ? "hidden" : false}
+      animate="visible"
+      exit="exit"
     >
       <Icons onPointerDown={(e) => control.start(e)} />
 

@@ -6,7 +6,7 @@ import ShowMenu from "./Show/ShowMenu";
 import ToggleMenu from "./Toggle/ToggleMenu";
 import DeleteMenu from "./Delete/DeleteMenu";
 
-import Animation from "../Animation/Animation";
+import { modalAnimation } from "../Animation/Animation";
 import Backdrop from "../Backdrop/Backdrop";
 
 import style from "./MenuModal.module.css";
@@ -32,7 +32,7 @@ const MenuModal = function () {
       <motion.div
         onClick={(e) => e.stopPropagation()}
         className={style.header}
-        variants={Animation}
+        variants={modalAnimation}
         initial="hidden"
         animate="visible"
         exit="exit"

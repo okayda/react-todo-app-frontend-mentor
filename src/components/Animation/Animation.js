@@ -1,4 +1,4 @@
-const Animation = {
+export const modalAnimation = {
   hidden: {
     y: "-100vh",
     opacity: 0,
@@ -21,4 +21,25 @@ const Animation = {
   },
 };
 
-export default Animation;
+export const taskAnimation = {
+  hidden: {
+    scale: 0,
+    opacity: 0,
+  },
+
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+    },
+  },
+
+  exit: {
+    scale: 0,
+    opacity: 0,
+    transition: {
+      duration: 0.4,
+    },
+  },
+};
