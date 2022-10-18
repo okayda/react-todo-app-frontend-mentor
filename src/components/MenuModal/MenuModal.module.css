@@ -60,6 +60,7 @@
   background-color: #e1e1fd;
 }
 .header__show_form label {
+  cursor: pointer;
   display: block;
   text-align: center;
   border: 1px solid #08444c;

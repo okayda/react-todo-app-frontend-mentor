@@ -63,7 +63,10 @@ export const TodoProvider = function (prop) {
   // <================>
 
   // show menu state at menu modal
-  const [showTask, setShowTask] = useState("all-todo");
+  const ALL_TODO = "all-todo";
+  const ACTIVE_TODO = "active-todo";
+  const COMPLETED_TODO = "completed-todo";
+  const [showTask, setShowTask] = useState(ALL_TODO);
 
   // <================>
 
@@ -133,6 +136,10 @@ export const TodoProvider = function (prop) {
         show: {
           showTask,
           setShowTask,
+
+          ALL_TODO,
+          ACTIVE_TODO,
+          COMPLETED_TODO,
         },
 
         todo: { todos, dispatch },

@@ -7,21 +7,8 @@ import ShowMenuForm from "./ShowMenuFom";
 
 const ShowMenu = function (prop) {
   const {
-    show: { setShowTask },
     menu: { hideMenu },
   } = useContext(TodoContext);
-
-  const allBtn = function (e) {
-    setShowTask("all-todo");
-  };
-
-  const activeBtn = function () {
-    setShowTask("active-todo");
-  };
-
-  const completedBtn = function () {
-    setShowTask("completed-todo");
-  };
 
   return (
     <div className={prop.header__show}>
