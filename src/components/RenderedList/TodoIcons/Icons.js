@@ -11,7 +11,7 @@ import style from "./Icon.module.css";
 const Icons = function (prop) {
   return (
     <ul className={style.icons}>
-      <li className={`move ${style.move}`}>
+      <li className={`move ${!prop.isDrag && style.moveDisabled}`}>
         <FaRegHandPaper className={style.icons__move} />
       </li>
       <li className="replace">

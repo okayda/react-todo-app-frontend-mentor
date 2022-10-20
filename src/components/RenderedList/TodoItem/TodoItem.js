@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import ReactReadMoreReadLess from "react-read-more-read-less";
-import { useMotionValue, Reorder, useDragControls } from "framer-motion";
+import { useMotionValue, Reorder } from "framer-motion";
+import { TodoContext } from "../../Methods/Context/TodoContext";
 
 import { taskAnimation } from "../../Animation/Animation";
 import TodoItemShadow from "./TodoItemShadow";
@@ -8,15 +10,17 @@ import Icons from "../TodoIcons/Icons";
 const charactersLimit = 100;
 
 const TodoItem = function (prop) {
+  const {
+    toggle: { isAllowDrag },
+  } = useContext(TodoContext);
+
   const y = useMotionValue(0);
   const boxShadow = TodoItemShadow(y);
-  const control = useDragControls();
 
   return (
     <Reorder.Item
       style={{ boxShadow, y }}
-      dragListener={true}
-      dragControls={control}
+      dragListener={isAllowDrag}
       value={prop.todo}
       data-id={prop.todo.id}
       className={prop.todo__task_list}
@@ -25,7 +29,7 @@ const TodoItem = function (prop) {
       animate="visible"
       exit="exit"
     >
-      <Icons onPointerDown={(e) => control.start(e)} />
+      <Icons isDrag={isAllowDrag} />
 
       <p>
         <ReactReadMoreReadLess

@@ -10,6 +10,10 @@
   line-height: 0;
   font-size: 1.8rem;
 }
+.icons .moveDisabled {
+  color: hsl(234deg, 11%, 52%);
+  opacity: 0.2;
+}
 .icons li {
   padding: 0.3rem;
   border-radius: 3px;

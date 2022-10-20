@@ -86,7 +86,6 @@ const TodoList = function (prop) {
 
   return (
     <Reorder.Group
-      // onReorder={test}
       onReorder={setTodosData}
       values={todos}
       className={prop.todo__task}

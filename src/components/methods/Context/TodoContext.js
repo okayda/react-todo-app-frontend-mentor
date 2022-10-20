@@ -70,6 +70,14 @@ export const TodoProvider = function (prop) {
 
   // <================>
 
+  // toggle state menu
+  const [isAllowDrag, setAllowDrag] = useState(true);
+  const isAllowModify = true;
+  const isDarkTheme = false;
+  const limiTodoShow = 6;
+
+  // <================>
+
   // modal state
   const [activeMenu, setActiveMenu] = useState(false);
   const [activeReplace, setActiveReplace] = useState(false);
@@ -140,6 +148,15 @@ export const TodoProvider = function (prop) {
           ALL_TODO,
           ACTIVE_TODO,
           COMPLETED_TODO,
+        },
+
+        toggle: {
+          isAllowDrag,
+          setAllowDrag,
+
+          isAllowModify,
+          isDarkTheme,
+          limiTodoShow,
         },
 
         todo: { todos, dispatch },

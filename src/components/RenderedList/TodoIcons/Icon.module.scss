@@ -13,9 +13,9 @@
   line-height: 0;
   font-size: 1.8rem;
 
-  .move {
-    // color: $dark-grayish-blue;
-    // opacity: 0.2;
+  .moveDisabled {
+    color: $dark-grayish-blue;
+    opacity: 0.2;
   }
 
   li {
