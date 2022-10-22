@@ -1,4 +1,4 @@
-import ToggleContent from "./ToggleContent";
+import Toggle from "./Toggle";
 import { FaArrowRight } from "react-icons/fa";
 
 const ToggleMenu = function (prop) {
@@ -11,7 +11,7 @@ const ToggleMenu = function (prop) {
         />
       </button>
 
-      <ToggleContent
+      <Toggle
         header__setting_content={prop.header__setting_content}
         header__setting_active={prop.header__setting_active}
         header__setting_toggles={prop.header__setting_toggles}

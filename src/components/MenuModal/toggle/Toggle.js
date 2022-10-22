@@ -2,13 +2,17 @@ import { useContext } from "react";
 import { TodoContext } from "../../Methods/Context/TodoContext";
 import ReactSwitch from "react-switch";
 
-const ToggleContent = function (prop) {
+const Toggle = function (prop) {
   const {
-    toggle: { isAllowDrag, setAllowDrag },
+    toggle: { isAllowDrag, setAllowDrag, isAllowModify, setAllowModify },
   } = useContext(TodoContext);
 
   const toggleDrag = function () {
     setAllowDrag((cur) => (cur ? false : true));
+  };
+
+  const toggleModify = function () {
+    setAllowModify((cur) => (cur ? false : true));
   };
 
   return (
@@ -23,7 +27,8 @@ const ToggleContent = function (prop) {
       </div>
 
       <div className={prop.header__setting_toggles}>
-        <ReactSwitch /> <span>Modify Todo</span>
+        <ReactSwitch onChange={toggleModify} checked={isAllowModify} />
+        <span>Modify Todo</span>
       </div>
 
       <div className={prop.header__setting_toggles}>
@@ -37,4 +42,4 @@ const ToggleContent = function (prop) {
   );
 };
 
-export default ToggleContent;
+export default Toggle;

@@ -7,6 +7,7 @@ import TodoItem from "./TodoItem/TodoItem";
 const TodoList = function (prop) {
   const {
     show: { showTask },
+    toggle: { isAllowModify },
     todo: { todos, dispatch },
     replace: { showChange },
   } = useContext(TodoContext);
@@ -55,7 +56,7 @@ const TodoList = function (prop) {
   const iconsFunctionality = function (className, id) {
     if (className === "move") return;
 
-    if (className === "replace") {
+    if (className.split(" ").includes("replace") && isAllowModify) {
       showChange(id);
       return;
     }

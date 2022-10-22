@@ -11,10 +11,10 @@ import style from "./Icon.module.css";
 const Icons = function (prop) {
   return (
     <ul className={style.icons}>
-      <li className={`move ${!prop.isDrag && style.moveDisabled}`}>
+      <li className={`move ${!prop.isDrag && style.iconDisabled}`}>
         <FaRegHandPaper className={style.icons__move} />
       </li>
-      <li className="replace">
+      <li className={`replace ${!prop.isModify && style.iconDisabled}`}>
         <FaRegEdit />
       </li>
       <li className="complete">
