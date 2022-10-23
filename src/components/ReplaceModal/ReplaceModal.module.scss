@@ -1,15 +1,14 @@
 @import "../../scss/variables";
+@import "../../scss/mixins";
 
 .change {
+  @include widthCenter(380px, 0, 2rem);
   flex-grow: 1;
-  max-width: 380px;
-  padding: 0 2rem;
 
   &__box {
+    @include flexColumnGap(2rem);
+
     position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
     width: 100%;
     border-radius: 6px;
     padding: 2rem 0.8rem;
@@ -36,7 +35,6 @@
   &__button {
     color: $very-dark-blue;
     font-weight: bold;
-
     background-color: $shade-green;
     border: 1px solid $darker-green;
     border-radius: 6px;
@@ -44,9 +42,7 @@
   }
 
   &__form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    @include flexColumnGap(1rem);
 
     textarea {
       border: 1px solid $darker-green;
@@ -69,6 +65,7 @@
 
     &_date {
       display: flex;
+
       input {
         background-color: $shade-green;
         border-radius: 6px 0 0 6px;

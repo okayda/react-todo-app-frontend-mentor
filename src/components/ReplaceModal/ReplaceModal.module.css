@@ -1,13 +1,14 @@
 .change {
-  flex-grow: 1;
   max-width: 380px;
   padding: 0 2rem;
+  margin: 0 auto;
+  flex-grow: 1;
 }
 .change__box {
-  position: relative;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  position: relative;
   width: 100%;
   border-radius: 6px;
   padding: 2rem 0.8rem;
