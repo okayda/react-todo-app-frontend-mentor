@@ -62,6 +62,11 @@ export const TodoProvider = function (prop) {
   }, [todos]);
   // <================>
 
+  // modal state
+  const [activeMenu, setActiveMenu] = useState(false);
+  const [activeReplace, setActiveReplace] = useState(false);
+  // <================>
+
   // show menu state at menu modal
   const ALL_TODO = "all-todo";
   const ACTIVE_TODO = "active-todo";
@@ -76,12 +81,10 @@ export const TodoProvider = function (prop) {
   const [isAllowComplete, setAllowComplete] = useState(true);
   const isDarkTheme = false;
   const limiTodoShow = 6;
-
   // <================>
 
-  // modal state
-  const [activeMenu, setActiveMenu] = useState(false);
-  const [activeReplace, setActiveReplace] = useState(false);
+  // delete state menu
+  const [isAllowDelete, setAllowDelete] = useState(true);
   // <================>
 
   // Replace modal state
@@ -163,6 +166,11 @@ export const TodoProvider = function (prop) {
 
           isDarkTheme,
           limiTodoShow,
+        },
+
+        delete: {
+          isAllowDelete,
+          setAllowDelete,
         },
 
         todo: { todos, dispatch },

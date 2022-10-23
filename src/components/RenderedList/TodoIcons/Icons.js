@@ -14,6 +14,7 @@ const Icons = function (prop) {
       <li className={`move ${!prop.isDrag && style.iconDisabled}`}>
         <FaRegHandPaper className={style.icons__move} />
       </li>
+
       <li className={`replace ${!prop.isModify && style.iconDisabled}`}>
         <FaRegEdit />
       </li>
@@ -33,7 +34,8 @@ const Icons = function (prop) {
       >
         <FaRegCheckCircle />
       </li>
-      <li className="remove">
+
+      <li className={`remove ${!prop.isDelete && style.iconDisabled}`}>
         <FaTimes />
       </li>
     </ul>

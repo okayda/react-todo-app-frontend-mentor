@@ -8,6 +8,7 @@ const TodoList = function (prop) {
   const {
     show: { showTask },
     toggle: { isAllowModify, isAllowComplete },
+    delete: { isAllowDelete },
     todo: { todos, dispatch },
     replace: { showChange },
   } = useContext(TodoContext);
@@ -72,12 +73,11 @@ const TodoList = function (prop) {
       if there is no true className included will not be executed
       */
     ) {
-      console.log("lol");
       dynamicTodo("turn-completed", id);
       return;
     }
 
-    if (targetClass === "remove") {
+    if (targetClass.includes("remove") && isAllowDelete) {
       dynamicTodo("turn-deleted", id);
       return;
     }

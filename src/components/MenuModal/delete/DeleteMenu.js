@@ -1,4 +1,4 @@
-import DeleteContent from "./DeleteContent";
+import Delete from "./Delete";
 import { FaArrowRight } from "react-icons/fa";
 
 const DeleteMenu = function (prop) {
@@ -11,7 +11,7 @@ const DeleteMenu = function (prop) {
         />
       </button>
 
-      <DeleteContent
+      <Delete
         header__delete_content={prop.header__delete_content}
         header__delete_active={prop.header__delete_active}
         header__delete_switches={prop.header__delete_switches}

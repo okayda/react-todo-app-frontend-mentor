@@ -12,6 +12,7 @@ const charactersLimit = 100;
 const TodoItem = function (prop) {
   const {
     toggle: { isAllowDrag, isAllowModify, isAllowComplete },
+    delete: { isAllowDelete },
   } = useContext(TodoContext);
 
   const y = useMotionValue(0);
@@ -34,6 +35,7 @@ const TodoItem = function (prop) {
         isModify={isAllowModify}
         isSavedCompleted={prop.todo.isCompleted}
         isComplete={isAllowComplete}
+        isDelete={isAllowDelete}
       />
 
       <p>

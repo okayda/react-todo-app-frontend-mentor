@@ -39,7 +39,7 @@ export const taskAnimation = {
     scale: 0,
     opacity: 0,
     transition: {
-      duration: 0.4,
+      duration: 0.3,
     },
   },
 };

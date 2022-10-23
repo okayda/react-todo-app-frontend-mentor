@@ -1,6 +1,16 @@
+import { useContext } from "react";
+import { TodoContext } from "../../Methods/Context/TodoContext";
 import ReactSwitch from "react-switch";
 
-const DeleteContent = function (prop) {
+const Delete = function (prop) {
+  const {
+    delete: { isAllowDelete, setAllowDelete },
+  } = useContext(TodoContext);
+
+  const toggleDelete = function () {
+    setAllowDelete((cur) => (cur ? false : true));
+  };
+
   return (
     <div
       className={`${prop.header__delete_content} ${
@@ -8,7 +18,7 @@ const DeleteContent = function (prop) {
       }`}
     >
       <div className={prop.header__delete_switches}>
-        <ReactSwitch />
+        <ReactSwitch onChange={toggleDelete} checked={isAllowDelete} />
         <span>Show Delete Todo</span>
       </div>
 
@@ -30,4 +40,4 @@ const DeleteContent = function (prop) {
   );
 };
 
-export default DeleteContent;
+export default Delete;
