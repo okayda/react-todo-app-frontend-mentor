@@ -14,6 +14,10 @@
   color: hsl(234deg, 11%, 52%);
   opacity: 0.2;
 }
+.icons .iconCompleted {
+  color: green;
+  background-color: #dcf4ec;
+}
 .icons li {
   padding: 0.3rem;
   border-radius: 3px;

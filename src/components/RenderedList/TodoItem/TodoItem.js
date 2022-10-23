@@ -11,7 +11,7 @@ const charactersLimit = 100;
 
 const TodoItem = function (prop) {
   const {
-    toggle: { isAllowDrag, isAllowModify },
+    toggle: { isAllowDrag, isAllowModify, isAllowComplete },
   } = useContext(TodoContext);
 
   const y = useMotionValue(0);
@@ -29,7 +29,12 @@ const TodoItem = function (prop) {
       animate="visible"
       exit="exit"
     >
-      <Icons isDrag={isAllowDrag} isModify={isAllowModify} />
+      <Icons
+        isDrag={isAllowDrag}
+        isModify={isAllowModify}
+        isSavedCompleted={prop.todo.isCompleted}
+        isComplete={isAllowComplete}
+      />
 
       <p>
         <ReactReadMoreReadLess

@@ -4,7 +4,14 @@ import ReactSwitch from "react-switch";
 
 const Toggle = function (prop) {
   const {
-    toggle: { isAllowDrag, setAllowDrag, isAllowModify, setAllowModify },
+    toggle: {
+      isAllowDrag,
+      setAllowDrag,
+      isAllowModify,
+      setAllowModify,
+      isAllowComplete,
+      setAllowComplete,
+    },
   } = useContext(TodoContext);
 
   const toggleDrag = function () {
@@ -13,6 +20,10 @@ const Toggle = function (prop) {
 
   const toggleModify = function () {
     setAllowModify((cur) => (cur ? false : true));
+  };
+
+  const toggleComplete = function () {
+    setAllowComplete((cur) => (cur ? false : true));
   };
 
   return (
@@ -29,6 +40,11 @@ const Toggle = function (prop) {
       <div className={prop.header__setting_toggles}>
         <ReactSwitch onChange={toggleModify} checked={isAllowModify} />
         <span>Modify Todo</span>
+      </div>
+
+      <div className={prop.header__setting_toggles}>
+        <ReactSwitch onChange={toggleComplete} checked={isAllowComplete} />
+        <span>Completed Todo</span>
       </div>
 
       <div className={prop.header__setting_toggles}>

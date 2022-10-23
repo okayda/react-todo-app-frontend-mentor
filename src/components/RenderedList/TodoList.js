@@ -7,7 +7,7 @@ import TodoItem from "./TodoItem/TodoItem";
 const TodoList = function (prop) {
   const {
     show: { showTask },
-    toggle: { isAllowModify },
+    toggle: { isAllowModify, isAllowComplete },
     todo: { todos, dispatch },
     replace: { showChange },
   } = useContext(TodoContext);
@@ -55,18 +55,29 @@ const TodoList = function (prop) {
   //  this function is only for task list
   const iconsFunctionality = function (className, id) {
     if (className === "move") return;
+    const targetClass = className.split(" ");
 
-    if (className.split(" ").includes("replace") && isAllowModify) {
+    if (targetClass.includes("replace") && isAllowModify) {
       showChange(id);
       return;
     }
 
-    if (className === "complete") {
+    if (
+      targetClass.includes("complete") &&
+      targetClass.includes("true") &&
+      isAllowComplete
+      /*
+      the purpose of includes true is to prevent the execution
+      of this if statement again. if the task is mark as completed
+      if there is no true className included will not be executed
+      */
+    ) {
+      console.log("lol");
       dynamicTodo("turn-completed", id);
       return;
     }
 
-    if (className === "remove") {
+    if (targetClass === "remove") {
       dynamicTodo("turn-deleted", id);
       return;
     }

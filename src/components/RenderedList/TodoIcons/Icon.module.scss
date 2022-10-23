@@ -18,6 +18,11 @@
     opacity: 0.2;
   }
 
+  .iconCompleted {
+    color: green;
+    background-color: $shade-green;
+  }
+
   li {
     padding: 0.3rem;
     border-radius: 3px;

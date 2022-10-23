@@ -17,7 +17,20 @@ const Icons = function (prop) {
       <li className={`replace ${!prop.isModify && style.iconDisabled}`}>
         <FaRegEdit />
       </li>
-      <li className="complete">
+
+      {/*
+        !prop.isSavedCompleted is the responsible for preventing the execution
+        again if the user click the completed icon again if it is already
+        mark as completed 
+        */}
+      <li
+        className={`complete ${
+          prop.isSavedCompleted
+            ? style.iconCompleted
+            : !prop.isComplete && style.iconDisabled
+        } 
+        ${!prop.isSavedCompleted}`}
+      >
         <FaRegCheckCircle />
       </li>
       <li className="remove">
