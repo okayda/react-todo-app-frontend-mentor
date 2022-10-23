@@ -1,9 +1,9 @@
 @import "../../scss/variables";
+@import "../../scss/mixins";
 
 .header {
+  @include widthCenter(380px, 0, 2rem);
   flex-grow: 1;
-  max-width: 380px;
-  padding: 0 2rem;
 
   // Global Selectors at Menu
   h3 {
@@ -36,9 +36,7 @@
   }
 
   &__nav {
-    display: flex;
-    flex-direction: column;
-    gap: 1.6rem;
+    @include flexColumnGap(1.6rem);
   }
   // =======================
 
@@ -107,12 +105,11 @@
     }
 
     &_content {
-      display: flex;
-      flex-direction: column;
+      @include flexColumnGap(1.8rem);
+
       max-height: 0;
       transition: all 0.4s;
       overflow: hidden;
-      gap: 1.8rem;
     }
 
     &_active {
@@ -121,9 +118,7 @@
     }
 
     &_toggles {
-      display: flex;
-      align-items: center;
-      gap: 1.4rem;
+      @include flexAlignGap(center, 1.4rem);
 
       input {
         border-radius: 3px;
@@ -153,9 +148,8 @@
     }
 
     &_content {
-      display: flex;
-      flex-direction: column;
-      gap: 1.8rem;
+      @include flexColumnGap(1.8rem);
+
       max-height: 0;
       transition: all 0.4s;
       overflow: hidden;
@@ -167,9 +161,7 @@
     }
 
     &_switches {
-      display: flex;
-      align-items: center;
-      gap: 1.4rem;
+      @include flexAlignGap(center, 1.4rem);
 
       span {
         font-size: 1.5rem;
@@ -177,9 +169,7 @@
     }
 
     &_radios {
-      display: flex;
-      align-items: center;
-      gap: 1.4rem;
+      @include flexAlignGap(center, 1.4rem);
 
       label {
         font-size: 1.5rem;

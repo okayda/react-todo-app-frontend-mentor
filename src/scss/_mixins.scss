@@ -1,0 +1,17 @@
+@mixin widthCenter($width, $pad-tb, $pad-lr) {
+  max-width: $width;
+  padding: $pad-tb $pad-lr;
+  margin: 0 auto;
+}
+
+@mixin flexColumnGap($gap) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+@mixin flexAlignGap($direction, $gap) {
+  display: flex;
+  align-items: $direction;
+  gap: $gap;
+}

@@ -1,9 +1,7 @@
 @import "../scss/variables";
-
+@import "../scss/mixins";
 .todo {
-  max-width: 380px;
-  padding: 4rem 2rem;
-  margin: 0 auto;
+  @include widthCenter(380px, 4rem, 1rem);
   height: 100%;
 
   // h2 & burger menu
@@ -73,13 +71,12 @@
 
     &_clear {
       border-radius: 6px;
-
       background-color: $very-light-gray;
     }
 
     &_dateContainer {
-      justify-content: flex-end;
       display: flex;
+      justify-content: flex-end;
       align-items: center;
     }
 
@@ -111,16 +108,12 @@
 
   // To-Do per list
   &__task {
-    display: flex;
-    flex-direction: column;
-    gap: 1.4rem;
+    @include flexColumnGap(1.4rem);
 
     list-style: none;
 
     &_list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
+      @include flexColumnGap(1.2rem);
 
       background-color: $very-light-gray;
       border-left: solid 4px $shade-purple;

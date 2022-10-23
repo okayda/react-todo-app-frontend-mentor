@@ -1,7 +1,8 @@
 .header {
-  flex-grow: 1;
   max-width: 380px;
   padding: 0 2rem;
+  margin: 0 auto;
+  flex-grow: 1;
 }
 .header h3 {
   font-size: 1.65rem;
@@ -84,10 +85,10 @@
 .header__setting_content {
   display: flex;
   flex-direction: column;
+  gap: 1.8rem;
   max-height: 0;
   transition: all 0.4s;
   overflow: hidden;
-  gap: 1.8rem;
 }
 .header__setting_active {
   padding: 2rem 1rem;
