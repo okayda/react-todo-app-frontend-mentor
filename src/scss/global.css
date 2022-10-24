@@ -11,9 +11,42 @@ html {
   font-size: 62.5%;
 }
 
+:root {
+  --slight-dark: #333;
+  --light: #fff;
+  --light-body: #f5f2eb;
+  --light-tint-purple: #f0f4fc;
+  --light-shade-purple: #e1e1fd;
+  --light-grayish-blue: hsl(234, 39%, 85%);
+  --light-very-shade-purple: #7676b5;
+  --light-tint-green: #f4fcf4;
+  --light-shade-green: #dcf4ec;
+  --light-very-shade-green: #488c75;
+  --light-tint-orange: #fff4ec;
+  --light-shade-orange: #ffdad0;
+  --light-very-shade-orange: #f86939;
+  --dark-shade-green: #08444c;
+  --dark-shade-blue: hsl(235, 21%, 11%);
+  --dark-desaturated-blue: hsl(235, 24%, 19%);
+  --dark-shade-grayish-blue: hsl(233, 14%, 35%);
+  --dark-grayish-blue: hsl(234, 11%, 52%);
+  --light-grayish-blue: hsl(234, 39%, 85%);
+}
+
+.dark {
+  --slight-dark: #333;
+  --light: #fff;
+  --light-body: hsl(235, 21%, 11%);
+  --light-tint-purple: hsl(235, 24%, 19%);
+  --light-tint-green: hsl(233, 14%, 35%);
+  --light-tint-orange: hsl(234, 11%, 52%);
+  --light-shade-orange: hsl(233, 14%, 35%);
+  --light-very-shade-orange: hsl(235, 21%, 11%);
+}
+
 body {
   height: 100vh;
-  background-color: #f5f2eb;
+  background-color: var(--light-body);
   box-sizing: border-box;
   font-family: "Josefin Sans", sans-serif;
 }

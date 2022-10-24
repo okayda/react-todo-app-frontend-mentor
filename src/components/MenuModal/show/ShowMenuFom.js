@@ -4,7 +4,6 @@ import { TodoContext } from "../../Methods/Context/TodoContext";
 const ShowMenuForm = function (prop) {
   const {
     show: { showTask, setShowTask, ALL_TODO, ACTIVE_TODO, COMPLETED_TODO },
-    menu: { hideMenu },
   } = useContext(TodoContext);
 
   const handleSelected = function (e) {

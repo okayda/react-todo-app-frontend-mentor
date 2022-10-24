@@ -9,7 +9,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
-  color: hsl(235deg, 21%, 11%);
+  color: var(--slight-dark);
 }
 .todo__title h2 {
   font-size: 3rem;
@@ -19,6 +19,7 @@
 .todo__title button {
   cursor: pointer;
   border: none;
+  color: inherit;
   background-color: transparent;
   height: 4rem;
 }
@@ -34,8 +35,8 @@
   height: 100px;
   padding: 1.4rem;
   border-radius: 6px;
-  border: 2px solid #08444c;
-  color: hsl(235deg, 21%, 11%);
+  border: 2px solid var(--dark-shade-green);
+  color: var(--slight-dark);
   font-size: 1.6rem;
   background-color: transparent;
   margin-bottom: 1rem;
@@ -53,12 +54,12 @@
 }
 .todo__form_add {
   border-radius: 6px;
-  background-color: #7676b5;
-  color: #fff;
+  background-color: var(--light-very-shade-purple);
+  color: var(--light);
 }
 .todo__form_clear {
   border-radius: 6px;
-  background-color: #fff;
+  background-color: var(--light);
 }
 .todo__form_dateContainer {
   display: flex;
@@ -68,13 +69,13 @@
 .todo__form_dateInput {
   border-radius: 6px 0 0 6px;
   width: 65%;
-  background-color: #f4fcf4;
+  background-color: var(--light-tint-green);
   padding: 1rem;
-  color: hsl(235deg, 21%, 11%);
+  color: var(--slight-dark);
 }
 .todo__form_clearDate {
   border: 0 6px 6px 0;
-  background-color: #dcf4ec;
+  background-color: var(--light-shade-green);
   padding: 1rem;
   line-height: 0;
 }
@@ -96,10 +97,10 @@
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  background-color: #fff;
-  border-left: solid 4px #7676b5;
+  background-color: var(--light);
+  border-left: solid 4px var(--light-very-shade-purple);
   border-radius: 0 6px 6px 0;
-  color: hsl(235deg, 21%, 11%);
+  color: var(--slight-dark);
   padding: 0.6rem 0 1.4rem;
 }
 .todo__task_list p {
@@ -110,10 +111,10 @@
 }
 .todo__task_read {
   font-weight: bold;
-  color: #7676b5;
+  color: var(--light-very-shade-purple);
 }
 .todo__task_date {
-  color: hsl(234deg, 39%, 85%);
+  color: var(--light-grayish-blue);
   padding-left: 1rem;
   font-size: 1.2rem;
 }
@@ -129,7 +130,7 @@
 .todo__background_date {
   font-family: sans-serif;
   font-size: 3.2rem;
-  color: #08444c;
+  color: var(--dark-shade-green);
 }
 .todo__guide {
   position: absolute;
@@ -138,7 +139,7 @@
   bottom: 2rem;
 }
 .todo__guide_text {
-  color: hsl(234deg, 11%, 52%);
+  color: var(--dark-grayish-blue);
   font-weight: 700;
   font-size: 1.4rem;
 }

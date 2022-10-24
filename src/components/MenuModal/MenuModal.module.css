@@ -14,14 +14,14 @@
 }
 .header .icon {
   transition: all 0.4s;
-  color: #08444c;
+  color: var(--dark-shade-green);
   font-size: 1.5rem;
 }
 .header .icon_active {
   transform: rotate(90deg);
 }
 .header__box {
-  background-color: #fff;
+  background-color: var(--light);
   padding: 0.8rem;
   border-radius: 6px;
 }
@@ -34,7 +34,7 @@
   padding-bottom: 1.6rem;
   padding: 0.8rem;
   border-radius: 6px;
-  background-color: #f0f4fc;
+  background-color: var(--light-tint-purple);
 }
 .header__show_title {
   display: flex;
@@ -43,7 +43,7 @@
   margin-bottom: 2.4rem;
 }
 .header__show_title button {
-  color: #08444c;
+  color: var(--dark-shade-green);
   font-size: 2.4rem;
   height: 2.4rem;
 }
@@ -57,22 +57,22 @@
 }
 .header__show_form input[type=radio]:checked + label {
   font-weight: bold;
-  border-color: #7676b5;
-  background-color: #e1e1fd;
+  border-color: var(--light-very-shade-purple);
+  background-color: var(--light-shade-purple);
 }
 .header__show_form label {
   cursor: pointer;
   display: block;
   text-align: center;
-  border: 1px solid #08444c;
-  color: #08444c;
+  border: 1px solid var(--dark-shade-green);
+  color: var(--dark-shade-green);
   border-radius: 6px;
   padding: 0.8rem 0;
   font-size: 1.45rem;
   transition: all 0.3s;
 }
 .header__setting {
-  background-color: #f4fcf4;
+  background-color: var(--light-tint-green);
   border-radius: 6px;
 }
 .header__setting_button {
@@ -109,7 +109,7 @@
   font-size: 1.5rem;
 }
 .header__delete {
-  background-color: #fff4ec;
+  background-color: var(--light-tint-orange);
   border-radius: 6px;
 }
 .header__delete_button {
@@ -159,8 +159,8 @@
   font-size: 1.45rem;
   font-weight: bold;
   border-radius: 6px;
-  background-color: #ffdad0;
-  border: 1px solid #f86939;
+  background-color: var(--light-shade-orange);
+  border: 1px solid var(--light-very-shade-orange);
   padding: 0.8rem 0;
   width: 100%;
 }

@@ -1,5 +1,5 @@
-@import "../scss/variables";
 @import "../scss/mixins";
+
 .todo {
   @include widthCenter(380px, 4rem, 1rem);
   height: 100%;
@@ -10,7 +10,8 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
-    color: $very-dark-blue;
+
+    color: var(--slight-dark);
 
     h2 {
       font-size: 3rem;
@@ -21,6 +22,7 @@
     button {
       cursor: pointer;
       border: none;
+      color: inherit;
       background-color: transparent;
       height: 4rem;
 
@@ -40,8 +42,8 @@
       height: 100px;
       padding: 1.4rem;
       border-radius: 6px;
-      border: 2px solid $dark-green;
-      color: $very-dark-blue;
+      border: 2px solid var(--dark-shade-green);
+      color: var(--slight-dark);
       font-size: 1.6rem;
       background-color: transparent;
       margin-bottom: 1rem;
@@ -65,13 +67,13 @@
 
     &_add {
       border-radius: 6px;
-      background-color: $shade-purple;
-      color: $very-light-gray;
+      background-color: var(--light-very-shade-purple);
+      color: var(--light);
     }
 
     &_clear {
       border-radius: 6px;
-      background-color: $very-light-gray;
+      background-color: var(--light);
     }
 
     &_dateContainer {
@@ -83,14 +85,14 @@
     &_dateInput {
       border-radius: 6px 0 0 6px;
       width: 65%;
-      background-color: $tint-green;
+      background-color: var(--light-tint-green);
       padding: 1rem;
-      color: $very-dark-blue;
+      color: var(--slight-dark);
     }
 
     &_clearDate {
       border: 0 6px 6px 0;
-      background-color: $shade-green;
+      background-color: var(--light-shade-green);
       padding: 1rem;
       line-height: 0;
     }
@@ -115,10 +117,10 @@
     &_list {
       @include flexColumnGap(1.2rem);
 
-      background-color: $very-light-gray;
-      border-left: solid 4px $shade-purple;
+      background-color: var(--light);
+      border-left: solid 4px var(--light-very-shade-purple);
       border-radius: 0 6px 6px 0;
-      color: $very-dark-blue;
+      color: var(--slight-dark);
       padding: 0.6rem 0 1.4rem;
 
       p {
@@ -131,11 +133,11 @@
 
     &_read {
       font-weight: bold;
-      color: $shade-purple;
+      color: var(--light-very-shade-purple);
     }
 
     &_date {
-      color: $light-grayish-blue;
+      color: var(--light-grayish-blue);
       padding-left: 1rem;
       font-size: 1.2rem;
     }
@@ -155,7 +157,7 @@
     &_date {
       font-family: sans-serif;
       font-size: 3.2rem;
-      color: #08444c;
+      color: var(--dark-shade-green);
     }
   }
 
@@ -166,7 +168,7 @@
     transform: translateX(-50%);
     bottom: 2rem;
     &_text {
-      color: $dark-grayish-blue;
+      color: var(--dark-grayish-blue);
       font-weight: 700;
       font-size: 1.4rem;
     }

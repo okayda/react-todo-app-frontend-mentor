@@ -12,7 +12,7 @@
   width: 100%;
   border-radius: 6px;
   padding: 2rem 0.8rem;
-  background-color: #f4fcf4;
+  background-color: var(--light-tint-green);
 }
 .change__title {
   display: flex;
@@ -28,10 +28,10 @@
   font-size: 2.4rem;
 }
 .change__button {
-  color: hsl(235deg, 21%, 11%);
+  color: var(--slight-dark);
   font-weight: bold;
-  background-color: #dcf4ec;
-  border: 1px solid #488c75;
+  background-color: var(--light-shade-green);
+  border: 1px solid var(--light-very-shade-green);
   border-radius: 6px;
   padding: 0.6rem 1.2rem;
 }
@@ -41,7 +41,7 @@
   gap: 1rem;
 }
 .change__form textarea {
-  border: 1px solid #488c75;
+  border: 1px solid var(--light-very-shade-green);
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 6px;
   padding: 1rem;
@@ -60,19 +60,19 @@
   display: flex;
 }
 .change__form_date input {
-  background-color: #dcf4ec;
+  background-color: var(--light-shade-green);
   border-radius: 6px 0 0 6px;
   width: 45%;
-  border: 1px solid #08444c;
+  border: 1px solid var(--dark-shade-green);
 }
 .change__form_date input:focus {
   outline: none;
 }
 .change__form_date button {
-  color: #fff;
+  color: var(--light);
   border-radius: 0 6px 6px 0;
   border: none;
-  background-color: #488c75;
+  background-color: var(--light-very-shade-green);
   line-height: 0;
   padding: 0.4rem 0.6rem;
 }

@@ -1,22 +1,22 @@
 .icons {
   display: flex;
   justify-content: space-around;
-  border-bottom: dotted #08444c 3px;
+  border-bottom: dotted var(--dark-shade-green) 3px;
   padding-bottom: 0.6rem;
   list-style: none;
-  color: #08444c;
+  color: var(--dark-shade-green);
   cursor: pointer;
   background-color: transparent;
   line-height: 0;
   font-size: 1.8rem;
 }
 .icons .iconDisabled {
-  color: hsl(234deg, 11%, 52%);
+  color: var(--dark-grayish-blue);
   opacity: 0.2;
 }
 .icons .iconCompleted {
-  color: green;
-  background-color: #dcf4ec;
+  color: var(--light-very-shade-green);
+  background-color: var(--light-shade-green);
 }
 .icons li {
   padding: 0.3rem;

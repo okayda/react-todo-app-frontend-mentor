@@ -1,26 +1,24 @@
-@import "../../../scss/variables";
-
 .icons {
   display: flex;
   justify-content: space-around;
-  border-bottom: dotted $dark-green 3px;
+  border-bottom: dotted var(--dark-shade-green) 3px;
   padding-bottom: 0.6rem;
   list-style: none;
 
-  color: $dark-green;
+  color: var(--dark-shade-green);
   cursor: pointer;
   background-color: transparent;
   line-height: 0;
   font-size: 1.8rem;
 
   .iconDisabled {
-    color: $dark-grayish-blue;
+    color: var(--dark-grayish-blue);
     opacity: 0.2;
   }
 
   .iconCompleted {
-    color: green;
-    background-color: $shade-green;
+    color: var(--light-very-shade-green);
+    background-color: var(--light-shade-green);
   }
 
   li {
