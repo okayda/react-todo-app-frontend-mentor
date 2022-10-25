@@ -1,42 +1,106 @@
 import { useContext } from "react";
 import { TodoContext } from "../../Methods/Context/TodoContext";
+import toast, { Toast, Toaster } from "react-hot-toast";
 import ReactSwitch from "react-switch";
 
 const Delete = function (prop) {
   const {
-    delete: { isAllowDelete, setAllowDelete },
+    todo: { dispatch },
+    delete: {
+      isAllowDelete,
+      setAllowDelete,
+      selectedDelete,
+      setSelectedDelete,
+    },
   } = useContext(TodoContext);
+
+  const notify = function () {
+    let str;
+    if (selectedDelete === "delete-active") str = "Active";
+
+    if (selectedDelete === "delete-completed") str = "Completed";
+
+    toast.success(`${str} todos Successfully deleted`, { duration: 2500 });
+  };
 
   const toggleDelete = function () {
     setAllowDelete((cur) => (cur ? false : true));
   };
 
+  const chooseDelete = function (e) {
+    setSelectedDelete(e.target.value);
+  };
+
+  const clickedDelete = function () {
+    if (selectedDelete === "delete-active") {
+      dispatch({ type: "delete-active" });
+    }
+
+    if (selectedDelete === "delete-completed") {
+      dispatch({ type: "delete-completed" });
+    }
+
+    setSelectedDelete(null);
+    notify();
+  };
+
   return (
-    <div
-      className={`${prop.header__delete_content} ${
-        prop.deleteIsActive && prop.header__delete_active
-      }`}
-    >
-      <div className={prop.header__delete_switches}>
-        <ReactSwitch onChange={toggleDelete} checked={isAllowDelete} />
-        <span>Show Delete Todo</span>
-      </div>
+    <>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        toastOptions={{
+          style: {
+            fontWeight: "bold",
+            fontSize: "15px",
+          },
+        }}
+        containerStyle={{
+          top: -70,
+        }}
+      />
 
-      <div className={prop.header__delete_radios}>
-        <label htmlFor="activeDelete">Active</label>
-        <input type="radio" name="delete" id="activeDelete" />
-      </div>
+      <div
+        className={`${prop.header__delete_content} ${
+          prop.deleteIsActive && prop.header__delete_active
+        }`}
+      >
+        <div className={prop.header__delete_switches}>
+          <ReactSwitch onChange={toggleDelete} checked={isAllowDelete} />
+          <span>Show Delete Todo</span>
+        </div>
 
-      <div className={prop.header__delete_radios}>
-        <label htmlFor="completedDelete">Completed</label>
-        <input type="radio" name="delete" id="completedDelete" />
-      </div>
+        <div className={prop.header__delete_radios}>
+          <label htmlFor="activeDelete">Active</label>
+          <input
+            type="radio"
+            name="delete"
+            id="activeDelete"
+            value="delete-active"
+            onChange={chooseDelete}
+            checked={selectedDelete === "delete-active"}
+          />
+        </div>
 
-      <div className={prop.header__delete_buttons}>
-        <button>Delete</button>
-        <button>Clear All</button>
+        <div className={prop.header__delete_radios}>
+          <label htmlFor="completedDelete">Completed</label>
+          <input
+            type="radio"
+            name="delete"
+            id="completedDelete"
+            value="delete-completed"
+            onChange={chooseDelete}
+            checked={selectedDelete === "delete-completed"}
+          />
+        </div>
+        <div className={prop.header__delete_buttons}>
+          <button disabled={!selectedDelete} onClick={clickedDelete}>
+            Delete
+          </button>
+          <button>Clear All</button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

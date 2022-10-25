@@ -48,10 +48,6 @@ const Toggle = function (prop) {
       </div>
 
       <div className={prop.header__setting_toggles}>
-        <ReactSwitch /> <span>Theme</span>
-      </div>
-
-      <div className={prop.header__setting_toggles}>
         <input type="number" /> <span>Todos Shown</span>
       </div>
     </div>

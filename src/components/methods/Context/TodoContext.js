@@ -19,15 +19,16 @@ const reducer = function (state, action) {
     ];
   }
 
-  if (action.type === "turn-completed") {
-    return state.map((todo) => {
-      if (action.payload.id === todo.id) todo.isCompleted = true;
-      return todo;
-    });
-  }
-
   if (action.type === "turn-deleted") {
     return state.filter((todo) => todo.id !== action.payload.id);
+  }
+
+  if (action.type === "delete-active") {
+    return state.filter((todo) => todo.isCompleted !== false);
+  }
+
+  if (action.type === "delete-completed") {
+    return state.filter((todo) => todo.isCompleted !== true);
   }
 
   if (action.type === "replace-text") {
@@ -36,6 +37,13 @@ const reducer = function (state, action) {
         todo.text = action.payload.text;
         todo.date = action.payload.date;
       }
+      return todo;
+    });
+  }
+
+  if (action.type === "turn-completed") {
+    return state.map((todo) => {
+      if (action.payload.id === todo.id) todo.isCompleted = true;
       return todo;
     });
   }
@@ -79,12 +87,12 @@ export const TodoProvider = function (prop) {
   const [isAllowDrag, setAllowDrag] = useState(true);
   const [isAllowModify, setAllowModify] = useState(true);
   const [isAllowComplete, setAllowComplete] = useState(true);
-  const isDarkTheme = false;
   const limiTodoShow = 6;
   // <================>
 
   // delete state menu
   const [isAllowDelete, setAllowDelete] = useState(true);
+  const [selectedDelete, setSelectedDelete] = useState(null);
   // <================>
 
   // Replace modal state
@@ -130,6 +138,10 @@ export const TodoProvider = function (prop) {
 
   const hideMenu = function () {
     setActiveMenu(false);
+
+    // if the MenuModal closed will be unchecked the radio buttons
+    // in the delete setting & disabled the delete button
+    setSelectedDelete(null);
   };
 
   const showChange = function (id) {
@@ -163,14 +175,14 @@ export const TodoProvider = function (prop) {
 
           isAllowComplete,
           setAllowComplete,
-
-          isDarkTheme,
-          limiTodoShow,
         },
 
         delete: {
           isAllowDelete,
           setAllowDelete,
+
+          selectedDelete,
+          setSelectedDelete,
         },
 
         todo: { todos, dispatch },

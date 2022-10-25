@@ -18,9 +18,10 @@ html {
 
   --light-body: #f5f2eb;
 
+  --light-grayish-blue: hsl(234, 39%, 85%);
+
   --light-tint-purple: #f0f4fc;
   --light-shade-purple: #e1e1fd;
-  --light-grayish-blue: hsl(234, 39%, 85%);
   --light-very-shade-purple: #7676b5;
 
   --light-tint-green: #f4fcf4;
@@ -32,31 +33,7 @@ html {
   --light-very-shade-orange: #f86939;
 
   --dark-shade-green: #08444c;
-  --dark-shade-blue: hsl(235, 21%, 11%);
-  --dark-desaturated-blue: hsl(235, 24%, 19%);
-  --dark-shade-grayish-blue: hsl(233, 14%, 35%);
   --dark-grayish-blue: hsl(234, 11%, 52%);
-  --light-grayish-blue: hsl(234, 39%, 85%);
-}
-
-.dark {
-  // text
-  --slight-dark: #333;
-  --light: #fff;
-
-  // body
-  --light-body: hsl(235, 21%, 11%);
-
-  //show menu in the modal
-  --light-tint-purple: hsl(235, 24%, 19%);
-
-  // show toggles in the modal
-  --light-tint-green: hsl(233, 14%, 35%);
-
-  // show delete in the modal
-  --light-tint-orange: hsl(234, 11%, 52%);
-  --light-shade-orange: hsl(233, 14%, 35%);
-  --light-very-shade-orange: hsl(235, 21%, 11%);
 }
 
 body {

@@ -47,6 +47,10 @@
       font-size: 1.6rem;
       background-color: transparent;
       margin-bottom: 1rem;
+
+      &:focus {
+        outline: none;
+      }
     }
 
     &_buttons {
@@ -111,8 +115,11 @@
   // To-Do per list
   &__task {
     @include flexColumnGap(1.4rem);
-
     list-style: none;
+    padding-right: 1rem;
+    transition: border-width 0.6s linear;
+
+    border-right: 1.2rem solid var(--light-very-shade-purple);
 
     &_list {
       @include flexColumnGap(1.2rem);
