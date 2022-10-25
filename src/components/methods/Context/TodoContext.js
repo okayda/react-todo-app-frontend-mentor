@@ -23,6 +23,10 @@ const reducer = function (state, action) {
     return state.filter((todo) => todo.id !== action.payload.id);
   }
 
+  if (action.type === "delete-all") {
+    return (state = []);
+  }
+
   if (action.type === "delete-active") {
     return state.filter((todo) => todo.isCompleted !== false);
   }

@@ -14,13 +14,17 @@ const Delete = function (prop) {
     },
   } = useContext(TodoContext);
 
-  const notify = function () {
+  const notifySelectedDelete = function () {
     let str;
     if (selectedDelete === "delete-active") str = "Active";
 
     if (selectedDelete === "delete-completed") str = "Completed";
 
     toast.success(`${str} todos Successfully deleted`, { duration: 2500 });
+  };
+
+  const notifyClearTodos = function () {
+    toast.success("todos storage successfully deleted", { duration: 2500 });
   };
 
   const toggleDelete = function () {
@@ -31,7 +35,7 @@ const Delete = function (prop) {
     setSelectedDelete(e.target.value);
   };
 
-  const clickedDelete = function () {
+  const clickedDeleteSelected = function () {
     if (selectedDelete === "delete-active") {
       dispatch({ type: "delete-active" });
     }
@@ -41,7 +45,12 @@ const Delete = function (prop) {
     }
 
     setSelectedDelete(null);
-    notify();
+    notifySelectedDelete();
+  };
+
+  const clickedClearTodos = function () {
+    dispatch({ type: "delete-all" });
+    notifyClearTodos();
   };
 
   return (
@@ -94,10 +103,10 @@ const Delete = function (prop) {
           />
         </div>
         <div className={prop.header__delete_buttons}>
-          <button disabled={!selectedDelete} onClick={clickedDelete}>
+          <button disabled={!selectedDelete} onClick={clickedDeleteSelected}>
             Delete
           </button>
-          <button>Clear All</button>
+          <button onClick={clickedClearTodos}>Clear All</button>
         </div>
       </div>
     </>
