@@ -6,9 +6,11 @@ import ReactSwitch from "react-switch";
 const Delete = function (prop) {
   const {
     todo: { dispatch },
+    setting: { setSettings },
     delete: {
-      isAllowDelete,
-      setAllowDelete,
+      enableDelete,
+      setEnableDelete,
+
       selectedDelete,
       setSelectedDelete,
     },
@@ -28,7 +30,12 @@ const Delete = function (prop) {
   };
 
   const toggleDelete = function () {
-    setAllowDelete((cur) => (cur ? false : true));
+    setEnableDelete((cur) => (cur ? false : true));
+
+    setSettings((cur) => ({
+      ...cur,
+      allowDelete: cur.allowDelete ? false : true,
+    }));
   };
 
   const chooseDelete = function (e) {
@@ -75,7 +82,7 @@ const Delete = function (prop) {
         }`}
       >
         <div className={prop.header__delete_switches}>
-          <ReactSwitch onChange={toggleDelete} checked={isAllowDelete} />
+          <ReactSwitch onChange={toggleDelete} checked={enableDelete} />
           <span>Show Delete Todo</span>
         </div>
 

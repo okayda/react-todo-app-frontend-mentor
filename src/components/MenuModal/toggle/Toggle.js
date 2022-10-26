@@ -4,26 +4,41 @@ import ReactSwitch from "react-switch";
 
 const Toggle = function (prop) {
   const {
+    setting: { setSettings },
     toggle: {
-      isAllowDrag,
-      setAllowDrag,
-      isAllowModify,
-      setAllowModify,
-      isAllowComplete,
-      setAllowComplete,
+      enableDrag,
+      setEnableDrag,
+
+      enableModify,
+      setEnableModify,
+
+      enableComplete,
+      setEnableComplete,
     },
   } = useContext(TodoContext);
 
   const toggleDrag = function () {
-    setAllowDrag((cur) => (cur ? false : true));
+    setEnableDrag((cur) => (cur ? false : true));
+
+    setSettings((cur) => ({ ...cur, allowDrag: cur.allowDrag ? false : true }));
   };
 
   const toggleModify = function () {
-    setAllowModify((cur) => (cur ? false : true));
+    setEnableModify((cur) => (cur ? false : true));
+
+    setSettings((cur) => ({
+      ...cur,
+      allowModify: cur.allowModify ? false : true,
+    }));
   };
 
   const toggleComplete = function () {
-    setAllowComplete((cur) => (cur ? false : true));
+    setEnableComplete((cur) => (cur ? false : true));
+
+    setSettings((cur) => ({
+      ...cur,
+      allowComplete: cur.allowComplete ? false : true,
+    }));
   };
 
   return (
@@ -33,22 +48,18 @@ const Toggle = function (prop) {
       }`}
     >
       <div className={prop.header__setting_toggles}>
-        <ReactSwitch onChange={toggleDrag} checked={isAllowDrag} />
+        <ReactSwitch onChange={toggleDrag} checked={enableDrag} />
         <span>Drag & Drop</span>
       </div>
 
       <div className={prop.header__setting_toggles}>
-        <ReactSwitch onChange={toggleModify} checked={isAllowModify} />
+        <ReactSwitch onChange={toggleModify} checked={enableModify} />
         <span>Modify Todo</span>
       </div>
 
       <div className={prop.header__setting_toggles}>
-        <ReactSwitch onChange={toggleComplete} checked={isAllowComplete} />
+        <ReactSwitch onChange={toggleComplete} checked={enableComplete} />
         <span>Completed Todo</span>
-      </div>
-
-      <div className={prop.header__setting_toggles}>
-        <input type="number" /> <span>Todos Shown</span>
       </div>
     </div>
   );

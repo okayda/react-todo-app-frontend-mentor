@@ -11,8 +11,8 @@ const charactersLimit = 100;
 
 const TodoItem = function (prop) {
   const {
-    toggle: { isAllowDrag, isAllowModify, isAllowComplete },
-    delete: { isAllowDelete },
+    toggle: { enableDrag, enableModify, enableComplete },
+    delete: { enableDelete },
   } = useContext(TodoContext);
 
   const y = useMotionValue(0);
@@ -21,7 +21,7 @@ const TodoItem = function (prop) {
   return (
     <Reorder.Item
       style={{ boxShadow, y }}
-      dragListener={isAllowDrag}
+      dragListener={enableDrag}
       value={prop.todo}
       data-id={prop.todo.id}
       className={prop.todo__task_list}
@@ -31,11 +31,11 @@ const TodoItem = function (prop) {
       exit="exit"
     >
       <Icons
-        isDrag={isAllowDrag}
-        isModify={isAllowModify}
+        isDrag={enableDrag}
+        isModify={enableModify}
         isSavedCompleted={prop.todo.isCompleted}
-        isComplete={isAllowComplete}
-        isDelete={isAllowDelete}
+        isComplete={enableComplete}
+        isDelete={enableDelete}
       />
 
       <p>

@@ -57,22 +57,40 @@ const reducer = function (state, action) {
   }
 };
 
-const getLocalStorage = function () {
+const getTodosLocalStorage = function () {
   const getTodos = localStorage.getItem("todos");
   if (getTodos) return JSON.parse(getTodos);
   return [];
 };
 
+const getSettingLocalStorage = function () {
+  const getSettings = localStorage.getItem("settings");
+  if (getSettings) return JSON.parse(getSettings);
+
+  return {
+    allowDrag: true,
+    allowModify: true,
+    allowComplete: true,
+    allowDelete: true,
+  };
+};
+
 export const TodoContext = createContext();
 
 export const TodoProvider = function (prop) {
-  const [todos, dispatch] = useReducer(reducer, getLocalStorage());
+  const [settings, setSettings] = useState(getSettingLocalStorage());
+  const [todos, dispatch] = useReducer(reducer, getTodosLocalStorage());
 
   // save todos and update at localStorage
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
   // <================>
+
+  useEffect(() => {
+    localStorage.setItem("settings", JSON.stringify(settings));
+    console.log(settings);
+  }, [settings]);
 
   // modal state
   const [activeMenu, setActiveMenu] = useState(false);
@@ -88,14 +106,13 @@ export const TodoProvider = function (prop) {
   // <================>
 
   // toggle state menu
-  const [isAllowDrag, setAllowDrag] = useState(true);
-  const [isAllowModify, setAllowModify] = useState(true);
-  const [isAllowComplete, setAllowComplete] = useState(true);
-  const limiTodoShow = 6;
+  const [enableDrag, setEnableDrag] = useState(settings.allowDrag);
+  const [enableModify, setEnableModify] = useState(settings.allowModify);
+  const [enableComplete, setEnableComplete] = useState(settings.allowComplete);
   // <================>
 
   // delete state menu
-  const [isAllowDelete, setAllowDelete] = useState(true);
+  const [enableDelete, setEnableDelete] = useState(settings.allowDelete);
   const [selectedDelete, setSelectedDelete] = useState(null);
   // <================>
 
@@ -170,20 +187,24 @@ export const TodoProvider = function (prop) {
           COMPLETED_TODO,
         },
 
+        setting: {
+          setSettings,
+        },
+
         toggle: {
-          isAllowDrag,
-          setAllowDrag,
+          enableDrag,
+          setEnableDrag,
 
-          isAllowModify,
-          setAllowModify,
+          enableModify,
+          setEnableModify,
 
-          isAllowComplete,
-          setAllowComplete,
+          enableComplete,
+          setEnableComplete,
         },
 
         delete: {
-          isAllowDelete,
-          setAllowDelete,
+          enableDelete,
+          setEnableDelete,
 
           selectedDelete,
           setSelectedDelete,

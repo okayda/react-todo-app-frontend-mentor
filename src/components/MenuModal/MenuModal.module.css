@@ -99,12 +99,6 @@
   align-items: center;
   gap: 1.4rem;
 }
-.header__setting_toggles input {
-  border-radius: 3px;
-  width: 25%;
-  padding: 0.4rem;
-  font-size: 1.4rem;
-}
 .header__setting_toggles span {
   font-size: 1.5rem;
 }

@@ -118,13 +118,6 @@
     &_toggles {
       @include flexAlignGap(center, 1.4rem);
 
-      input {
-        border-radius: 3px;
-        width: 25%;
-        padding: 0.4rem;
-        font-size: 1.4rem;
-      }
-
       span {
         font-size: 1.5rem;
       }

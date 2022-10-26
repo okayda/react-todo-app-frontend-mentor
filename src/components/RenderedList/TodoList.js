@@ -7,8 +7,8 @@ import TodoItem from "./TodoItem/TodoItem";
 const TodoList = function (prop) {
   const {
     show: { showTask },
-    toggle: { isAllowModify, isAllowComplete },
-    delete: { isAllowDelete },
+    toggle: { enableModify, enableComplete },
+    delete: { enableDelete },
     todo: { todos, dispatch },
     replace: { showChange },
   } = useContext(TodoContext);
@@ -55,10 +55,12 @@ const TodoList = function (prop) {
 
   //  this function is only for task list
   const iconsFunctionality = function (className, id) {
+    // for dragging the dragListener are responsible for drag
     if (className === "move") return;
+
     const targetClass = className.split(" ");
 
-    if (targetClass.includes("replace") && isAllowModify) {
+    if (targetClass.includes("replace") && enableModify) {
       showChange(id);
       return;
     }
@@ -66,7 +68,7 @@ const TodoList = function (prop) {
     if (
       targetClass.includes("complete") &&
       targetClass.includes("true") &&
-      isAllowComplete
+      enableComplete
       /*
       the purpose of includes true is to prevent the execution
       of this if statement again. if the task is mark as completed
@@ -77,7 +79,7 @@ const TodoList = function (prop) {
       return;
     }
 
-    if (targetClass.includes("remove") && isAllowDelete) {
+    if (targetClass.includes("remove") && enableDelete) {
       dynamicTodo("turn-deleted", id);
       return;
     }
