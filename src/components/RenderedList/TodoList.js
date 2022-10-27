@@ -80,7 +80,7 @@ const TodoList = function (prop) {
     }
 
     if (targetClass.includes("remove") && enableDelete) {
-      dynamicTodo("turn-deleted", id);
+      dynamicTodo("delete-todo", id);
       return;
     }
   };

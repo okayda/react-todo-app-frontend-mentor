@@ -19,12 +19,12 @@ const reducer = function (state, action) {
     ];
   }
 
-  if (action.type === "turn-deleted") {
-    return state.filter((todo) => todo.id !== action.payload.id);
-  }
-
   if (action.type === "delete-all") {
     return (state = []);
+  }
+
+  if (action.type === "delete-todo") {
+    return state.filter((todo) => todo.id !== action.payload.id);
   }
 
   if (action.type === "delete-active") {
@@ -79,6 +79,7 @@ export const TodoContext = createContext();
 
 export const TodoProvider = function (prop) {
   const [settings, setSettings] = useState(getSettingLocalStorage());
+
   const [todos, dispatch] = useReducer(reducer, getTodosLocalStorage());
 
   // save todos and update at localStorage
@@ -87,10 +88,11 @@ export const TodoProvider = function (prop) {
   }, [todos]);
   // <================>
 
+  // save settings and update at localStorage
   useEffect(() => {
     localStorage.setItem("settings", JSON.stringify(settings));
-    console.log(settings);
   }, [settings]);
+  // <================>
 
   // modal state
   const [activeMenu, setActiveMenu] = useState(false);
@@ -102,7 +104,6 @@ export const TodoProvider = function (prop) {
   const ACTIVE_TODO = "active-todo";
   const COMPLETED_TODO = "completed-todo";
   const [showTask, setShowTask] = useState(ALL_TODO);
-
   // <================>
 
   // toggle state menu

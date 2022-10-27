@@ -4,13 +4,16 @@
   @include widthCenter(380px, 4rem, 1rem);
   height: 100%;
 
+  @media (min-width: 700px) {
+    max-width: 700px;
+  }
+
   // h2 & burger menu
   &__title {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
-
     color: var(--slight-dark);
 
     h2 {
@@ -19,7 +22,7 @@
       letter-spacing: 6px;
     }
 
-    button {
+    &_menu {
       cursor: pointer;
       border: none;
       color: inherit;
@@ -28,6 +31,14 @@
 
       svg {
         font-size: 4rem;
+      }
+    }
+
+    @media (min-width: 700px) {
+      max-width: 380px;
+
+      &_menu {
+        display: none;
       }
     }
   }
@@ -110,6 +121,10 @@
         width: 100%;
       }
     }
+
+    @media (min-width: 700px) {
+      max-width: 320px;
+    }
   }
 
   // To-Do per list
@@ -118,7 +133,6 @@
     list-style: none;
     padding-right: 1rem;
     transition: border-width 0.6s linear;
-
     border-right: 1.2rem solid var(--light-very-shade-purple);
 
     &_list {
@@ -147,6 +161,12 @@
       color: var(--light-grayish-blue);
       padding-left: 1rem;
       font-size: 1.2rem;
+    }
+
+    @media (min-width: 700px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-right: none;
     }
   }
 

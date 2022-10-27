@@ -1,0 +1,10 @@
+.wideNav {
+  display: flex;
+  list-style: none;
+  gap: 2.4rem;
+}
+.wideNav button {
+  font-size: 1.55rem;
+  background-color: none;
+  border: none;
+}
