@@ -43,3 +43,18 @@ export const taskAnimation = {
     },
   },
 };
+
+export const specificMenuAnimation = {
+  hidden: {
+    x: "40vh",
+    opacity: 0,
+  },
+
+  visible: {
+    x: "0",
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+    },
+  },
+};

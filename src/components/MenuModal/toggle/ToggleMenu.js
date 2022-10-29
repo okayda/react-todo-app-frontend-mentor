@@ -1,11 +1,18 @@
+import { motion } from "framer-motion";
 import Toggle from "./Toggle";
 import { FaArrowRight } from "react-icons/fa";
 
+import { specificMenuAnimation } from "../../Animation/Animation";
 import style from "./Toggle.module.css";
 
 const ToggleMenu = function (prop) {
   return (
-    <div className={style.setting}>
+    <motion.div
+      className={style.setting}
+      variants={specificMenuAnimation}
+      initial={"hidden"}
+      animate="visible"
+    >
       <button className={style.setting__button} onClick={prop.onClick}>
         <h3>U.I Toggles Settings</h3>
         <FaArrowRight
@@ -16,7 +23,7 @@ const ToggleMenu = function (prop) {
       </button>
 
       <Toggle toggleIsActive={prop.toggleIsActive} />
-    </div>
+    </motion.div>
   );
 };
 

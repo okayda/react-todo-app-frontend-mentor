@@ -24,11 +24,14 @@ const Todo = function () {
       {/* Logo title & Burger menu */}
       <Nav />
 
-      <div className={style.todo__fromSetting}>
+      <div className={style.todo__formMenu}>
         <TodoForm />
-        {activeNav === "show" ? <ShowMenu /> : null}
-        {activeNav === "setting" ? <ToggleMenu /> : null}
-        {activeNav === "delete" ? <DeleteMenu /> : null}
+
+        <AnimatePresence>
+          {activeNav === "show" ? <ShowMenu /> : null}
+          {activeNav === "setting" ? <ToggleMenu /> : null}
+          {activeNav === "delete" ? <DeleteMenu /> : null}
+        </AnimatePresence>
       </div>
 
       {/* Rendered Todo List */}

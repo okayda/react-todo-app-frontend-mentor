@@ -1,11 +1,18 @@
+import { motion } from "framer-motion";
 import Delete from "./Delete";
 import { FaArrowRight } from "react-icons/fa";
 
+import { specificMenuAnimation } from "../../Animation/Animation";
 import style from "./DeleteMenu.module.css";
 
 const DeleteMenu = function (prop) {
   return (
-    <div className={style.delete}>
+    <motion.div
+      className={style.delete}
+      variants={specificMenuAnimation}
+      initial={"hidden"}
+      animate="visible"
+    >
       <button className={style.delete__button} onClick={prop.onClick}>
         <h3>Delete Todos</h3>
         <FaArrowRight
@@ -16,7 +23,7 @@ const DeleteMenu = function (prop) {
       </button>
 
       <Delete deleteIsActive={prop.deleteIsActive} />
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,7 +1,9 @@
+import { motion } from "framer-motion";
 import { useContext } from "react";
 import { TodoContext } from "../../Methods/Context/TodoContext";
 import { FaTimes } from "react-icons/fa";
 
+import { specificMenuAnimation } from "../../Animation/Animation";
 import style from "./ShowMenu.module.css";
 import ShowMenuForm from "./ShowMenuFom";
 
@@ -11,7 +13,12 @@ const ShowMenu = function () {
   } = useContext(TodoContext);
 
   return (
-    <div className={style.show}>
+    <motion.div
+      className={style.show}
+      variants={specificMenuAnimation}
+      initial={"hidden"}
+      animate="visible"
+    >
       <div className={style.show__header}>
         <h3>Show Specific Todo</h3>
 
@@ -21,7 +28,7 @@ const ShowMenu = function () {
       </div>
 
       <ShowMenuForm header__show_form={style.show__form} />
-    </div>
+    </motion.div>
   );
 };
 
