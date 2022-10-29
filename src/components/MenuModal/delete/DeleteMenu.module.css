@@ -8,9 +8,11 @@
   justify-content: space-between;
   padding: 1rem;
   width: 100%;
-  font-size: 1.8rem;
   background-color: transparent;
   border: none;
+}
+.delete__button h3 {
+  font-size: 1.8rem;
 }
 @media (min-width: 700px) {
   .delete__button {

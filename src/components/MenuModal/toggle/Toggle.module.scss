@@ -10,7 +10,12 @@
     justify-content: space-between;
     padding: 1rem;
     width: 100%;
-    font-size: 1.8rem;
+    background-color: transparent;
+    border: none;
+
+    h3 {
+      font-size: 1.8rem;
+    }
 
     @media (min-width: 700px) {
       padding: 0.8rem 1rem;

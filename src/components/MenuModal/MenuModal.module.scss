@@ -4,14 +4,6 @@
   @include widthCenter(380px, 0, 2rem);
   flex-grow: 1;
 
-  // Global Selector
-  button {
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-  }
-  // =======================
-
   // Parent Elements box => nav
   &__box {
     background-color: var(--light);

@@ -1,5 +1,6 @@
 import { AnimatePresence, Reorder } from "framer-motion";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { TodoContext } from "./Methods/Context/TodoContext";
 
 import ShowMenu from "./MenuModal/Show/ShowMenu";
 import ToggleMenu from "./MenuModal/Toggle/ToggleMenu";
@@ -14,18 +15,22 @@ import Footer from "./Footer/Footer";
 import style from "./Todo.module.css";
 
 const Todo = function () {
+  const {
+    wideNav: { activeNav },
+  } = useContext(TodoContext);
+
   return (
     <section className={style.todo}>
       {/* Logo title & Burger menu */}
       <Nav />
 
-      {/* Textarea Todo */}
       <div className={style.todo__fromSetting}>
         <TodoForm />
-        {/* <ShowMenu /> */}
-        {/* <ToggleMenu /> */}
-        {/* <DeleteMenu /> */}
+        {activeNav === "show" ? <ShowMenu /> : null}
+        {activeNav === "setting" ? <ToggleMenu /> : null}
+        {activeNav === "delete" ? <DeleteMenu /> : null}
       </div>
+
       {/* Rendered Todo List */}
       <TodoList />
 

@@ -1,10 +1,26 @@
 .wideNav {
   display: flex;
   list-style: none;
-  gap: 2.4rem;
+  gap: 1.4rem;
 }
 .wideNav button {
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  padding: 1.2rem 1rem 1rem;
   font-size: 1.55rem;
-  background-color: none;
+  background-color: transparent;
   border: none;
+}
+.wideNav .active {
+  position: relative;
+}
+.wideNav .active::before {
+  content: "";
+  width: 35%;
+  height: 4px;
+  background-color: var(--light-very-shade-purple);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }

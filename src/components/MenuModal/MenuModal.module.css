@@ -4,11 +4,6 @@
   margin: 0 auto;
   flex-grow: 1;
 }
-.header button {
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-}
 .header__box {
   background-color: var(--light);
   padding: 0.8rem;

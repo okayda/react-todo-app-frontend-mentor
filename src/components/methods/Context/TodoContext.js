@@ -94,6 +94,10 @@ export const TodoProvider = function (prop) {
   }, [settings]);
   // <================>
 
+  // tablet & desktop navigation state
+  const [activeNav, setActiveNav] = useState("show");
+  // <================>
+
   // modal state
   const [activeMenu, setActiveMenu] = useState(false);
   const [activeReplace, setActiveReplace] = useState(false);
@@ -152,8 +156,8 @@ export const TodoProvider = function (prop) {
   };
   // <================>
 
-  // calendar modal not included
   // modals display
+  // calendar modal not included
   const showMenu = function () {
     setActiveMenu(true);
   };
@@ -179,6 +183,13 @@ export const TodoProvider = function (prop) {
   return (
     <TodoContext.Provider
       value={{
+        todo: { todos, dispatch },
+
+        wideNav: {
+          activeNav,
+          setActiveNav,
+        },
+
         show: {
           showTask,
           setShowTask,
@@ -211,8 +222,8 @@ export const TodoProvider = function (prop) {
           setSelectedDelete,
         },
 
-        todo: { todos, dispatch },
         menu: { activeMenu, showMenu, hideMenu },
+
         replace: {
           activeReplace,
           showChange,
@@ -227,6 +238,7 @@ export const TodoProvider = function (prop) {
           currentReplaceDate,
           setCurrentReplaceDate,
         },
+
         calendar: {
           flatpickr,
 

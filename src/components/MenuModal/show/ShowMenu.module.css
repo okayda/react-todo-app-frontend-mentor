@@ -10,6 +10,9 @@
   align-items: center;
   margin-bottom: 2.4rem;
 }
+.show__header h3 {
+  font-size: 1.8rem;
+}
 .show__header button {
   color: var(--dark-shade-green);
   font-size: 2.4rem;
