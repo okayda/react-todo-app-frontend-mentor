@@ -17,10 +17,7 @@ const Todo = function () {
   return (
     <section className={style.todo}>
       {/* Logo title & Burger menu */}
-      <Nav
-        todo__title={style.todo__title}
-        todo__title_menu={style.todo__title_menu}
-      />
+      <Nav />
 
       {/* Textarea Todo */}
       <div className={style.todo__manipulate}>

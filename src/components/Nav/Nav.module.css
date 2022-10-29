@@ -1,0 +1,30 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  color: var(--slight-dark);
+}
+.nav__title {
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}
+.nav__menu {
+  cursor: pointer;
+  border: none;
+  color: inherit;
+  background-color: transparent;
+  height: 4rem;
+}
+.nav__menu svg {
+  font-size: 4rem;
+}
+@media (min-width: 700px) {
+  .nav {
+    max-width: 380px;
+  }
+  .nav__menu {
+    display: none;
+  }
+}

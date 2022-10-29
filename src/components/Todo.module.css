@@ -13,36 +13,6 @@
     max-width: 700px;
   }
 }
-.todo__title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-  color: var(--slight-dark);
-}
-.todo__title h2 {
-  font-size: 3rem;
-  text-transform: uppercase;
-  letter-spacing: 6px;
-}
-.todo__title_menu {
-  cursor: pointer;
-  border: none;
-  color: inherit;
-  background-color: transparent;
-  height: 4rem;
-}
-.todo__title_menu svg {
-  font-size: 4rem;
-}
-@media (min-width: 700px) {
-  .todo__title {
-    max-width: 380px;
-  }
-  .todo__title_menu {
-    display: none;
-  }
-}
 .todo__manipulate {
   display: grid;
   grid-template-columns: 1fr 1fr;

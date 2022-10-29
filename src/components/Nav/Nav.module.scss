@@ -1,0 +1,33 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  color: var(--slight-dark);
+
+  &__title {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+  }
+
+  &__menu {
+    cursor: pointer;
+    border: none;
+    color: inherit;
+    background-color: transparent;
+    height: 4rem;
+
+    svg {
+      font-size: 4rem;
+    }
+  }
+
+  @media (min-width: 700px) {
+    max-width: 380px;
+
+    &__menu {
+      display: none;
+    }
+  }
+}
