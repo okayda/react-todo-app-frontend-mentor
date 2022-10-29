@@ -3,6 +3,10 @@
   padding: 4rem 1rem;
   margin: 0 auto;
   height: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 @media (min-width: 700px) {
   .todo {
@@ -39,8 +43,13 @@
     display: none;
   }
 }
-.todo__form {
+.todo__manipulate {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+  align-items: start;
   margin-bottom: 2rem;
+  height: 180px;
 }
 .todo__form_input {
   transition: all 0.4s;
@@ -103,11 +112,6 @@
     width: 100%;
   }
 }
-@media (min-width: 700px) {
-  .todo__form {
-    max-width: 320px;
-  }
-}
 .todo__task {
   display: flex;
   flex-direction: column;
@@ -128,6 +132,7 @@
   padding: 0.6rem 0 1.4rem;
 }
 .todo__task_list p {
+  height: 100%;
   overflow-wrap: break-word;
   font-size: 1.6rem;
   padding: 0 1rem;
@@ -146,6 +151,7 @@
   .todo__task {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding: 0;
     border-right: none;
   }
 }

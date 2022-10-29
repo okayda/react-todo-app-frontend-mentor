@@ -1,0 +1,55 @@
+// Show Specific Todo
+.show {
+  padding-bottom: 1.6rem;
+  padding: 0.8rem;
+  border-radius: 6px;
+  background-color: var(--light-tint-purple);
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.4rem;
+
+    button {
+      color: var(--dark-shade-green);
+      font-size: 2.4rem;
+      height: 2.4rem;
+    }
+
+    @media (min-width: 700px) {
+      button {
+        display: none;
+      }
+    }
+  }
+
+  &__form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.6rem;
+
+    input {
+      display: none;
+    }
+
+    input[type="radio"]:checked + label {
+      font-weight: bold;
+      border-color: var(--light-very-shade-purple);
+      background-color: var(--light-shade-purple);
+    }
+
+    label {
+      cursor: pointer;
+      display: block;
+      text-align: center;
+      border: 1px solid var(--dark-shade-green);
+      color: var(--dark-shade-green);
+      border-radius: 6px;
+      padding: 0.8rem 0;
+      font-size: 1.45rem;
+      transition: all 0.3s;
+    }
+  }
+}
+// =======================

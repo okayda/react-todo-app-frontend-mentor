@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { TodoContext } from "../../Methods/Context/TodoContext";
 import ReactSwitch from "react-switch";
+import style from "./Toggle.module.css";
 
 const Toggle = function (prop) {
   const {
@@ -43,21 +44,21 @@ const Toggle = function (prop) {
 
   return (
     <div
-      className={`${prop.header__setting_content} ${
-        prop.toggleIsActive && prop.header__setting_active
+      className={`${style.setting__content} ${
+        prop.toggleIsActive && style.setting__active
       }`}
     >
-      <div className={prop.header__setting_toggles}>
+      <div className={style.setting__container}>
         <ReactSwitch onChange={toggleDrag} checked={enableDrag} />
         <span>Drag & Drop</span>
       </div>
 
-      <div className={prop.header__setting_toggles}>
+      <div className={style.setting__container}>
         <ReactSwitch onChange={toggleModify} checked={enableModify} />
         <span>Modify Todo</span>
       </div>
 
-      <div className={prop.header__setting_toggles}>
+      <div className={style.setting__container}>
         <ReactSwitch onChange={toggleComplete} checked={enableComplete} />
         <span>Completed Todo</span>
       </div>

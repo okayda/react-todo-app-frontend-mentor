@@ -4,30 +4,15 @@
   @include widthCenter(380px, 0, 2rem);
   flex-grow: 1;
 
-  // Global Selectors at Menu
-  h3 {
-    font-size: 1.65rem;
-  }
-
+  // Global Selector
   button {
     cursor: pointer;
     background-color: transparent;
     border: none;
   }
-
-  .icon {
-    transition: all 0.4s;
-    color: var(--dark-shade-green);
-    font-size: 1.5rem;
-
-    &_active {
-      transform: rotate(90deg);
-    }
-  }
   // =======================
 
   // Parent Elements box => nav
-
   &__box {
     background-color: var(--light);
     padding: 0.8rem;
@@ -36,156 +21,6 @@
 
   &__nav {
     @include flexColumnGap(1.6rem);
-  }
-  // =======================
-
-  // Show Specific Todo
-  &__show {
-    padding-bottom: 1.6rem;
-    padding: 0.8rem;
-    border-radius: 6px;
-    background-color: var(--light-tint-purple);
-
-    &_title {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2.4rem;
-
-      button {
-        color: var(--dark-shade-green);
-        font-size: 2.4rem;
-        height: 2.4rem;
-      }
-    }
-
-    &_form {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.6rem;
-
-      input {
-        display: none;
-      }
-
-      input[type="radio"]:checked + label {
-        font-weight: bold;
-        border-color: var(--light-very-shade-purple);
-        background-color: var(--light-shade-purple);
-      }
-
-      label {
-        cursor: pointer;
-        display: block;
-        text-align: center;
-        border: 1px solid var(--dark-shade-green);
-        color: var(--dark-shade-green);
-        border-radius: 6px;
-        padding: 0.8rem 0;
-        font-size: 1.45rem;
-        transition: all 0.3s;
-      }
-    }
-  }
-  // =======================
-
-  // Toggles Setting
-  &__setting {
-    background-color: var(--light-tint-green);
-    border-radius: 6px;
-
-    &_button {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem;
-      width: 100%;
-    }
-
-    &_content {
-      @include flexColumnGap(1.8rem);
-
-      max-height: 0;
-      transition: all 0.4s;
-      overflow: hidden;
-    }
-
-    &_active {
-      padding: 2rem 1rem;
-      max-height: 200px;
-    }
-
-    &_toggles {
-      @include flexAlignGap(center, 1.4rem);
-
-      span {
-        font-size: 1.5rem;
-      }
-    }
-  }
-  // =======================
-
-  // Delete Todos
-  &__delete {
-    background-color: var(--light-tint-orange);
-    border-radius: 6px;
-
-    &_button {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem;
-      width: 100%;
-    }
-
-    &_content {
-      @include flexColumnGap(1.8rem);
-
-      max-height: 0;
-      transition: all 0.4s;
-      overflow: hidden;
-    }
-
-    &_active {
-      padding: 2rem 1rem;
-      max-height: 400px;
-    }
-
-    &_switches {
-      @include flexAlignGap(center, 1.4rem);
-
-      span {
-        font-size: 1.5rem;
-      }
-    }
-
-    &_radios {
-      @include flexAlignGap(center, 1.4rem);
-
-      label {
-        font-size: 1.5rem;
-      }
-
-      input[type="radio"] {
-        transform: scale(1.1);
-      }
-    }
-
-    &_buttons {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.4rem;
-
-      button {
-        font-size: 1.45rem;
-        font-weight: bold;
-        border-radius: 6px;
-        background-color: var(--light-shade-orange);
-        border: 1px solid var(--light-very-shade-orange);
-        padding: 0.8rem 0;
-        width: 100%;
-      }
-    }
   }
   // =======================
 }

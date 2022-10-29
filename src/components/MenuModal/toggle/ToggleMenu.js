@@ -1,22 +1,21 @@
 import Toggle from "./Toggle";
 import { FaArrowRight } from "react-icons/fa";
 
+import style from "./Toggle.module.css";
+
 const ToggleMenu = function (prop) {
   return (
-    <div className={prop.header__setting}>
-      <button className={prop.header__setting_button} onClick={prop.onClick}>
+    <div className={style.setting}>
+      <button className={style.setting__button} onClick={prop.onClick}>
         <h3>U.I Toggles Settings</h3>
         <FaArrowRight
-          className={`${prop.icon} ${prop.toggleIsActive && prop.icon_active}`}
+          className={`${style.setting__icon} ${
+            prop.toggleIsActive && style.setting__icon_active
+          }`}
         />
       </button>
 
-      <Toggle
-        header__setting_content={prop.header__setting_content}
-        header__setting_active={prop.header__setting_active}
-        header__setting_toggles={prop.header__setting_toggles}
-        toggleIsActive={prop.toggleIsActive}
-      />
+      <Toggle toggleIsActive={prop.toggleIsActive} />
     </div>
   );
 };

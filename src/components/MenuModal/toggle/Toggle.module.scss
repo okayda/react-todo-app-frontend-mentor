@@ -1,0 +1,62 @@
+@import "../../../scss/mixins";
+
+.setting {
+  background-color: var(--light-tint-green);
+  border-radius: 6px;
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    width: 100%;
+    font-size: 1.8rem;
+
+    @media (min-width: 700px) {
+      padding: 0.8rem 1rem;
+    }
+  }
+
+  &__icon {
+    transition: all 0.4s;
+    color: var(--dark-shade-green);
+    font-size: 1.5rem;
+
+    &_active {
+      transform: rotate(90deg);
+    }
+
+    @media (min-width: 700px) {
+      display: none;
+    }
+  }
+
+  &__content {
+    @include flexColumnGap(1.8rem);
+    transition: all 0.4s;
+    max-height: 0;
+    overflow: hidden;
+
+    @media (min-width: 700px) {
+      padding: 1rem;
+      max-height: none;
+      overflow: visible;
+    }
+  }
+
+  &__container {
+    @include flexAlignGap(center, 1.4rem);
+
+    span {
+      font-size: 1.5rem;
+    }
+  }
+
+  // this active only for MenuModal for dropdown
+  // animation
+  &__active {
+    padding: 2rem 1rem;
+    max-height: 200px;
+  }
+  // =======================
+}

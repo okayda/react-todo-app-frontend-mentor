@@ -6,7 +6,6 @@
   list-style: none;
 
   color: var(--dark-shade-green);
-  cursor: pointer;
   background-color: transparent;
   line-height: 0;
   font-size: 1.8rem;
@@ -22,6 +21,7 @@
   }
 
   li {
+    cursor: pointer;
     padding: 0.3rem;
     border-radius: 3px;
   }

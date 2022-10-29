@@ -1,18 +1,18 @@
 import { useContext } from "react";
 import { TodoContext } from "../../Methods/Context/TodoContext";
-
 import { FaTimes } from "react-icons/fa";
 
+import style from "./ShowMenu.module.css";
 import ShowMenuForm from "./ShowMenuFom";
 
-const ShowMenu = function (prop) {
+const ShowMenu = function () {
   const {
     menu: { hideMenu },
   } = useContext(TodoContext);
 
   return (
-    <div className={prop.header__show}>
-      <div className={prop.header__show_title}>
+    <div className={style.show}>
+      <div className={style.show__header}>
         <h3>Show Specific Todo</h3>
 
         <button onClick={hideMenu}>
@@ -20,7 +20,7 @@ const ShowMenu = function (prop) {
         </button>
       </div>
 
-      <ShowMenuForm header__show_form={prop.header__show_form} />
+      <ShowMenuForm header__show_form={style.show__form} />
     </div>
   );
 };

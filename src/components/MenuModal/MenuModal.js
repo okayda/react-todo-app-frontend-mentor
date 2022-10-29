@@ -30,8 +30,8 @@ const MenuModal = function () {
   return (
     <Backdrop onClick={hideMenu}>
       <motion.div
-        onClick={(e) => e.stopPropagation()}
         className={style.header}
+        onClick={(e) => e.stopPropagation()}
         variants={modalAnimation}
         initial="hidden"
         animate="visible"
@@ -39,39 +39,11 @@ const MenuModal = function () {
       >
         <div className={style.header__box}>
           <nav className={style.header__nav}>
-            <ShowMenu
-              header__show={style.header__show}
-              header__show_title={style.header__show_title}
-              // header__show_list={style.header__show_list}
-              header__show_form={style.header__show_form}
-              active_btn={style.active_btn}
-            />
+            <ShowMenu />
 
-            <ToggleMenu
-              header__setting={style.header__setting}
-              header__setting_button={style.header__setting_button}
-              header__setting_content={style.header__setting_content}
-              header__setting_active={style.header__setting_active}
-              header__setting_toggles={style.header__setting_toggles}
-              onClick={settingDrop}
-              icon={style.icon}
-              icon_active={style.icon_active}
-              toggleIsActive={toggleIsActive}
-            />
+            <ToggleMenu onClick={settingDrop} toggleIsActive={toggleIsActive} />
 
-            <DeleteMenu
-              header__delete={style.header__delete}
-              header__delete_button={style.header__delete_button}
-              header__delete_content={style.header__delete_content}
-              header__delete_active={style.header__delete_active}
-              header__delete_switches={style.header__delete_switches}
-              header__delete_radios={style.header__delete_radios}
-              header__delete_buttons={style.header__delete_buttons}
-              onClick={deleteDrop}
-              icon={style.icon}
-              icon_active={style.icon_active}
-              deleteIsActive={deleteIsActive}
-            />
+            <DeleteMenu onClick={deleteDrop} deleteIsActive={deleteIsActive} />
           </nav>
         </div>
       </motion.div>

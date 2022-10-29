@@ -1,6 +1,10 @@
 import { AnimatePresence, Reorder } from "framer-motion";
 import { useEffect } from "react";
 
+import ShowMenu from "./MenuModal/Show/ShowMenu";
+import ToggleMenu from "./MenuModal/Toggle/ToggleMenu";
+import DeleteMenu from "./MenuModal/Delete/DeleteMenu";
+
 import Nav from "./Nav/Nav";
 import TodoForm from "./TodoForm/TodoForm";
 import TodoList from "./RenderedList/TodoList";
@@ -19,17 +23,21 @@ const Todo = function () {
       />
 
       {/* Textarea Todo */}
-      <TodoForm
-        todo__form={style.todo__form}
-        todo__form_input={style.todo__form_input}
-        todo__form_buttons={style.todo__form_buttons}
-        todo__form_add={style.todo__form_add}
-        todo__form_clear={style.todo__form_clear}
-        todo__form_dateContainer={style.todo__form_dateContainer}
-        todo__form_dateInput={style.todo__form_dateInput}
-        todo__form_clearDate={style.todo__form_clearDate}
-      />
-
+      <div className={style.todo__manipulate}>
+        <TodoForm
+          todo__form={style.todo__form}
+          todo__form_input={style.todo__form_input}
+          todo__form_buttons={style.todo__form_buttons}
+          todo__form_add={style.todo__form_add}
+          todo__form_clear={style.todo__form_clear}
+          todo__form_dateContainer={style.todo__form_dateContainer}
+          todo__form_dateInput={style.todo__form_dateInput}
+          todo__form_clearDate={style.todo__form_clearDate}
+        />
+        {/* <ShowMenu /> */}
+        {/* <ToggleMenu /> */}
+        <DeleteMenu />
+      </div>
       {/* Rendered Todo List */}
       <TodoList
         todo__task={style.todo__task}

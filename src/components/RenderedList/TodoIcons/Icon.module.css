@@ -5,7 +5,6 @@
   padding-bottom: 0.6rem;
   list-style: none;
   color: var(--dark-shade-green);
-  cursor: pointer;
   background-color: transparent;
   line-height: 0;
   font-size: 1.8rem;
@@ -19,6 +18,7 @@
   background-color: var(--light-shade-green);
 }
 .icons li {
+  cursor: pointer;
   padding: 0.3rem;
   border-radius: 3px;
 }

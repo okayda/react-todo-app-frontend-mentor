@@ -3,6 +3,8 @@ import { TodoContext } from "../../Methods/Context/TodoContext";
 import toast, { Toast, Toaster } from "react-hot-toast";
 import ReactSwitch from "react-switch";
 
+import style from "./DeleteMenu.module.css";
+
 const Delete = function (prop) {
   const {
     todo: { dispatch },
@@ -77,16 +79,16 @@ const Delete = function (prop) {
       />
 
       <div
-        className={`${prop.header__delete_content} ${
-          prop.deleteIsActive && prop.header__delete_active
+        className={`${style.delete__content} ${
+          prop.deleteIsActive && style.delete__active
         }`}
       >
-        <div className={prop.header__delete_switches}>
+        <div className={style.delete__switches}>
           <ReactSwitch onChange={toggleDelete} checked={enableDelete} />
           <span>Show Delete Todo</span>
         </div>
 
-        <div className={prop.header__delete_radios}>
+        <div className={style.delete__radios}>
           <label htmlFor="activeDelete">Active</label>
           <input
             type="radio"
@@ -98,7 +100,7 @@ const Delete = function (prop) {
           />
         </div>
 
-        <div className={prop.header__delete_radios}>
+        <div className={style.delete__radios}>
           <label htmlFor="completedDelete">Completed</label>
           <input
             type="radio"
@@ -109,7 +111,7 @@ const Delete = function (prop) {
             checked={selectedDelete === "delete-completed"}
           />
         </div>
-        <div className={prop.header__delete_buttons}>
+        <div className={style.delete__buttons}>
           <button disabled={!selectedDelete} onClick={clickedDeleteSelected}>
             Delete
           </button>
