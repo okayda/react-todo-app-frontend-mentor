@@ -27,12 +27,7 @@ const Todo = function () {
         {/* <DeleteMenu /> */}
       </div>
       {/* Rendered Todo List */}
-      <TodoList
-        todo__task={style.todo__task}
-        todo__task_list={style.todo__task_list}
-        todo__task_read={style.todo__task_read}
-        todo__task_date={style.todo__task_date}
-      />
+      <TodoList />
 
       {/* U.I Introduction */}
       {/* <EmptyBackground

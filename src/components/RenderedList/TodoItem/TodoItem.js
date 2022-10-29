@@ -7,6 +7,8 @@ import { taskAnimation } from "../../Animation/Animation";
 import TodoItemShadow from "./TodoItemShadow";
 import Icons from "../TodoIcons/Icons";
 
+import style from "../TodoList.module.css";
+
 const charactersLimit = 80;
 
 const TodoItem = function (prop) {
@@ -22,13 +24,13 @@ const TodoItem = function (prop) {
 
   return (
     <Reorder.Item
+      className={style.taskList__list}
       drag
       style={{ boxShadow, y }}
       dragListener={enableDrag}
       dragControls={control}
       value={prop.todo}
       data-id={prop.todo.id}
-      className={prop.todo__task_list}
       variants={taskAnimation}
       initial={prop.animationActive ? "hidden" : false}
       animate="visible"
@@ -45,17 +47,17 @@ const TodoItem = function (prop) {
 
       <p>
         <ReactReadMoreReadLess
+          readMoreClassName={style.taskList__listRead}
+          readLessClassName={style.taskList__listRead}
           charLimit={charactersLimit}
           readMoreText="read more"
           readLessText="read less"
-          readMoreClassName={prop.todo__task_read}
-          readLessClassName={prop.todo__task_read}
         >
           {prop.todo.text}
         </ReactReadMoreReadLess>
       </p>
 
-      <span className={prop.todo__task_date}>
+      <span className={style.taskList__listDate}>
         {prop.todo.date || "No Date"}
       </span>
     </Reorder.Item>

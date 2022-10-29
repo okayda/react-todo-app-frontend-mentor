@@ -3,8 +3,9 @@ import { useContext, useEffect, useState } from "react";
 import { TodoContext } from "../Methods/Context/TodoContext";
 
 import TodoItem from "./TodoItem/TodoItem";
+import style from "./TodoList.module.css";
 
-const TodoList = function (prop) {
+const TodoList = function () {
   const {
     show: { showTask },
     toggle: { enableModify, enableComplete },
@@ -100,9 +101,9 @@ const TodoList = function (prop) {
 
   return (
     <Reorder.Group
+      className={style.taskList}
       onReorder={setTodosData}
       values={todos}
-      className={prop.todo__task}
       onClick={eventDelegation}
     >
       <AnimatePresence>
@@ -115,9 +116,6 @@ const TodoList = function (prop) {
               key={todo.id}
               todo={todo}
               animationActive={animationActive}
-              todo__task_list={prop.todo__task_list}
-              todo__task_read={prop.todo__task_read}
-              todo__task_date={prop.todo__task_date}
             />
           );
         })}
