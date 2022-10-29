@@ -2,8 +2,9 @@ import { useState, useContext, useRef } from "react";
 import { TodoContext } from "../Methods/Context/TodoContext";
 
 import Calendar from "./Calendar";
+import style from "./TodoForm.module.css";
 
-const TodoForm = function (prop) {
+const TodoForm = function () {
   const ref = useRef(null);
 
   const [inputValue, setInputValue] = useState("");
@@ -34,7 +35,7 @@ const TodoForm = function (prop) {
       },
     });
 
-    flatpickr(`.${prop.todo__form_dateContainer}`, FlatpickrConfigForm).clear();
+    flatpickr(`.${style.form__calendarContainer}`, FlatpickrConfigForm).clear();
 
     setCalendarValue("");
     setInputValue("");
@@ -50,35 +51,31 @@ const TodoForm = function (prop) {
   };
 
   return (
-    <form className={prop.todo__form} onSubmit={submitForm}>
+    <form className={style.form} onSubmit={submitForm}>
       <textarea
         ref={ref}
         type="text"
-        className={prop.todo__form_input}
+        className={style.form__textarea}
         placeholder="Create a new todo..."
         onChange={storedInputValue}
         value={inputValue}
       />
       <br />
 
-      <div className={prop.todo__form_buttons}>
-        <button className={prop.todo__form_add} name="add">
+      <div className={style.form__buttons}>
+        <button className={style.form__add} name="add">
           Add
         </button>
 
         <button
-          className={prop.todo__form_clear}
+          className={style.form__clear}
           onClick={clearTextArea}
           name="clear"
         >
           Clear
         </button>
 
-        <Calendar
-          todo__form_dateContainer={prop.todo__form_dateContainer}
-          todo__form_dateInput={prop.todo__form_dateInput}
-          todo__form_clearDate={prop.todo__form_clearDate}
-        />
+        <Calendar />
       </div>
     </form>
   );

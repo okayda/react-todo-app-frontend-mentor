@@ -2,7 +2,9 @@ import { useContext, useEffect } from "react";
 import { TodoContext } from "../Methods/Context/TodoContext";
 import { FaTimes } from "react-icons/fa";
 
-const Calendar = function (prop) {
+import style from "./TodoForm.module.css";
+
+const Calendar = function () {
   const {
     calendar: { flatpickr, FlatpickrConfigForm, setCalendarValue },
   } = useContext(TodoContext);
@@ -12,19 +14,19 @@ const Calendar = function (prop) {
   };
 
   useEffect(() => {
-    flatpickr(`.${prop.todo__form_dateContainer}`, FlatpickrConfigForm);
+    flatpickr(`.${style.form__calendarContainer}`, FlatpickrConfigForm);
   }, []);
 
   return (
-    <div className={prop.todo__form_dateContainer}>
+    <div className={style.form__calendarContainer}>
       <input
         type="text"
-        className={prop.todo__form_dateInput}
+        className={style.form__calendarInput}
         placeholder="Calendar"
         data-input
       />
       <button
-        className={prop.todo__form_clearDate}
+        className={style.form__calendarClear}
         name="remove-date"
         title="clear"
         data-clear

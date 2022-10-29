@@ -20,20 +20,11 @@ const Todo = function () {
       <Nav />
 
       {/* Textarea Todo */}
-      <div className={style.todo__manipulate}>
-        <TodoForm
-          todo__form={style.todo__form}
-          todo__form_input={style.todo__form_input}
-          todo__form_buttons={style.todo__form_buttons}
-          todo__form_add={style.todo__form_add}
-          todo__form_clear={style.todo__form_clear}
-          todo__form_dateContainer={style.todo__form_dateContainer}
-          todo__form_dateInput={style.todo__form_dateInput}
-          todo__form_clearDate={style.todo__form_clearDate}
-        />
+      <div className={style.todo__fromSetting}>
+        <TodoForm />
         {/* <ShowMenu /> */}
         {/* <ToggleMenu /> */}
-        <DeleteMenu />
+        {/* <DeleteMenu /> */}
       </div>
       {/* Rendered Todo List */}
       <TodoList
