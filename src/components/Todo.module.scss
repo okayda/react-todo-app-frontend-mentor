@@ -5,17 +5,16 @@
   height: 100%;
   user-select: none;
 
-  @media (min-width: 700px) {
-    max-width: 700px;
-  }
-
   &__formMenu {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 1.4rem;
     align-items: start;
     margin-bottom: 2rem;
     height: 180px;
+  }
+
+  &__menuContainer {
+    display: none;
   }
 
   // Introduction background
@@ -46,6 +45,18 @@
       color: var(--dark-grayish-blue);
       font-weight: 700;
       font-size: 1.4rem;
+    }
+  }
+
+  @media (min-width: 700px) {
+    max-width: 700px;
+
+    &__formMenu {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &__menuContainer {
+      display: block;
     }
   }
 }

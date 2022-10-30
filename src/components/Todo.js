@@ -1,5 +1,5 @@
 import { AnimatePresence, Reorder } from "framer-motion";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { TodoContext } from "./Methods/Context/TodoContext";
 
 import ShowMenu from "./MenuModal/Show/ShowMenu";
@@ -27,11 +27,13 @@ const Todo = function () {
       <div className={style.todo__formMenu}>
         <TodoForm />
 
-        <AnimatePresence>
-          {activeNav === "show" ? <ShowMenu /> : null}
-          {activeNav === "setting" ? <ToggleMenu /> : null}
-          {activeNav === "delete" ? <DeleteMenu /> : null}
-        </AnimatePresence>
+        <div className={style.todo__menuContainer}>
+          <AnimatePresence>
+            {activeNav === "show" ? <ShowMenu /> : null}
+            {activeNav === "setting" ? <ToggleMenu /> : null}
+            {activeNav === "delete" ? <DeleteMenu /> : null}
+          </AnimatePresence>
+        </div>
       </div>
 
       {/* Rendered Todo List */}

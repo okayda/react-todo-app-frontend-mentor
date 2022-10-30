@@ -1,5 +1,5 @@
 .wideNav {
-  display: flex;
+  display: none;
   list-style: none;
   gap: 1.4rem;
 }
@@ -23,4 +23,9 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+}
+@media (min-width: 700px) {
+  .wideNav {
+    display: flex;
+  }
 }

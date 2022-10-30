@@ -35,8 +35,7 @@
 }
 @media (min-width: 700px) {
   .taskList {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    max-width: 340px;
     padding: 0;
     border-right: none;
   }

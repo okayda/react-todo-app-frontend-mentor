@@ -8,18 +8,15 @@
       -ms-user-select: none;
           user-select: none;
 }
-@media (min-width: 700px) {
-  .todo {
-    max-width: 700px;
-  }
-}
 .todo__formMenu {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 1.4rem;
   align-items: start;
   margin-bottom: 2rem;
   height: 180px;
+}
+.todo__menuContainer {
+  display: none;
 }
 .todo__background {
   margin-top: 4rem;
@@ -45,4 +42,15 @@
   color: var(--dark-grayish-blue);
   font-weight: 700;
   font-size: 1.4rem;
+}
+@media (min-width: 700px) {
+  .todo {
+    max-width: 700px;
+  }
+  .todo__formMenu {
+    grid-template-columns: 1fr 1fr;
+  }
+  .todo__menuContainer {
+    display: block;
+  }
 }
