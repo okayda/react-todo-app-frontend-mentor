@@ -1,6 +1,6 @@
 .form {
   &__textarea {
-    transition: all 0.4s;
+    transition: all 0.5s;
     width: 100%;
     height: 100px;
     padding: 1.4rem;
@@ -14,6 +14,26 @@
     &:focus {
       outline: none;
     }
+  }
+
+  &__textareaInvalid {
+    border-color: var(--light-very-shade-orange);
+  }
+
+  &__quote,
+  &__msg {
+    font-weight: bold;
+    font-size: 1.45rem;
+  }
+
+  &__msg {
+    transition: all 0.5s;
+    opacity: 0;
+  }
+
+  &__errorMsg {
+    opacity: 1;
+    color: var(--light-very-shade-orange);
   }
 
   &__buttons {

@@ -8,6 +8,7 @@ const TodoForm = function () {
   const ref = useRef(null);
 
   const [inputValue, setInputValue] = useState("");
+  const [textEmpty, setTextEmpty] = useState(false);
 
   const {
     todo: { dispatch },
@@ -24,6 +25,12 @@ const TodoForm = function () {
 
     const submitter = e.nativeEvent.submitter.name;
     if (submitter !== "add") return;
+    if (inputValue.trim() === "") {
+      setTextEmpty(true);
+      return;
+    }
+
+    if (textEmpty) setTextEmpty(false);
 
     dispatch({
       type: "add-todo",
@@ -50,16 +57,33 @@ const TodoForm = function () {
     ref.current.focus();
   };
 
+  const quoteText = (
+    <p className={style.form__quote}>Always compare yourself to yourself</p>
+  );
+
+  const errorText = (
+    <p
+      className={`${style.form__msg} ${
+        textEmpty ? style.form__errorMsg : null
+      }`}
+    >
+      The text area should not be empty
+    </p>
+  );
+
   return (
     <form className={style.form} onSubmit={submitForm}>
       <textarea
         ref={ref}
         type="text"
-        className={style.form__textarea}
+        className={`${style.form__textarea} ${
+          textEmpty ? style.form__textareaInvalid : null
+        }`}
         placeholder="Create a new todo..."
         onChange={storedInputValue}
         value={inputValue}
       />
+      {textEmpty ? errorText : quoteText}
       <br />
 
       <div className={style.form__buttons}>
