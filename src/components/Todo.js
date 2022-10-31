@@ -8,6 +8,7 @@ import DeleteMenu from "./MenuModal/Delete/DeleteMenu";
 
 import Nav from "./Nav/Nav";
 import TodoForm from "./TodoForm/TodoForm";
+import ChartCircle from "./Chart/ChartCircle";
 import TodoList from "./RenderedList/TodoList";
 import EmptyBackground from "./EmptyBackground/EmptyBackground";
 import Footer from "./Footer/Footer";
@@ -16,6 +17,7 @@ import style from "./Todo.module.css";
 
 const Todo = function () {
   const {
+    todo: { todos },
     wideNav: { activeNav },
   } = useContext(TodoContext);
 
@@ -36,8 +38,14 @@ const Todo = function () {
         </div>
       </div>
 
-      {/* Rendered Todo List */}
-      <TodoList />
+      <div className={style.todo__listChart}>
+        <TodoList />
+
+        <div className={style.todo__chartContainer}>
+          <ChartCircle />
+          <span>{todos.length} Todos</span>
+        </div>
+      </div>
 
       {/* U.I Introduction */}
       {/* <EmptyBackground

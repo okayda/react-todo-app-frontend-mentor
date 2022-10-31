@@ -18,6 +18,26 @@
 .todo__menuContainer {
   display: none;
 }
+.todo__listChart {
+  position: relative;
+}
+.todo__chartContainer {
+  position: -webkit-sticky;
+  position: sticky;
+  margin-top: 6rem;
+  top: 30rem;
+  height: 300px;
+  width: 300px;
+  justify-self: center;
+}
+.todo__chartContainer span {
+  position: absolute;
+  top: 17rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  font-size: 2rem;
+}
 .todo__background {
   margin-top: 4rem;
   text-align: center;
@@ -52,5 +72,9 @@
   }
   .todo__menuContainer {
     display: block;
+  }
+  .todo__listChart {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 }
