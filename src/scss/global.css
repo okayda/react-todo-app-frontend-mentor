@@ -44,10 +44,6 @@ body {
   margin: 0 auto;
 }
 
-main {
-  height: 100%;
-}
-
 textarea {
   width: 100%;
   resize: none;

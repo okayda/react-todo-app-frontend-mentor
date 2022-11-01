@@ -4,9 +4,11 @@ import { useContext } from "react";
 import { TodoContext } from "./components/Methods/Context/TodoContext";
 
 import Todo from "./components/Todo";
+import Footer from "./components/Footer/Footer";
+
+import Backdrop from "./components/Backdrop/Backdrop";
 import MenuModal from "./components/MenuModal/MenuModal";
 import ReplaceModal from "./components/ReplaceModal/ReplaceModal";
-import Backdrop from "./components/Backdrop/Backdrop";
 
 import "./scss/global.css";
 
@@ -93,6 +95,8 @@ function Main() {
         {activeMenu && <MenuModal />}
       </AnimatePresence>
       <Todo />
+
+      {ReactDOM.createPortal(<Footer />, document.querySelector("footer"))}
     </>
   );
 }
