@@ -2,6 +2,7 @@ import { AnimatePresence, Reorder } from "framer-motion";
 import { useContext, useEffect, useState } from "react";
 import { TodoContext } from "../Methods/Context/TodoContext";
 
+import ContentLoad from "../Methods/ContentLoad/ContentLoad";
 import ChartCircle from "../Chart/ChartCircle";
 import TodoItem from "./TodoItem/TodoItem";
 import style from "./TodoList.module.css";
@@ -100,12 +101,24 @@ const TodoList = function () {
     iconsFunctionality(classNameList, parentId);
   };
 
-  const chartElement = (
+  const listChart = (
     <div className={style.taskList__chartContainer}>
       <ChartCircle />
       <span>{todos.length} Todos</span>
     </div>
   );
+
+  const list = todosData.map((todo) => {
+    if (showTask === "counted-todo") return;
+    if (showTask === "completed-todo" && !todo.isCompleted) return;
+    if (showTask === "active-todo" && todo.isCompleted) return;
+
+    return (
+      <TodoItem key={todo.id} todo={todo} animationActive={animationActive} />
+    );
+  });
+
+  const content = todos.length > 0 ? list : <ContentLoad />;
 
   return (
     <Reorder.Group
@@ -115,21 +128,8 @@ const TodoList = function () {
       onClick={eventDelegation}
     >
       <AnimatePresence>
-        {todosData.map((todo) => {
-          if (showTask === "counted-todo") return;
-          if (showTask === "completed-todo" && !todo.isCompleted) return;
-          if (showTask === "active-todo" && todo.isCompleted) return;
-
-          return (
-            <TodoItem
-              key={todo.id}
-              todo={todo}
-              animationActive={animationActive}
-            />
-          );
-        })}
-
-        {showTask === "counted-todo" ? chartElement : null}
+        {content}
+        {showTask === "counted-todo" ? listChart : null}
       </AnimatePresence>
     </Reorder.Group>
   );

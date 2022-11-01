@@ -58,3 +58,24 @@ export const specificMenuAnimation = {
     },
   },
 };
+
+export const loaderAnimation = {
+  hidden: {
+    x: "-40vh",
+    opacity: 0,
+  },
+
+  visible: {
+    x: "0",
+    opacity: 1,
+    transition: {
+      duration: 1.2,
+    },
+  },
+
+  exit: {
+    x: "-40vh",
+    opacity: 0,
+    duration: 1,
+  },
+};
