@@ -2,15 +2,16 @@ import { AnimatePresence, Reorder } from "framer-motion";
 import { useContext, useEffect, useState } from "react";
 import { TodoContext } from "../Methods/Context/TodoContext";
 
+import ChartCircle from "../Chart/ChartCircle";
 import TodoItem from "./TodoItem/TodoItem";
 import style from "./TodoList.module.css";
 
 const TodoList = function () {
   const {
+    todo: { todos, dispatch },
     show: { showTask },
     toggle: { enableModify, enableComplete },
     delete: { enableDelete },
-    todo: { todos, dispatch },
     replace: { showChange },
   } = useContext(TodoContext);
 
@@ -99,6 +100,13 @@ const TodoList = function () {
     iconsFunctionality(classNameList, parentId);
   };
 
+  const chartElement = (
+    <div className={style.taskList__chartContainer}>
+      <ChartCircle />
+      <span>{todos.length} Todos</span>
+    </div>
+  );
+
   return (
     <Reorder.Group
       className={style.taskList}
@@ -108,6 +116,7 @@ const TodoList = function () {
     >
       <AnimatePresence>
         {todosData.map((todo) => {
+          if (showTask === "counted-todo") return;
           if (showTask === "completed-todo" && !todo.isCompleted) return;
           if (showTask === "active-todo" && todo.isCompleted) return;
 
@@ -119,6 +128,8 @@ const TodoList = function () {
             />
           );
         })}
+
+        {showTask === "counted-todo" ? chartElement : null}
       </AnimatePresence>
     </Reorder.Group>
   );

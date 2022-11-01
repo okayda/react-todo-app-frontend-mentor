@@ -1,10 +1,23 @@
 import { useContext } from "react";
 import { TodoContext } from "../../Methods/Context/TodoContext";
 
-const ShowMenuForm = function (prop) {
+import style from "./ShowMenu.module.css";
+
+const ShowMenuForm = function () {
   const {
-    show: { showTask, setShowTask, ALL_TODO, ACTIVE_TODO, COMPLETED_TODO },
+    show: {
+      showTask,
+      setShowTask,
+      ALL_TODO,
+      ACTIVE_TODO,
+      COMPLETED_TODO,
+      COUNTED_TODO,
+    },
   } = useContext(TodoContext);
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 700) setShowTask(ALL_TODO);
+  });
 
   const handleSelected = function (e) {
     const value = e.target.value;
@@ -23,10 +36,15 @@ const ShowMenuForm = function (prop) {
       setShowTask(COMPLETED_TODO);
       return;
     }
+
+    if (value === COUNTED_TODO) {
+      setShowTask(COUNTED_TODO);
+      return;
+    }
   };
 
   return (
-    <form className={prop.header__show_form}>
+    <form className={style.show__form}>
       <div>
         <input
           name="show-todo"
@@ -61,6 +79,18 @@ const ShowMenuForm = function (prop) {
           onChange={handleSelected}
         />
         <label htmlFor={COMPLETED_TODO}>Completed</label>
+      </div>
+
+      <div className={style.visual}>
+        <input
+          name="show-todo"
+          type="radio"
+          id={COUNTED_TODO}
+          value={COUNTED_TODO}
+          checked={showTask === COUNTED_TODO && true}
+          onChange={handleSelected}
+        />
+        <label htmlFor={COUNTED_TODO}>Visualization</label>
       </div>
     </form>
   );

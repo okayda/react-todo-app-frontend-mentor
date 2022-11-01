@@ -27,7 +27,7 @@ const ShowMenu = function () {
         </button>
       </div>
 
-      <ShowMenuForm header__show_form={style.show__form} />
+      <ShowMenuForm />
     </motion.div>
   );
 };

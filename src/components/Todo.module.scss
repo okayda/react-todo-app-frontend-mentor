@@ -22,6 +22,7 @@
   }
 
   &__chartContainer {
+    display: none;
     position: sticky;
     margin-top: 6rem;
     top: 30rem;
@@ -84,6 +85,10 @@
     &__listChart {
       display: grid;
       grid-template-columns: 1fr 1fr;
+    }
+
+    &__chartContainer {
+      display: block;
     }
   }
 }

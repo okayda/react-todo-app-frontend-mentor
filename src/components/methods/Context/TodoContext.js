@@ -107,7 +107,9 @@ export const TodoProvider = function (prop) {
   const ALL_TODO = "all-todo";
   const ACTIVE_TODO = "active-todo";
   const COMPLETED_TODO = "completed-todo";
+  const COUNTED_TODO = "counted-todo";
   const [showTask, setShowTask] = useState(ALL_TODO);
+  const [countedTodo, setCountedTodo] = useState(false);
   // <================>
 
   // toggle state menu
@@ -197,6 +199,7 @@ export const TodoProvider = function (prop) {
           ALL_TODO,
           ACTIVE_TODO,
           COMPLETED_TODO,
+          COUNTED_TODO,
         },
 
         setting: {

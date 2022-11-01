@@ -46,13 +46,21 @@
     label {
       cursor: pointer;
       display: block;
+      transition: all 0.3s;
       text-align: center;
       border: 1px solid var(--dark-shade-green);
       color: var(--dark-shade-green);
       border-radius: 6px;
       padding: 0.8rem 0;
       font-size: 1.45rem;
-      transition: all 0.3s;
+    }
+  }
+
+  @media (min-width: 700px) {
+    &__form {
+      .visual {
+        display: none;
+      }
     }
   }
 }

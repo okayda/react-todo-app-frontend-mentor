@@ -33,9 +33,25 @@
   padding-left: 1rem;
   font-size: 1.2rem;
 }
+.taskList__chartContainer {
+  position: relative;
+  height: 300px;
+  width: 300px;
+}
+.taskList__chartContainer span {
+  position: absolute;
+  top: 17rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  font-size: 2rem;
+}
 @media (min-width: 700px) {
   .taskList {
     padding: 0;
     border-right: none;
+  }
+  .taskList__chartContainer {
+    display: none;
   }
 }
