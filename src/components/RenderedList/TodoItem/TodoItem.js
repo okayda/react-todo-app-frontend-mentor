@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import ReactReadMoreReadLess from "react-read-more-read-less";
-import { useMotionValue, Reorder, useDragControls } from "framer-motion";
+import { useMotionValue, Reorder } from "framer-motion";
 import { TodoContext } from "../../Methods/Context/TodoContext";
 
 import { taskAnimation } from "../../Animation/Animation";
@@ -17,18 +17,14 @@ const TodoItem = function (prop) {
     delete: { enableDelete },
   } = useContext(TodoContext);
 
-  const control = useDragControls();
-
   const y = useMotionValue(0);
   const boxShadow = TodoItemShadow(y);
 
   return (
     <Reorder.Item
       className={style.taskList__list}
-      drag
       style={{ boxShadow, y }}
       dragListener={enableDrag}
-      dragControls={control}
       value={prop.todo}
       data-id={prop.todo.id}
       variants={taskAnimation}
@@ -37,7 +33,6 @@ const TodoItem = function (prop) {
       exit="exit"
     >
       <Icons
-        control={(e) => control.start(e)}
         isDrag={enableDrag}
         isModify={enableModify}
         isSavedCompleted={prop.todo.isCompleted}

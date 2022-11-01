@@ -15,10 +15,14 @@ const ShowMenuForm = function () {
     },
   } = useContext(TodoContext);
 
+  // if the user in the mobile and the visualization is enabled
+  // and the user transit to tablet, desktop or turn their device to horizontal
+  // the show specific todos will be back to default show.
   window.addEventListener("resize", () => {
     if (window.innerWidth >= 700) setShowTask(ALL_TODO);
   });
 
+  // show specific todos functionalities
   const handleSelected = function (e) {
     const value = e.target.value;
 

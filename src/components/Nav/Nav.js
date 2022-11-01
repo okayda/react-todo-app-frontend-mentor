@@ -5,7 +5,7 @@ import { TodoContext } from "../Methods/Context/TodoContext";
 import style from "./Nav.module.css";
 import WideNav from "./WideNav";
 
-const Nav = function (prop) {
+const Nav = function () {
   const {
     menu: { showMenu },
   } = useContext(TodoContext);

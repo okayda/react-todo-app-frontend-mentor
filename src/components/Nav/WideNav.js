@@ -7,6 +7,7 @@ const WideNav = function () {
     wideNav: { activeNav, setActiveNav },
   } = useContext(TodoContext);
 
+  // only for table & desktop
   const displayShow = function () {
     if (activeNav === "show") return;
     setActiveNav("show");

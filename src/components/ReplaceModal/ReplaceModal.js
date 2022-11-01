@@ -45,9 +45,11 @@ const ReplaceModal = function () {
   const submitReplace = function (e) {
     e.preventDefault();
 
+    // guard clause
     const submitter = e.nativeEvent.submitter.name;
     if (submitter !== "save") return;
 
+    // it will changed the specific task in the localStorage using the id
     dispatch({
       type: "replace-text",
       payload: {
@@ -61,21 +63,22 @@ const ReplaceModal = function () {
     hideChange();
   };
 
+  // is used for executing the calendar library to the calendar input
   useEffect(() => {
     const calendar = flatpickr(
       `.${style.change__form_date}`,
       FlatpickrConfigReplace
     );
 
-    // will execute this if the date on the task list is exist
+    // it will execute only this if the date on the specific task is existed
     if (currentReplaceDate) calendar.setDate(currentReplaceDate);
   }, []);
 
   return (
     <Backdrop onClick={hideChange}>
       <motion.div
-        onClick={(e) => e.stopPropagation()}
         className={style.change}
+        onClick={(e) => e.stopPropagation()}
         variants={modalAnimation}
         initial="hidden"
         animate="visible"

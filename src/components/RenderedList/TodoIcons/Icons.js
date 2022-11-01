@@ -7,18 +7,17 @@ import {
 
 import style from "./Icon.module.css";
 
-// prop.onPointerDown
 const Icons = function (prop) {
   return (
     <ul className={style.icons}>
       <li
-        className={`move ${!prop.isDrag && style.iconDisabled}`}
+        className={!prop.isDrag ? style.iconDisabled : null}
         onPointerDown={prop.control}
       >
         <FaRegHandPaper className={style.icons__move} />
       </li>
 
-      <li className={`replace ${!prop.isModify && style.iconDisabled}`}>
+      <li className={`replace ${!prop.isModify ? style.iconDisabled : null}`}>
         <FaRegEdit />
       </li>
 
@@ -38,7 +37,7 @@ const Icons = function (prop) {
         <FaRegCheckCircle />
       </li>
 
-      <li className={`remove ${!prop.isDelete && style.iconDisabled}`}>
+      <li className={`remove ${!prop.isDelete ? style.iconDisabled : null}`}>
         <FaTimes />
       </li>
     </ul>

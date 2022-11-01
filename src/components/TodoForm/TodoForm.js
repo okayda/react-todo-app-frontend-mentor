@@ -23,6 +23,7 @@ const TodoForm = function () {
   const submitForm = function (e) {
     e.preventDefault();
 
+    // guard clause & error handling at form
     const submitter = e.nativeEvent.submitter.name;
     if (submitter !== "add") return;
     if (inputValue.trim() === "") {
@@ -30,8 +31,11 @@ const TodoForm = function () {
       return;
     }
 
+    // it will remove the previous error & the error styling
+    // if the error is already existed
     if (textEmpty) setTextEmpty(false);
 
+    // the todo will be added in the localStroage & render it in the U.I
     dispatch({
       type: "add-todo",
       id: Math.random().toString(),
@@ -42,8 +46,10 @@ const TodoForm = function () {
       },
     });
 
+    // if the form submitted
+    // the calendar input will be reset
+    // including other states
     flatpickr(`.${style.form__calendarContainer}`, FlatpickrConfigForm).clear();
-
     setCalendarValue("");
     setInputValue("");
   };

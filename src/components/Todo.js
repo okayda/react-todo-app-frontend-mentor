@@ -1,4 +1,4 @@
-import { AnimatePresence, Reorder } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { useContext } from "react";
 import { TodoContext } from "./Methods/Context/TodoContext";
 
@@ -24,6 +24,7 @@ const Todo = function () {
       {/* Logo title & Burger menu */}
       <Nav />
 
+      {/* Form & Specific Menu */}
       <div className={style.todo__formMenu}>
         <TodoForm />
 
@@ -36,6 +37,7 @@ const Todo = function () {
         </div>
       </div>
 
+      {/* Task list & Visualization */}
       <div className={style.todo__listChart}>
         <TodoList />
 

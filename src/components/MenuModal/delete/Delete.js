@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { TodoContext } from "../../Methods/Context/TodoContext";
-import toast, { Toast, Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import ReactSwitch from "react-switch";
 
 import style from "./DeleteMenu.module.css";
@@ -18,6 +18,7 @@ const Delete = function (prop) {
     },
   } = useContext(TodoContext);
 
+  // Toast pop notification
   const notifySelectedDelete = function () {
     let str;
     if (selectedDelete === "delete-active") str = "Active";
@@ -31,6 +32,7 @@ const Delete = function (prop) {
     toast.success("todos storage successfully deleted", { duration: 2500 });
   };
 
+  // specific delete functionalities
   const toggleDelete = function () {
     setEnableDelete((cur) => (cur ? false : true));
 

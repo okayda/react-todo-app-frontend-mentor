@@ -13,6 +13,7 @@ const Calendar = function () {
     setCalendarValue("");
   };
 
+  // is used for executing the calendar library to the calendar input
   useEffect(() => {
     flatpickr(`.${style.form__calendarContainer}`, FlatpickrConfigForm);
   }, []);

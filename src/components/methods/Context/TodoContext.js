@@ -7,6 +7,7 @@ import {
 } from "../CalendarConfig/CalendarConfig";
 
 const reducer = function (state, action) {
+  // todo wll be added in the locaStorage
   if (action.type === "add-todo") {
     return [
       ...state,
@@ -19,22 +20,27 @@ const reducer = function (state, action) {
     ];
   }
 
+  // todos array in localStorage will be clear
   if (action.type === "delete-all") {
     return (state = []);
   }
 
+  // deleting specific todo in the localStorage
   if (action.type === "delete-todo") {
     return state.filter((todo) => todo.id !== action.payload.id);
   }
 
+  // not completed todos will be deleted
   if (action.type === "delete-active") {
     return state.filter((todo) => todo.isCompleted !== false);
   }
 
+  // completed todos will be deleted
   if (action.type === "delete-completed") {
     return state.filter((todo) => todo.isCompleted !== true);
   }
 
+  // changing specific todo in the localStorage
   if (action.type === "replace-text") {
     return state.map((todo) => {
       if (action.payload.id === todo.id) {
@@ -45,6 +51,7 @@ const reducer = function (state, action) {
     });
   }
 
+  // turning an active todo to completed
   if (action.type === "turn-completed") {
     return state.map((todo) => {
       if (action.payload.id === todo.id) todo.isCompleted = true;
@@ -52,17 +59,20 @@ const reducer = function (state, action) {
     });
   }
 
+  // if the todos is swapped beacuse of the reorder the localStorage will be updated
   if (action.type === "reorder-save") {
     return (state = action.payload.currentOrderTodoData);
   }
 };
 
+// todos array
 const getTodosLocalStorage = function () {
   const getTodos = localStorage.getItem("todos");
   if (getTodos) return JSON.parse(getTodos);
   return [];
 };
 
+// setting object
 const getSettingLocalStorage = function () {
   const getSettings = localStorage.getItem("settings");
   if (getSettings) return JSON.parse(getSettings);
@@ -78,8 +88,10 @@ const getSettingLocalStorage = function () {
 export const TodoContext = createContext();
 
 export const TodoProvider = function (prop) {
+  // setting state
   const [settings, setSettings] = useState(getSettingLocalStorage());
 
+  // todos state
   const [todos, dispatch] = useReducer(reducer, getTodosLocalStorage());
 
   // save todos and update at localStorage
@@ -95,6 +107,7 @@ export const TodoProvider = function (prop) {
   // <================>
 
   // tablet & desktop navigation state
+  // for specific menu
   const [activeNav, setActiveNav] = useState("show");
   // <================>
 
@@ -109,7 +122,6 @@ export const TodoProvider = function (prop) {
   const COMPLETED_TODO = "completed-todo";
   const COUNTED_TODO = "counted-todo";
   const [showTask, setShowTask] = useState(ALL_TODO);
-  const [countedTodo, setCountedTodo] = useState(false);
   // <================>
 
   // toggle state menu
@@ -123,7 +135,7 @@ export const TodoProvider = function (prop) {
   const [selectedDelete, setSelectedDelete] = useState(null);
   // <================>
 
-  // Replace modal state
+  // replace modal state
   const [taskId, setTaskId] = useState(null);
   const [currentReplaceText, setCurrentReplaceText] = useState("");
   const [currentReplaceDate, setCurrentReplaceDate] = useState("");
@@ -143,7 +155,7 @@ export const TodoProvider = function (prop) {
   const FlatpickrConfigReplace = CalendarConfigReplace(setCurrentReplaceDate);
   // <================>
 
-  // 1) Retrieving data
+  // 1) Retrieving data in the localStorage
   // 2) Append to the replace modal
   const retriveData = function (id) {
     setTaskId(id);

@@ -28,7 +28,7 @@ const TodoList = function () {
   }, []);
 
   useEffect(() => {
-    // the reorder save functionality it will only work if the
+    // the reorder save functionality it will only work this if the
     // todos container array in the localStorage length is 2 if it's true.
     // you can swap the todo and if the user swap the todo the saving mechanism
     // will trigger after 1 second of swapped to prevent multiple execution of saving
@@ -58,9 +58,6 @@ const TodoList = function () {
 
   //  this function is only for task list
   const iconsFunctionality = function (className, id) {
-    // for dragging the dragListener are responsible for drag
-    if (className === "move") return;
-
     const targetClass = className.split(" ");
 
     if (targetClass.includes("replace") && enableModify) {
@@ -74,7 +71,7 @@ const TodoList = function () {
       enableComplete
       /*
       the purpose of includes true is to prevent the execution
-      of this if statement again. if the task is mark as completed
+      of this if the statement again. if the task is mark as completed
       if there is no true className included will not be executed
       */
     ) {
@@ -88,9 +85,10 @@ const TodoList = function () {
     }
   };
 
-  // one handler for all task inside of ul below
+  // one handler for all todos
   const eventDelegation = function (e) {
     const target = e.target.closest("li");
+
     // Main parent list (<li></li)
     const parentClassList = target.parentElement.parentElement;
     const parentId = parentClassList.dataset.id;
@@ -101,6 +99,7 @@ const TodoList = function () {
     iconsFunctionality(classNameList, parentId);
   };
 
+  // Visualization JSX
   const listChart = (
     <div className={style.taskList__chartContainer}>
       <ChartCircle />
@@ -108,15 +107,18 @@ const TodoList = function () {
     </div>
   );
 
+  // Todos
   const list = todosData.map((todo) => {
-    if (showTask === "counted-todo") return;
-    if (showTask === "completed-todo" && !todo.isCompleted) return;
-    if (showTask === "active-todo" && todo.isCompleted) return;
+    if (showTask === "counted-todo") return null;
+    if (showTask === "completed-todo" && !todo.isCompleted) return null;
+    if (showTask === "active-todo" && todo.isCompleted) return null;
 
     return (
       <TodoItem key={todo.id} todo={todo} animationActive={animationActive} />
     );
   });
+
+  console.log(list);
 
   const content = todos.length > 0 ? list : <ContentLoad />;
 

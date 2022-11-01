@@ -18,6 +18,7 @@ const Toggle = function (prop) {
     },
   } = useContext(TodoContext);
 
+  // toggles functionalities
   const toggleDrag = function () {
     setEnableDrag((cur) => (cur ? false : true));
 

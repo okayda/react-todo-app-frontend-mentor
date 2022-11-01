@@ -17,7 +17,7 @@ const DeleteMenu = function (prop) {
         <h3>Delete Todos</h3>
         <FaArrowRight
           className={`${style.delete__icon} ${
-            prop.deleteIsActive && style.delete__icon_active
+            prop.deleteIsActive ? style.delete__icon_active : null
           }`}
         />
       </button>

@@ -11,6 +11,7 @@ const ChartCircle = function () {
     todo: { todos },
   } = useContext(TodoContext);
 
+  // specific todos length
   const activeTodos = todos.filter((todos) => !todos.isCompleted).length;
   const completedTodos = todos.filter((todos) => todos.isCompleted).length;
 

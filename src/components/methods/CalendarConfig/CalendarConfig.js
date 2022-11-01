@@ -13,7 +13,7 @@ export const CalendarConfigForm = function (
     onClose: function (_, dateStr) {
       showBackdrop(false);
 
-      // will be stored the user picked date at setCalendarValue()
+      // will be stored to the user picked date at setCalendarValue()
       if (!dateStr) return;
       retriveCalendarValue(dateStr);
     },
