@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useContext, useEffect, useRef } from "react";
+import { useState, useContext, useEffect, useRef } from "react";
 import { TodoContext } from "../Methods/Context/TodoContext";
 import { FaTimes } from "react-icons/fa";
 
@@ -29,6 +29,8 @@ const ReplaceModal = function () {
     calendar: { flatpickr, FlatpickrConfigReplace },
   } = useContext(TodoContext);
 
+  const [textEmpty, setTextEmpty] = useState(false);
+  console.log(textEmpty);
   const clearFocus = function () {
     setCurrentReplaceText("");
     ref.current.focus();
@@ -48,6 +50,10 @@ const ReplaceModal = function () {
     // guard clause
     const submitter = e.nativeEvent.submitter.name;
     if (submitter !== "save") return;
+    if (currentReplaceText.trim() === "") {
+      setTextEmpty(true);
+      return;
+    }
 
     // it will changed the specific task in the localStorage using the id
     dispatch({
@@ -95,10 +101,19 @@ const ReplaceModal = function () {
 
           <form onSubmit={submitReplace} className={style.change__form}>
             <textarea
+              className={`${textEmpty ? style.change__textareaInvalid : null}`}
               onChange={textAreaValue}
               value={currentReplaceText}
               ref={ref}
             />
+
+            <p
+              className={`${style.change__msg} ${
+                textEmpty ? style.change__errorMsg : null
+              }`}
+            >
+              The text area should not be empty
+            </p>
 
             <div className={style.change__form_inputButton}>
               <button

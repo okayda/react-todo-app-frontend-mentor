@@ -25,6 +25,7 @@
   }
 
   &__exit {
+    cursor: pointer;
     border: none;
     background-color: transparent;
     line-height: 0;
@@ -32,6 +33,7 @@
   }
 
   &__button {
+    cursor: pointer;
     color: var(--slight-dark);
     font-weight: bold;
     background-color: var(--light-shade-green);
@@ -42,19 +44,6 @@
 
   &__form {
     @include flexColumnGap(1rem);
-
-    textarea {
-      border: 1px solid var(--light-very-shade-green);
-      background-color: rgba($color: var(--light), $alpha: 0.5);
-      border-radius: 6px;
-      padding: 1rem;
-      font-size: 1.5rem;
-      height: 150px;
-    }
-
-    textarea:focus {
-      outline: none;
-    }
 
     &_inputButton {
       display: flex;
@@ -77,6 +66,7 @@
       }
 
       button {
+        cursor: pointer;
         color: var(--light);
         border-radius: 0 6px 6px 0;
         border: none;
@@ -90,5 +80,31 @@
       display: flex;
       justify-content: space-between;
     }
+  }
+
+  textarea {
+    border: 1px solid var(--light-very-shade-green);
+    background-color: rgba($color: var(--light), $alpha: 0.5);
+    border-radius: 6px;
+    padding: 1rem;
+    font-size: 1.5rem;
+    height: 15rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__msg {
+    font-weight: bold;
+    font-size: 1.45rem;
+  }
+
+  &__textareaInvalid {
+    border: 1px solid var(--light-very-shade-orange) !important;
+  }
+
+  &__errorMsg {
+    color: var(--light-very-shade-orange);
   }
 }

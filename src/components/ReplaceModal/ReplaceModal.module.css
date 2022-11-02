@@ -22,12 +22,14 @@
   font-size: 2.4rem;
 }
 .change__exit {
+  cursor: pointer;
   border: none;
   background-color: transparent;
   line-height: 0;
   font-size: 2.4rem;
 }
 .change__button {
+  cursor: pointer;
   color: var(--slight-dark);
   font-weight: bold;
   background-color: var(--light-shade-green);
@@ -39,17 +41,6 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-}
-.change__form textarea {
-  border: 1px solid var(--light-very-shade-green);
-  background-color: rgba(var(--light), 0.5);
-  border-radius: 6px;
-  padding: 1rem;
-  font-size: 1.5rem;
-  height: 150px;
-}
-.change__form textarea:focus {
-  outline: none;
 }
 .change__form_inputButton {
   display: flex;
@@ -69,6 +60,7 @@
   outline: none;
 }
 .change__form_date button {
+  cursor: pointer;
   color: var(--light);
   border-radius: 0 6px 6px 0;
   border: none;
@@ -79,4 +71,25 @@
 .change__form_edit {
   display: flex;
   justify-content: space-between;
+}
+.change textarea {
+  border: 1px solid var(--light-very-shade-green);
+  background-color: rgba(var(--light), 0.5);
+  border-radius: 6px;
+  padding: 1rem;
+  font-size: 1.5rem;
+  height: 15rem;
+}
+.change textarea:focus {
+  outline: none;
+}
+.change__msg {
+  font-weight: bold;
+  font-size: 1.45rem;
+}
+.change__textareaInvalid {
+  border: 1px solid var(--light-very-shade-orange) !important;
+}
+.change__errorMsg {
+  color: var(--light-very-shade-orange);
 }
