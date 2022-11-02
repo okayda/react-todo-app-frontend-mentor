@@ -1,3 +1,4 @@
+@import "../../scss/variables";
 @import "../../scss/mixins";
 
 .taskList {
@@ -5,14 +6,14 @@
 
   list-style: none;
   padding-right: 1rem;
-  border-right: 1.2rem solid var(--light-very-shade-purple);
+  border-right: 1.2rem solid $very-shade-purple;
 
   &__list {
     @include flexColumnGap(1.2rem);
-    background-color: var(--light);
-    border-left: solid 4px var(--light-very-shade-purple);
+    background-color: $light;
+    border-left: solid 4px $very-shade-purple;
     border-radius: 0 6px 6px 0;
-    color: var(--slight-dark);
+    color: $dark;
     padding: 0.6rem 0 1.4rem;
 
     p {
@@ -26,12 +27,12 @@
 
   &__listRead {
     font-weight: bold;
-    color: var(--light-very-shade-purple);
+    color: $very-shade-purple;
   }
 
   &__listDate {
     font-weight: bold;
-    color: var(--dark-grayish-blue);
+    color: $dark-grayish-blue;
     padding-left: 1rem;
     font-size: 1.2rem;
   }

@@ -1,7 +1,8 @@
+@import "../../../scss/variables";
 @import "../../../scss/mixins";
 
 .setting {
-  background-color: var(--light-tint-green);
+  background-color: $tint-green;
   border-radius: 6px;
 
   &__button {
@@ -20,7 +21,7 @@
 
   &__icon {
     transition: all 0.4s;
-    color: var(--dark-shade-green);
+    color: $dark-shade-green;
     font-size: 1.5rem;
 
     &_active {

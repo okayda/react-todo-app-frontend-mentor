@@ -5,7 +5,7 @@
   flex-grow: 1;
 }
 .header__box {
-  background-color: var(--light);
+  background-color: #fff;
   padding: 0.8rem;
   border-radius: 6px;
 }

@@ -1,5 +1,5 @@
 .delete {
-  background-color: var(--light-tint-orange);
+  background-color: #fff4ec;
   border-radius: 6px;
 }
 .delete__button {
@@ -16,7 +16,7 @@
 }
 .delete__icon {
   transition: all 0.4s;
-  color: var(--dark-shade-green);
+  color: #08444c;
   font-size: 1.5rem;
 }
 .delete__icon_active {
@@ -63,8 +63,8 @@
   font-size: 1.45rem;
   font-weight: bold;
   border-radius: 6px;
-  background-color: var(--light-shade-orange);
-  border: 1px solid var(--light-very-shade-orange);
+  background-color: #ffdad0;
+  border: 1px solid #f86939;
   padding: 0.8rem 0;
   width: 100%;
 }

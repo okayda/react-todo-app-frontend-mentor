@@ -8,8 +8,8 @@
     height: 10rem;
     padding: 1.4rem;
     border-radius: 6px;
-    border: 2px solid var(--dark-shade-green);
-    color: var(--slight-dark);
+    border: 2px solid $dark-shade-green;
+    color: $dark;
     font-size: 1.6rem;
     background-color: transparent;
     margin-bottom: 1rem;
@@ -20,7 +20,7 @@
   }
 
   &__textareaInvalid {
-    border-color: var(--light-very-shade-orange);
+    border-color: $very-shade-orange;
   }
 
   &__quote,
@@ -36,7 +36,7 @@
 
   &__errorMsg {
     opacity: 1;
-    color: var(--light-very-shade-orange);
+    color: $very-shade-orange;
   }
 
   &__buttons {
@@ -61,11 +61,11 @@
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
       rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     border-radius: 6px;
-    background-color: var(--light-very-shade-purple);
-    color: var(--light);
+    background-color: $very-shade-purple;
+    color: $light;
 
     &:hover {
-      background-color: darken($light-very-shade-purple, 10%);
+      background-color: darken($very-shade-purple, 10%);
     }
   }
 
@@ -73,7 +73,7 @@
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
       rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     border-radius: 6px;
-    background-color: var(--light);
+    background-color: $light;
 
     &:hover {
       background-color: darken($light, 10%);
@@ -83,29 +83,31 @@
   &__calendarContainer {
     display: flex;
     justify-content: flex-end;
-    background-color: $light-shade-green;
-    border-radius: 100px 0 0 100px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   }
 
   &__calendarInput {
+    box-shadow: -1px 0px 2px 0 $dark;
     border-radius: 6px 0 0 6px;
     width: 65%;
-    background-color: var(--light-tint-green);
+    background-color: $tint-green;
     padding: 1rem;
-    color: var(--slight-dark);
+    color: $dark;
 
     &:hover {
-      background-color: darken($light-tint-green, 5%);
+      background-color: darken($tint-green, 5%);
     }
   }
 
   &__calendarClear {
+    box-shadow: 1px 0px 2px 0 $dark;
     border: 0 6px 6px 0;
-    background-color: var(--light-shade-green);
+    background-color: $shade-green;
     padding: 1rem;
     line-height: 0;
+
+    &:hover {
+      background-color: darken($shade-green, 10%);
+    }
   }
 
   @include s-mobile() {

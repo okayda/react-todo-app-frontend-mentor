@@ -1,3 +1,4 @@
+@import "../../scss/variables";
 @import "../../scss/mixins";
 
 .wideNav {
@@ -21,7 +22,7 @@
       content: "";
       width: 35%;
       height: 4px;
-      background-color: var(--light-very-shade-purple);
+      background-color: $very-shade-purple;
       position: absolute;
       top: 0;
       left: 50%;

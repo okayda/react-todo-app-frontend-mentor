@@ -1,9 +1,11 @@
+@import "../../scss/variables";
+
 .footer {
   padding: 1rem 0;
   text-align: center;
 
   &__text {
-    color: var(--dark-grayish-blue);
+    color: $dark-grayish-blue;
     font-weight: 700;
     font-size: 1.4rem;
   }

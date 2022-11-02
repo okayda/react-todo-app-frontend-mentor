@@ -13,7 +13,7 @@
     border-radius: 6px;
     padding: 2rem 0.8rem;
 
-    background-color: var(--light-tint-green);
+    background-color: $tint-green;
   }
 
   &__title {
@@ -27,78 +27,24 @@
 
   &__exit {
     cursor: pointer;
-    color: $slight-dark;
+    color: $dark;
     border: none;
     background-color: transparent;
     line-height: 0;
     font-size: 2.4rem;
 
     &:hover {
-      color: lighten($slight-dark, 10%);
-    }
-  }
-
-  &__button {
-    cursor: pointer;
-    color: var(--slight-dark);
-    font-weight: bold;
-    background-color: var(--light-shade-green);
-    border: 1px solid var(--light-very-shade-green);
-    border-radius: 6px;
-    padding: 0.6rem 1.2rem;
-
-    &:hover {
-      background-color: darken($light-shade-green, 10%);
+      color: lighten($dark, 10%);
     }
   }
 
   &__form {
     @include flexColumnGap(1rem);
-
-    &_inputButton {
-      display: flex;
-      gap: 1.6rem;
-      margin-bottom: 1rem;
-    }
-
-    &_date {
-      display: flex;
-
-      input {
-        background-color: var(--light-shade-green);
-        border-radius: 6px 0 0 6px;
-        width: 45%;
-        border: 1px solid var(--dark-shade-green);
-
-        &:hover {
-          background-color: darken($light-shade-green, 10%);
-        }
-      }
-
-      input:focus {
-        outline: none;
-      }
-
-      button {
-        cursor: pointer;
-        color: var(--light);
-        border-radius: 0 6px 6px 0;
-        border: none;
-        background-color: var(--light-very-shade-green);
-        line-height: 0;
-        padding: 0.4rem 0.6rem;
-      }
-    }
-
-    &_edit {
-      display: flex;
-      justify-content: space-between;
-    }
   }
 
-  textarea {
-    border: 1px solid var(--light-very-shade-green);
-    background-color: rgba($color: var(--light), $alpha: 0.5);
+  &__textarea {
+    border: 1px solid $very-shade-green;
+    background-color: rgba($color: $light, $alpha: 0.5);
     border-radius: 6px;
     padding: 1rem;
     font-size: 1.5rem;
@@ -109,16 +55,70 @@
     }
   }
 
+  &__textareaInvalid {
+    border-color: $very-shade-orange;
+  }
+
   &__msg {
     font-weight: bold;
     font-size: 1.45rem;
   }
 
-  &__textareaInvalid {
-    border: 1px solid var(--light-very-shade-orange) !important;
+  &__errorMsg {
+    color: $very-shade-orange;
   }
 
-  &__errorMsg {
-    color: var(--light-very-shade-orange);
+  &__button {
+    cursor: pointer;
+    color: $dark;
+    font-weight: bold;
+    background-color: $shade-green;
+    border: 1px solid $very-shade-green;
+    border-radius: 6px;
+    padding: 0.6rem 1.2rem;
+
+    &:hover {
+      background-color: darken($shade-green, 10%);
+    }
+  }
+
+  &__clearCalendarContainer {
+    display: flex;
+    gap: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  &__calendarContainer {
+    display: flex;
+
+    input {
+      background-color: $shade-green;
+      border-radius: 6px 0 0 6px;
+      width: 45%;
+      border: 1px solid $dark-shade-green;
+
+      &:hover {
+        background-color: darken($shade-green, 10%);
+      }
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    button {
+      cursor: pointer;
+      color: $light;
+      border-radius: 0 6px 6px 0;
+      border: none;
+      background-color: $very-shade-green;
+      line-height: 0;
+      padding: 0.4rem 0.6rem;
+    }
+  }
+
+  &__editContainer {
+    display: flex;
+    justify-content: space-between;
   }
 }

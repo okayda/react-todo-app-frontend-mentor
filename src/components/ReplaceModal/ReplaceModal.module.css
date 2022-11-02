@@ -12,7 +12,7 @@
   width: 100%;
   border-radius: 6px;
   padding: 2rem 0.8rem;
-  background-color: var(--light-tint-green);
+  background-color: #f4fcf4;
 }
 .change__title {
   display: flex;
@@ -32,74 +32,74 @@
 .change__exit:hover {
   color: #4d4d4d;
 }
+.change__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.change__textarea {
+  border: 1px solid #488c75;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+  padding: 1rem;
+  font-size: 1.5rem;
+  height: 15rem;
+}
+.change__textarea:focus {
+  outline: none;
+}
+.change__textareaInvalid {
+  border-color: #f86939;
+}
+.change__msg {
+  font-weight: bold;
+  font-size: 1.45rem;
+}
+.change__errorMsg {
+  color: #f86939;
+}
 .change__button {
   cursor: pointer;
-  color: var(--slight-dark);
+  color: #333;
   font-weight: bold;
-  background-color: var(--light-shade-green);
-  border: 1px solid var(--light-very-shade-green);
+  background-color: #dcf4ec;
+  border: 1px solid #488c75;
   border-radius: 6px;
   padding: 0.6rem 1.2rem;
 }
 .change__button:hover {
   background-color: #b5e8d7;
 }
-.change__form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.change__form_inputButton {
+.change__clearCalendarContainer {
   display: flex;
   gap: 1.6rem;
   margin-bottom: 1rem;
 }
-.change__form_date {
+.change__calendarContainer {
   display: flex;
 }
-.change__form_date input {
-  background-color: var(--light-shade-green);
+.change__calendarContainer input {
+  background-color: #dcf4ec;
   border-radius: 6px 0 0 6px;
   width: 45%;
-  border: 1px solid var(--dark-shade-green);
+  border: 1px solid #08444c;
 }
-.change__form_date input:hover {
+.change__calendarContainer input:hover {
   background-color: #b5e8d7;
 }
-.change__form_date input:focus {
+.change__calendarContainer input:focus {
   outline: none;
 }
-.change__form_date button {
+.change__calendarContainer button {
   cursor: pointer;
-  color: var(--light);
+  color: #fff;
   border-radius: 0 6px 6px 0;
   border: none;
-  background-color: var(--light-very-shade-green);
+  background-color: #488c75;
   line-height: 0;
   padding: 0.4rem 0.6rem;
 }
-.change__form_edit {
+.change__editContainer {
   display: flex;
   justify-content: space-between;
-}
-.change textarea {
-  border: 1px solid var(--light-very-shade-green);
-  background-color: rgba(var(--light), 0.5);
-  border-radius: 6px;
-  padding: 1rem;
-  font-size: 1.5rem;
-  height: 15rem;
-}
-.change textarea:focus {
-  outline: none;
-}
-.change__msg {
-  font-weight: bold;
-  font-size: 1.45rem;
-}
-.change__textareaInvalid {
-  border: 1px solid var(--light-very-shade-orange) !important;
-}
-.change__errorMsg {
-  color: var(--light-very-shade-orange);
 }

@@ -1,3 +1,4 @@
+@import "../../scss/variables";
 @import "../../scss/mixins";
 
 .nav {
@@ -5,7 +6,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
-  color: var(--slight-dark);
+  color: $dark;
 
   &__title {
     font-size: 3rem;

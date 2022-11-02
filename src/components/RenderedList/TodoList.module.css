@@ -4,16 +4,16 @@
   gap: 1.4rem;
   list-style: none;
   padding-right: 1rem;
-  border-right: 1.2rem solid var(--light-very-shade-purple);
+  border-right: 1.2rem solid #7676b5;
 }
 .taskList__list {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  background-color: var(--light);
-  border-left: solid 4px var(--light-very-shade-purple);
+  background-color: #fff;
+  border-left: solid 4px #7676b5;
   border-radius: 0 6px 6px 0;
-  color: var(--slight-dark);
+  color: #333;
   padding: 0.6rem 0 1.4rem;
 }
 .taskList__list p {
@@ -25,11 +25,11 @@
 }
 .taskList__listRead {
   font-weight: bold;
-  color: var(--light-very-shade-purple);
+  color: #7676b5;
 }
 .taskList__listDate {
   font-weight: bold;
-  color: var(--dark-grayish-blue);
+  color: #777a92;
   padding-left: 1rem;
   font-size: 1.2rem;
 }

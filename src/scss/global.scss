@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+@import "./variables";
 
 *,
 *::before,
@@ -14,33 +15,10 @@ html {
   overflow-y: scroll;
 }
 
-:root {
-  --slight-dark: #333;
-  --light: #fff;
-
-  --light-body: #f5f2eb;
-
-  --light-grayish-blue: hsl(234, 39%, 85%);
-
-  --light-tint-purple: #f0f4fc;
-  --light-shade-purple: #e1e1fd;
-  --light-very-shade-purple: #7676b5;
-
-  --light-tint-green: #f4fcf4;
-  --light-shade-green: #dcf4ec;
-  --light-very-shade-green: #488c75;
-
-  --light-tint-orange: #fff4ec;
-  --light-shade-orange: #ffdad0;
-  --light-very-shade-orange: #f86939;
-
-  --dark-shade-green: #08444c;
-  --dark-grayish-blue: hsl(234, 11%, 52%);
-}
-
 body {
   height: 100vh;
-  background-color: var(--light-body);
+  background-color: $slight-khaki;
+  color: $dark;
   box-sizing: border-box;
   font-family: "Josefin Sans", sans-serif;
 }

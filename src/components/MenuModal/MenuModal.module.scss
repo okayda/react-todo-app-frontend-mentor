@@ -1,3 +1,4 @@
+@import "../../scss/variables";
 @import "../../scss/mixins";
 
 .header {
@@ -5,7 +6,7 @@
   flex-grow: 1;
 
   &__box {
-    background-color: var(--light);
+    background-color: $light;
     padding: 0.8rem;
     border-radius: 6px;
   }

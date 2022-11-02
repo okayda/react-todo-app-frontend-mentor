@@ -2,7 +2,7 @@
 @import "../../../scss/mixins";
 
 .delete {
-  background-color: var(--light-tint-orange);
+  background-color: $tint-orange;
   border-radius: 6px;
 
   &__button {
@@ -21,7 +21,7 @@
 
   &__icon {
     transition: all 0.4s;
-    color: var(--dark-shade-green);
+    color: $dark-shade-green;
     font-size: 1.5rem;
 
     &_active {
@@ -72,13 +72,13 @@
       font-size: 1.45rem;
       font-weight: bold;
       border-radius: 6px;
-      background-color: var(--light-shade-orange);
-      border: 1px solid var(--light-very-shade-orange);
+      background-color: $shade-orange;
+      border: 1px solid $very-shade-orange;
       padding: 0.8rem 0;
       width: 100%;
 
       &:hover {
-        background-color: darken($light-shade-orange, 5%);
+        background-color: darken($shade-orange, 5%);
       }
     }
   }

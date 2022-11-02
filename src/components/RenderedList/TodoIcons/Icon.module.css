@@ -1,21 +1,21 @@
 .icons {
   display: flex;
   justify-content: space-around;
-  border-bottom: dotted var(--dark-shade-green) 3px;
+  border-bottom: dotted #08444c 3px;
   padding-bottom: 0.6rem;
   list-style: none;
-  color: var(--dark-shade-green);
+  color: #08444c;
   background-color: transparent;
   line-height: 0;
   font-size: 1.8rem;
 }
 .icons .iconDisabled {
-  color: var(--dark-grayish-blue);
+  color: #777a92;
   opacity: 0.2;
 }
 .icons .iconCompleted {
-  color: var(--light-very-shade-green);
-  background-color: var(--light-shade-green);
+  color: #488c75;
+  background-color: #dcf4ec;
 }
 .icons li {
   cursor: pointer;

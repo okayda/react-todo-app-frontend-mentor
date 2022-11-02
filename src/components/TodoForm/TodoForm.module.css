@@ -4,8 +4,8 @@
   height: 10rem;
   padding: 1.4rem;
   border-radius: 6px;
-  border: 2px solid var(--dark-shade-green);
-  color: var(--slight-dark);
+  border: 2px solid #08444c;
+  color: #333;
   font-size: 1.6rem;
   background-color: transparent;
   margin-bottom: 1rem;
@@ -14,7 +14,7 @@
   outline: none;
 }
 .form__textareaInvalid {
-  border-color: var(--light-very-shade-orange);
+  border-color: #f86939;
 }
 .form__quote, .form__msg {
   font-weight: bold;
@@ -26,7 +26,7 @@
 }
 .form__errorMsg {
   opacity: 1;
-  color: var(--light-very-shade-orange);
+  color: #f86939;
 }
 .form__buttons {
   display: flex;
@@ -43,8 +43,8 @@
 .form__add {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   border-radius: 6px;
-  background-color: var(--light-very-shade-purple);
-  color: var(--light);
+  background-color: #7676b5;
+  color: #fff;
 }
 .form__add:hover {
   background-color: #5757a1;
@@ -52,7 +52,7 @@
 .form__clear {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   border-radius: 6px;
-  background-color: var(--light);
+  background-color: #fff;
 }
 .form__clear:hover {
   background-color: #e6e6e6;
@@ -60,25 +60,27 @@
 .form__calendarContainer {
   display: flex;
   justify-content: flex-end;
-  background-color: #dcf4ec;
-  border-radius: 100px 0 0 100px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 .form__calendarInput {
+  box-shadow: -1px 0px 2px 0 #333;
   border-radius: 6px 0 0 6px;
   width: 65%;
-  background-color: var(--light-tint-green);
+  background-color: #f4fcf4;
   padding: 1rem;
-  color: var(--slight-dark);
+  color: #333;
 }
 .form__calendarInput:hover {
   background-color: #e0f7e0;
 }
 .form__calendarClear {
+  box-shadow: 1px 0px 2px 0 #333;
   border: 0 6px 6px 0;
-  background-color: var(--light-shade-green);
+  background-color: #dcf4ec;
   padding: 1rem;
   line-height: 0;
+}
+.form__calendarClear:hover {
+  background-color: #b5e8d7;
 }
 @media only screen and (max-width: 21.8rem) {
   .form__buttons {

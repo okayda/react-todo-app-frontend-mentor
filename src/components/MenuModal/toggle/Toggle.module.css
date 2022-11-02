@@ -1,5 +1,5 @@
 .setting {
-  background-color: var(--light-tint-green);
+  background-color: #f4fcf4;
   border-radius: 6px;
 }
 .setting__button {
@@ -16,7 +16,7 @@
 }
 .setting__icon {
   transition: all 0.4s;
-  color: var(--dark-shade-green);
+  color: #08444c;
   font-size: 1.5rem;
 }
 .setting__icon_active {

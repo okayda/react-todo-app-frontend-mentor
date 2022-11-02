@@ -72,7 +72,7 @@ const ReplaceModal = function () {
   // is used for executing the calendar library to the calendar input
   useEffect(() => {
     const calendar = flatpickr(
-      `.${style.change__form_date}`,
+      `.${style.change__calendarContainer}`,
       FlatpickrConfigReplace
     );
 
@@ -101,7 +101,9 @@ const ReplaceModal = function () {
 
           <form onSubmit={submitReplace} className={style.change__form}>
             <textarea
-              className={`${textEmpty ? style.change__textareaInvalid : null}`}
+              className={`${style.change__textarea} ${
+                textEmpty ? style.change__textareaInvalid : null
+              }`}
               onChange={textAreaValue}
               value={currentReplaceText}
               ref={ref}
@@ -115,7 +117,7 @@ const ReplaceModal = function () {
               The text area should not be empty
             </p>
 
-            <div className={style.change__form_inputButton}>
+            <div className={style.change__clearCalendarContainer}>
               <button
                 type="button"
                 onClick={clearFocus}
@@ -125,7 +127,7 @@ const ReplaceModal = function () {
                 Clear
               </button>
 
-              <div className={style.change__form_date}>
+              <div className={style.change__calendarContainer}>
                 <input type="text" placeholder="Calendar" data-input />
 
                 <button
@@ -139,7 +141,7 @@ const ReplaceModal = function () {
               </div>
             </div>
 
-            <div className={style.change__form_edit}>
+            <div className={style.change__editContainer}>
               <button
                 type="submit"
                 className={style.change__button}
