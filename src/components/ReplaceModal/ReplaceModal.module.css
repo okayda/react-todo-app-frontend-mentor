@@ -9,10 +9,10 @@
   flex-direction: column;
   gap: 2rem;
   position: relative;
+  background-color: #f4fcf4;
   width: 100%;
   border-radius: 6px;
   padding: 2rem 0.8rem;
-  background-color: #f4fcf4;
 }
 .change__title {
   display: flex;
@@ -61,9 +61,9 @@
 .change__button {
   cursor: pointer;
   color: #333;
-  font-weight: bold;
   background-color: #dcf4ec;
   border: 1px solid #488c75;
+  font-weight: bold;
   border-radius: 6px;
   padding: 0.6rem 1.2rem;
 }
@@ -93,9 +93,9 @@
 .change__calendarContainer button {
   cursor: pointer;
   color: #fff;
+  background-color: #488c75;
   border-radius: 0 6px 6px 0;
   border: none;
-  background-color: #488c75;
   line-height: 0;
   padding: 0.4rem 0.6rem;
 }

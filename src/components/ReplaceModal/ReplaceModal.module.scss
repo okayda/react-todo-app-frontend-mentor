@@ -9,11 +9,10 @@
     @include flexColumnGap(2rem);
 
     position: relative;
+    background-color: $tint-green;
     width: 100%;
     border-radius: 6px;
     padding: 2rem 0.8rem;
-
-    background-color: $tint-green;
   }
 
   &__title {
@@ -71,9 +70,9 @@
   &__button {
     cursor: pointer;
     color: $dark;
-    font-weight: bold;
     background-color: $shade-green;
     border: 1px solid $very-shade-green;
+    font-weight: bold;
     border-radius: 6px;
     padding: 0.6rem 1.2rem;
 
@@ -109,9 +108,9 @@
     button {
       cursor: pointer;
       color: $light;
+      background-color: $very-shade-green;
       border-radius: 0 6px 6px 0;
       border: none;
-      background-color: $very-shade-green;
       line-height: 0;
       padding: 0.4rem 0.6rem;
     }

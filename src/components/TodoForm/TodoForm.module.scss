@@ -45,7 +45,7 @@
     gap: 2rem;
   }
 
-  // buttons class name
+  // Btn class name
   &__add,
   &__clear,
   &__calendarInput,
@@ -57,10 +57,14 @@
     padding: 1rem 1.6rem;
   }
 
-  &__add {
+  &__add,
+  &__clear {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
       rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     border-radius: 6px;
+  }
+
+  &__add {
     background-color: $very-shade-purple;
     color: $light;
 
@@ -70,10 +74,8 @@
   }
 
   &__clear {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    border-radius: 6px;
     background-color: $light;
+    color: $dark;
 
     &:hover {
       background-color: darken($light, 10%);
@@ -87,11 +89,11 @@
 
   &__calendarInput {
     box-shadow: -1px 0px 2px 0 $dark;
+    background-color: $tint-green;
+    color: $dark;
     border-radius: 6px 0 0 6px;
     width: 65%;
-    background-color: $tint-green;
     padding: 1rem;
-    color: $dark;
 
     &:hover {
       background-color: darken($tint-green, 5%);
@@ -100,7 +102,7 @@
 
   &__calendarClear {
     box-shadow: 1px 0px 2px 0 $dark;
-    border: 0 6px 6px 0;
+    border-radius: 0 6px 6px 0;
     background-color: $shade-green;
     padding: 1rem;
     line-height: 0;

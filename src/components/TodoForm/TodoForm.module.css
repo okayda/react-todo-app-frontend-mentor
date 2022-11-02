@@ -40,9 +40,11 @@
   font-size: 1.4rem;
   padding: 1rem 1.6rem;
 }
-.form__add {
+.form__add, .form__clear {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   border-radius: 6px;
+}
+.form__add {
   background-color: #7676b5;
   color: #fff;
 }
@@ -50,9 +52,8 @@
   background-color: #5757a1;
 }
 .form__clear {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  border-radius: 6px;
   background-color: #fff;
+  color: #333;
 }
 .form__clear:hover {
   background-color: #e6e6e6;
@@ -63,18 +64,18 @@
 }
 .form__calendarInput {
   box-shadow: -1px 0px 2px 0 #333;
+  background-color: #f4fcf4;
+  color: #333;
   border-radius: 6px 0 0 6px;
   width: 65%;
-  background-color: #f4fcf4;
   padding: 1rem;
-  color: #333;
 }
 .form__calendarInput:hover {
   background-color: #e0f7e0;
 }
 .form__calendarClear {
   box-shadow: 1px 0px 2px 0 #333;
-  border: 0 6px 6px 0;
+  border-radius: 0 6px 6px 0;
   background-color: #dcf4ec;
   padding: 1rem;
   line-height: 0;

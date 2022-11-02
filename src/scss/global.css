@@ -9,16 +9,18 @@
 
 html {
   font-size: 62.5%;
-  overflow-x: hidden;
   overflow-y: scroll;
 }
 
 body {
-  height: 100vh;
   background-color: #f5f2eb;
   color: #333;
   box-sizing: border-box;
   font-family: "Josefin Sans", sans-serif;
+}
+
+.disable-scroll {
+  overflow-y: hidden;
 }
 
 textarea {
@@ -38,8 +40,9 @@ textarea {
 }
 
 .flatpickr-calendar {
-  top: 26rem !important;
+  position: fixed;
+  top: 50% !important;
   left: 50% !important;
   right: 0 !important;
-  transform: translateX(-50%) !important;
+  transform: translate(-50%, -50%) !important;
 }

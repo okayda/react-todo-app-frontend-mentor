@@ -19,6 +19,12 @@ function Main() {
     calendar: { activeCalendar, setActiveCalendar },
   } = useContext(TodoContext);
 
+  // if the specific modal is displayed the vertical scroll bar will be disabled
+  const root = document.documentElement.classList;
+  activeMenu || activeReplace || activeCalendar
+    ? root.add("disable-scroll")
+    : root.remove("disable-scroll");
+
   return (
     <>
       {/*
