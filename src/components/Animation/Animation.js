@@ -76,6 +76,8 @@ export const loaderAnimation = {
   exit: {
     x: "-40vh",
     opacity: 0,
-    duration: 1,
+    transition: {
+      duration: 0.5,
+    },
   },
 };

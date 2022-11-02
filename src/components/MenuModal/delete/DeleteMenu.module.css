@@ -14,11 +14,6 @@
 .delete__button h3 {
   font-size: 1.8rem;
 }
-@media (min-width: 700px) {
-  .delete__button {
-    padding: 0.8rem 1rem;
-  }
-}
 .delete__icon {
   transition: all 0.4s;
   color: var(--dark-shade-green);
@@ -27,11 +22,6 @@
 .delete__icon_active {
   transform: rotate(90deg);
 }
-@media (min-width: 700px) {
-  .delete__icon {
-    display: none;
-  }
-}
 .delete__content {
   display: flex;
   flex-direction: column;
@@ -39,14 +29,6 @@
   transition: all 0.4s;
   max-height: 0;
   overflow: hidden;
-}
-@media (min-width: 700px) {
-  .delete__content {
-    gap: 1.4rem;
-    padding: 1rem;
-    max-height: none;
-    overflow: visible;
-  }
 }
 .delete__switches {
   display: flex;
@@ -67,12 +49,17 @@
 .delete__radios input[type=radio] {
   transform: scale(1.1);
 }
+.delete__radios label,
+.delete__radios input {
+  cursor: pointer;
+}
 .delete__buttons {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.4rem;
 }
 .delete__buttons button {
+  cursor: pointer;
   font-size: 1.45rem;
   font-weight: bold;
   border-radius: 6px;
@@ -83,5 +70,19 @@
 }
 .delete__active {
   padding: 2rem 1rem;
-  max-height: 400px;
+  max-height: 40rem;
+}
+@media only screen and (min-width: 43.75rem) {
+  .delete__button {
+    padding: 0.8rem 1rem;
+  }
+  .delete__icon {
+    display: none;
+  }
+  .delete__content {
+    gap: 1.4rem;
+    padding: 1rem;
+    max-height: none;
+    overflow: visible;
+  }
 }

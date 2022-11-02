@@ -1,9 +1,8 @@
 .footer {
   padding: 1rem 0;
+  text-align: center;
 }
 .footer__text {
-  padding: 1rem 0;
-  text-align: center;
   color: var(--dark-grayish-blue);
   font-weight: 700;
   font-size: 1.4rem;

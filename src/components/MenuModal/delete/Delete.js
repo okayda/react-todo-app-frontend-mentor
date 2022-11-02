@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { TodoContext } from "../../Methods/Context/TodoContext";
 import toast, { Toaster } from "react-hot-toast";
 import ReactSwitch from "react-switch";
@@ -25,11 +25,11 @@ const Delete = function (prop) {
 
     if (selectedDelete === "delete-completed") str = "Completed";
 
-    toast.success(`${str} todos Successfully deleted`, { duration: 2500 });
+    toast.success(`${str} successfully deleted`, { duration: 3000 });
   };
 
   const notifyClearTodos = function () {
-    toast.success("todos storage successfully deleted", { duration: 2500 });
+    toast.success("Successfully cleared", { duration: 3000 });
   };
 
   // specific delete functionalities

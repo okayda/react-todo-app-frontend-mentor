@@ -7,7 +7,7 @@ import { specificMenuAnimation } from "../../Animation/Animation";
 import style from "./ShowMenu.module.css";
 import ShowMenuForm from "./ShowMenuFom";
 
-const ShowMenu = function () {
+const ShowMenu = function (prop) {
   const {
     menu: { hideMenu },
   } = useContext(TodoContext);
@@ -16,7 +16,7 @@ const ShowMenu = function () {
     <motion.div
       className={style.show}
       variants={specificMenuAnimation}
-      initial={"hidden"}
+      initial={prop.animationAllowed ? "hidden" : false}
       animate="visible"
     >
       <div className={style.show__header}>

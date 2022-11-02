@@ -10,7 +10,7 @@ const ToggleMenu = function (prop) {
     <motion.div
       className={style.setting}
       variants={specificMenuAnimation}
-      initial={"hidden"}
+      initial={prop.animationAllowed ? "hidden" : false}
       animate="visible"
     >
       <button className={style.setting__button} onClick={prop.onClick}>

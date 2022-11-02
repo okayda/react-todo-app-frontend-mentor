@@ -30,9 +30,15 @@ const Todo = function () {
 
         <div className={style.todo__menuContainer}>
           <AnimatePresence>
-            {activeNav === "show" ? <ShowMenu /> : null}
-            {activeNav === "setting" ? <ToggleMenu /> : null}
-            {activeNav === "delete" ? <DeleteMenu /> : null}
+            {activeNav === "show" ? <ShowMenu animationAllowed={true} /> : null}
+
+            {activeNav === "setting" ? (
+              <ToggleMenu animationAllowed={true} />
+            ) : null}
+
+            {activeNav === "delete" ? (
+              <DeleteMenu animationAllowed={true} />
+            ) : null}
           </AnimatePresence>
         </div>
       </div>

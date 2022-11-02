@@ -15,3 +15,17 @@
   align-items: $direction;
   gap: $gap;
 }
+
+// 350px
+@mixin s-mobile() {
+  @media only screen and (max-width: 21.8rem) {
+    @content;
+  }
+}
+
+// 700px
+@mixin tabdesk() {
+  @media only screen and (min-width: 43.75rem) {
+    @content;
+  }
+} ;

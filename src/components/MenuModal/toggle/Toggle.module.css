@@ -14,11 +14,6 @@
 .setting__button h3 {
   font-size: 1.8rem;
 }
-@media (min-width: 700px) {
-  .setting__button {
-    padding: 0.8rem 1rem;
-  }
-}
 .setting__icon {
   transition: all 0.4s;
   color: var(--dark-shade-green);
@@ -27,11 +22,6 @@
 .setting__icon_active {
   transform: rotate(90deg);
 }
-@media (min-width: 700px) {
-  .setting__icon {
-    display: none;
-  }
-}
 .setting__content {
   display: flex;
   flex-direction: column;
@@ -39,13 +29,6 @@
   transition: all 0.4s;
   max-height: 0;
   overflow: hidden;
-}
-@media (min-width: 700px) {
-  .setting__content {
-    padding: 1rem;
-    max-height: none;
-    overflow: visible;
-  }
 }
 .setting__container {
   display: flex;
@@ -57,5 +40,18 @@
 }
 .setting__active {
   padding: 2rem 1rem;
-  max-height: 200px;
+  max-height: 20rem;
+}
+@media only screen and (min-width: 43.75rem) {
+  .setting__button {
+    padding: 0.8rem 1rem;
+  }
+  .setting__icon {
+    display: none;
+  }
+  .setting__content {
+    padding: 1rem;
+    max-height: none;
+    overflow: visible;
+  }
 }

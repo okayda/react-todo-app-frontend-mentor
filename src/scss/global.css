@@ -38,15 +38,15 @@ body {
   font-family: "Josefin Sans", sans-serif;
 }
 
-.menu-modal,
-.replace-modal {
-  max-width: 380px;
-  margin: 0 auto;
-}
-
 textarea {
   width: 100%;
   resize: none;
+}
+
+.menu-modal,
+.replace-modal {
+  max-width: 380rem;
+  margin: 0 auto;
 }
 
 .flatpickr-input[readonly] {
@@ -55,7 +55,7 @@ textarea {
 }
 
 .flatpickr-calendar {
-  top: 260px !important;
+  top: 26rem !important;
   left: 50% !important;
   right: 0 !important;
   transform: translateX(-50%) !important;

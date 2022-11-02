@@ -17,11 +17,8 @@
   color: var(--dark-shade-green);
   font-size: 2.4rem;
   height: 2.4rem;
-}
-@media (min-width: 700px) {
-  .show__header button {
-    display: none;
-  }
+  border: none;
+  background-color: transparent;
 }
 .show__form {
   display: grid;
@@ -47,7 +44,10 @@
   padding: 0.8rem 0;
   font-size: 1.45rem;
 }
-@media (min-width: 700px) {
+@media only screen and (min-width: 43.75rem) {
+  .show__header button {
+    display: none;
+  }
   .show__form .visual {
     display: none;
   }

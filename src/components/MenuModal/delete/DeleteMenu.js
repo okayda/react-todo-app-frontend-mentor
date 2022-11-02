@@ -10,7 +10,7 @@ const DeleteMenu = function (prop) {
     <motion.div
       className={style.delete}
       variants={specificMenuAnimation}
-      initial={"hidden"}
+      initial={prop.animationAllowed ? "hidden" : false}
       animate="visible"
     >
       <button className={style.delete__button} onClick={prop.onClick}>

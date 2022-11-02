@@ -1,6 +1,6 @@
-import { AnimatePresence, Reorder } from "framer-motion";
-import { useContext, useEffect, useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import { TodoContext } from "../Methods/Context/TodoContext";
+import { AnimatePresence, Reorder } from "framer-motion";
 
 import ContentLoad from "../Methods/ContentLoad/ContentLoad";
 import ChartCircle from "../Chart/ChartCircle";
@@ -17,12 +17,19 @@ const TodoList = function () {
   } = useContext(TodoContext);
 
   const [todosData, setTodosData] = useState(todos);
+  const [loaderShow, setLoaderShow] = useState(todos.length > 0);
   const [animationActive, setAnimation] = useState(false);
 
   useEffect(() => {
+    // without this the reorder saving mechanism will not be work properly
     setTodosData(todos);
+
+    // alternate renderation for todo list & content loader
+    setLoaderShow(todos.length > 0);
   }, [todos]);
 
+  // if the todos already rendered and the webpage is suddenly refresh
+  // the enter animation will not be applied for each todo
   useEffect(() => {
     setAnimation(true);
   }, []);
@@ -60,20 +67,22 @@ const TodoList = function () {
   const iconsFunctionality = function (className, id) {
     const targetClass = className.split(" ");
 
+    // enable represents the toggle switch
+
     if (targetClass.includes("replace") && enableModify) {
       showChange(id);
       return;
     }
 
+    /*
+      the purpose of includes true is to prevent the re-execution
+      of this if the statement again. if the task is mark as completed
+      if there is no true className included will not be executed again
+      */
     if (
       targetClass.includes("complete") &&
       targetClass.includes("true") &&
       enableComplete
-      /*
-      the purpose of includes true is to prevent the execution
-      of this if the statement again. if the task is mark as completed
-      if there is no true className included will not be executed
-      */
     ) {
       dynamicTodo("turn-completed", id);
       return;
@@ -88,6 +97,7 @@ const TodoList = function () {
   // one handler for all todos
   const eventDelegation = function (e) {
     const target = e.target.closest("li");
+    if (!target) return;
 
     // Main parent list (<li></li)
     const parentClassList = target.parentElement.parentElement;
@@ -118,10 +128,6 @@ const TodoList = function () {
     );
   });
 
-  console.log(list);
-
-  const content = todos.length > 0 ? list : <ContentLoad />;
-
   return (
     <Reorder.Group
       className={style.taskList}
@@ -130,7 +136,7 @@ const TodoList = function () {
       onClick={eventDelegation}
     >
       <AnimatePresence>
-        {content}
+        {loaderShow ? list : <ContentLoad />}
         {showTask === "counted-todo" ? listChart : null}
       </AnimatePresence>
     </Reorder.Group>

@@ -1,5 +1,5 @@
 .todo {
-  max-width: 380px;
+  max-width: 38rem;
   padding: 4rem 1rem;
   margin: 0 auto;
   -webkit-user-select: none;
@@ -13,7 +13,7 @@
   gap: 1.4rem;
   align-items: start;
   margin-bottom: 1rem;
-  height: 180px;
+  height: 18rem;
 }
 .todo__menuContainer {
   display: none;
@@ -27,21 +27,22 @@
   position: sticky;
   margin-top: 6rem;
   top: 30rem;
-  height: 300px;
-  width: 300px;
+  height: 30rem;
+  width: 30rem;
   justify-self: center;
 }
 .todo__chartContainer span {
   position: absolute;
   top: 17rem;
   left: 50%;
+  z-index: -5;
   transform: translateX(-50%);
   font-weight: bold;
   font-size: 2rem;
 }
-@media (min-width: 700px) {
+@media only screen and (min-width: 43.75rem) {
   .todo {
-    max-width: 700px;
+    max-width: 70rem;
   }
   .todo__formMenu {
     grid-template-columns: 1fr 1fr;

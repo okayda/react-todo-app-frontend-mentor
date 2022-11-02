@@ -1,10 +1,9 @@
 @import "../../scss/mixins";
 
 .header {
-  @include widthCenter(380px, 0, 2rem);
+  @include widthCenter(38rem, 0, 2rem);
   flex-grow: 1;
 
-  // Parent Elements box => nav
   &__box {
     background-color: var(--light);
     padding: 0.8rem;
@@ -14,5 +13,4 @@
   &__nav {
     @include flexColumnGap(1.6rem);
   }
-  // =======================
 }

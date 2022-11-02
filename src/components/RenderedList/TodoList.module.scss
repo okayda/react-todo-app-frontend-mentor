@@ -5,12 +5,10 @@
 
   list-style: none;
   padding-right: 1rem;
-  transition: border-width 0.6s linear;
   border-right: 1.2rem solid var(--light-very-shade-purple);
 
   &__list {
     @include flexColumnGap(1.2rem);
-
     background-color: var(--light);
     border-left: solid 4px var(--light-very-shade-purple);
     border-radius: 0 6px 6px 0;
@@ -39,21 +37,21 @@
 
   &__chartContainer {
     position: relative;
-    height: 300px;
-    width: 300px;
+    height: 30rem;
+    width: 30rem;
 
     span {
       position: absolute;
       top: 17rem;
       left: 50%;
+      z-index: -5;
       transform: translateX(-50%);
       font-weight: bold;
       font-size: 2rem;
     }
   }
 
-  @media (min-width: 700px) {
-    // max-width: 340px;
+  @include tabdesk() {
     padding: 0;
     border-right: none;
 

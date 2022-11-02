@@ -20,7 +20,7 @@
 .nav__menu svg {
   font-size: 4rem;
 }
-@media (min-width: 700px) {
+@media only screen and (min-width: 43.75rem) {
   .nav__menu {
     display: none;
   }
