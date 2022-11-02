@@ -41,18 +41,28 @@
   padding: 1rem 1.6rem;
 }
 .form__add {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   border-radius: 6px;
   background-color: var(--light-very-shade-purple);
   color: var(--light);
 }
+.form__add:hover {
+  background-color: #5757a1;
+}
 .form__clear {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   border-radius: 6px;
   background-color: var(--light);
+}
+.form__clear:hover {
+  background-color: #e6e6e6;
 }
 .form__calendarContainer {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  background-color: #dcf4ec;
+  border-radius: 100px 0 0 100px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 .form__calendarInput {
   border-radius: 6px 0 0 6px;
@@ -60,6 +70,9 @@
   background-color: var(--light-tint-green);
   padding: 1rem;
   color: var(--slight-dark);
+}
+.form__calendarInput:hover {
+  background-color: #e0f7e0;
 }
 .form__calendarClear {
   border: 0 6px 6px 0;

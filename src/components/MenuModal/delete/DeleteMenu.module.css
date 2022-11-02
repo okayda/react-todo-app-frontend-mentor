@@ -68,6 +68,9 @@
   padding: 0.8rem 0;
   width: 100%;
 }
+.delete__buttons button:hover {
+  background-color: #ffc6b7;
+}
 .delete__active {
   padding: 2rem 1rem;
   max-height: 40rem;

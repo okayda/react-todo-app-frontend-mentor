@@ -25,9 +25,9 @@ const ContentLoad = function () {
         <rect x="0" y="34" rx="2" ry="2" width="100%" height="76" />
         <rect x="0" y="126" rx="2" ry="2" width="100%" height="24" />
         <rect x="0" y="160" rx="2" ry="2" width="100%" height="76" />
-        <rect x="0" y="265" rx="2" ry="2" width="100%" height="24" />
-        <rect x="0" y="299" rx="2" ry="2" width="100%" height="76" />
-        <rect x="0" y="400" rx="2" ry="2" width="100%" height="55" />
+        <rect x="0" y="250" rx="2" ry="2" width="100%" height="24" />
+        <rect x="0" y="284" rx="2" ry="2" width="100%" height="76" />
+        <rect x="0" y="375" rx="2" ry="2" width="100%" height="55" />
       </ContentLoader>
     </motion.div>
   );

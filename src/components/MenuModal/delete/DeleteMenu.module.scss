@@ -1,3 +1,4 @@
+@import "../../../scss/variables";
 @import "../../../scss/mixins";
 
 .delete {
@@ -75,6 +76,10 @@
       border: 1px solid var(--light-very-shade-orange);
       padding: 0.8rem 0;
       width: 100%;
+
+      &:hover {
+        background-color: darken($light-shade-orange, 5%);
+      }
     }
   }
 

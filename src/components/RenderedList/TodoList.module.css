@@ -28,7 +28,8 @@
   color: var(--light-very-shade-purple);
 }
 .taskList__listDate {
-  color: var(--light-grayish-blue);
+  font-weight: bold;
+  color: var(--dark-grayish-blue);
   padding-left: 1rem;
   font-size: 1.2rem;
 }

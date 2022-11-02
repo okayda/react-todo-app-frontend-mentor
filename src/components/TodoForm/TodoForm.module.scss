@@ -1,3 +1,4 @@
+@import "../../scss/variables";
 @import "../../scss/mixins";
 
 .form {
@@ -57,20 +58,35 @@
   }
 
   &__add {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     border-radius: 6px;
     background-color: var(--light-very-shade-purple);
     color: var(--light);
+
+    &:hover {
+      background-color: darken($light-very-shade-purple, 10%);
+    }
   }
 
   &__clear {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     border-radius: 6px;
     background-color: var(--light);
+
+    &:hover {
+      background-color: darken($light, 10%);
+    }
   }
 
   &__calendarContainer {
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    background-color: $light-shade-green;
+    border-radius: 100px 0 0 100px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   }
 
   &__calendarInput {
@@ -79,6 +95,10 @@
     background-color: var(--light-tint-green);
     padding: 1rem;
     color: var(--slight-dark);
+
+    &:hover {
+      background-color: darken($light-tint-green, 5%);
+    }
   }
 
   &__calendarClear {
