@@ -1,6 +1,7 @@
 # Frontend Mentor - Todo 2.0
 
-![](./image1.jpg) | ![](./image2.jpg)
+![](./image1.jpg)
+![](./image2.jpg)
 
 This is my solution to the [Manage landing page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW/hub/todo-app-1LV3kQB5Gf)
 
