@@ -2,7 +2,7 @@
 
 | mobile & desktop layout                  | mobile menu modal                  |
 | ---------------------------------------- | ---------------------------------- |
-| ![mobile & desktop layout](./image1.jpg) | ![mobile menu modal](./image2.jpg) |
+| ![mobile & desktop layout](./image1.jpg) | ![mobile menu modal](./image2.png) |
 
 This is my solution to the [Manage landing page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW/hub/todo-app-1LV3kQB5Gf)
 
