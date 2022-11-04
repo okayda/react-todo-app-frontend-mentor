@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { TodoContext } from "../../Methods/Context/TodoContext";
 import toast, { Toaster } from "react-hot-toast";
 import ReactSwitch from "react-switch";
@@ -76,7 +76,7 @@ const Delete = function (prop) {
           },
         }}
         containerStyle={{
-          top: -70,
+          top: -50,
         }}
       />
 

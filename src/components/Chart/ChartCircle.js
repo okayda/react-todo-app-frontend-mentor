@@ -4,6 +4,8 @@ import { Doughnut } from "react-chartjs-2";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
+
+//font-size for eeverthing but the manual font-size not included
 ChartJS.defaults.font.size = 14;
 
 const ChartCircle = function () {

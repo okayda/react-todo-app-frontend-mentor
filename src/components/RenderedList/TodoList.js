@@ -137,7 +137,7 @@ const TodoList = function () {
     >
       <AnimatePresence>
         {loaderShow ? list : <ContentLoad />}
-        {showTask === "counted-todo" ? listChart : null}
+        {showTask === "counted-todo" && todos.length !== 0 ? listChart : null}
       </AnimatePresence>
     </Reorder.Group>
   );

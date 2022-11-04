@@ -30,7 +30,7 @@ const ReplaceModal = function () {
   } = useContext(TodoContext);
 
   const [textEmpty, setTextEmpty] = useState(false);
-  console.log(textEmpty);
+
   const clearFocus = function () {
     setCurrentReplaceText("");
     ref.current.focus();

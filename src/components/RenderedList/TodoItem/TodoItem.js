@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import ReactReadMoreReadLess from "react-read-more-read-less";
-import { motion, useMotionValue, Reorder } from "framer-motion";
+import { useMotionValue, Reorder } from "framer-motion";
 import { TodoContext } from "../../Methods/Context/TodoContext";
 
 import { taskAnimation } from "../../Animation/Animation";
