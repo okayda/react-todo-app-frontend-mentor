@@ -1,6 +1,8 @@
 # Frontend Mentor - Todo 2.0
 
-![mobile & desktop layout](./image1.jpg "img-1" =50%x) ![mobile menu modal](./image2.jpg "img-1" =50%x)
+| mobile & desktop layout                  | mobile menu modal                  |
+| ---------------------------------------- | ---------------------------------- |
+| ![mobile & desktop layout](./image1.jpg) | ![mobile menu modal](./image2.jpg) |
 
 This is my solution to the [Manage landing page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW/hub/todo-app-1LV3kQB5Gf)
 
