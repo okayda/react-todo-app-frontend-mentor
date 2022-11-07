@@ -5,6 +5,7 @@ export const CalendarConfigForm = function (
   return {
     disableMobile: true,
     wrap: true,
+    appendTo: document.getElementById("calendar-container"),
 
     onOpen: function () {
       showBackdrop(true);
@@ -24,6 +25,7 @@ export const CalendarConfigReplace = function (replaceCalendarValue) {
   return {
     disableMobile: true,
     wrap: true,
+    appendTo: document.getElementById("calendar-container"),
 
     onClose: function (_, dateStr) {
       replaceCalendarValue(dateStr);

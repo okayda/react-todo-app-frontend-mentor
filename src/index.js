@@ -4,7 +4,7 @@ import Main from "./Main";
 
 import { TodoProvider } from "./components/Methods/Context/TodoContext";
 
-const main = ReactDOM.createRoot(document.getElementById("main"));
+const main = ReactDOM.createRoot(document.getElementById("main-container"));
 
 main.render(
   <React.StrictMode>

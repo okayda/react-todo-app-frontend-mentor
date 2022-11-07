@@ -153,6 +153,7 @@ export const TodoProvider = function (prop) {
 
   // this config only for Calendar ReplaceModal.js
   const FlatpickrConfigReplace = CalendarConfigReplace(setCurrentReplaceDate);
+
   // <================>
 
   // 1) Retrieving data in the localStorage
@@ -179,7 +180,7 @@ export const TodoProvider = function (prop) {
   const hideMenu = function () {
     setActiveMenu(false);
 
-    // if the MenuModal closed will be unchecked the radio buttons
+    // if the MenuModal is closed it will be unchecked the radio buttons
     // in the delete setting & disabled the delete button
     setSelectedDelete(null);
   };
@@ -191,6 +192,10 @@ export const TodoProvider = function (prop) {
 
   const hideChange = function () {
     setActiveReplace(false);
+
+    // the replace modal calendar will be removed in the calendar container
+    // if the replace modal is hide
+    flatpickr("#replaceCalendar").destroy();
   };
   // <================>
 

@@ -4,7 +4,7 @@
 | ---------------------------------------- | ---------------------------------- |
 | ![mobile & desktop layout](./image1.jpg) | ![mobile menu modal](./image2.png) |
 
-This is my solution to the [Manage landing page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW/hub/todo-app-1LV3kQB5Gf)
+This is my solution to the [Todo App challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW/hub/todo-app-1LV3kQB5Gf)
 
 - [Solution URL](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW/hub/todo-app-1LV3kQB5Gf)
 - [Live Site URL](https://jhon-okayda-todo-app.netlify.app/)

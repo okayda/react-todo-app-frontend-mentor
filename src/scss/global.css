@@ -28,8 +28,8 @@ textarea {
   resize: none;
 }
 
-.menu-modal,
-.replace-modal {
+#menu-modal,
+#replace-modal {
   max-width: 380rem;
   margin: 0 auto;
 }

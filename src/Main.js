@@ -7,8 +7,8 @@ import Todo from "./components/Todo";
 import Footer from "./components/Footer/Footer";
 
 import Backdrop from "./components/Backdrop/Backdrop";
-import MenuModal from "./components/MenuModal/MenuModal";
-import ReplaceModal from "./components/ReplaceModal/ReplaceModal";
+import MenuContent from "./components/MenuContent/MenuContent";
+import ReplaceContent from "./components/ReplaceContent/ReplaceContent";
 
 import "./scss/global.css";
 
@@ -25,39 +25,35 @@ function Main() {
     ? root.add("disable-scroll")
     : root.remove("disable-scroll");
 
+  // this backdrop is only for form
+  const CalendarBackdropPortal = function () {
+    return activeCalendar
+      ? ReactDOM.createPortal(
+          <Backdrop onClick={setActiveCalendar} />,
+          document.getElementById("calendar-container")
+        )
+      : null;
+  };
+
+  const FooterPortal = function () {
+    return ReactDOM.createPortal(
+      <Footer />,
+      document.getElementById("footer-container")
+    );
+  };
+
   return (
     <>
-      {/*
-      //*  I tried to used AnimatePresence but is not working
-      //*  when the create Portal is used to the <MenuModal /> & <ReplaceModal />
-      //*  target rendered "menu-modal" & "replace-modal"
-
-      //* AnimatePresence is working when I tried to used <MenuModal /> & <ReplaceModal /> only.
-      //* create portal is not attached 
-      //* it will not render to the "menu-modal" & "replace-modal" container
-       */}
-
-      {/*  <AnimatePresence >
-       {activeMenu &&
-       ReactDOM.createPortal(<MenuModal />, document.querySelector(".menu-modal"))}
-
-       {activeReplace &&
-         ReactDOM.createPortal(
-          <ReplaceModal />,
-           document.querySelector(".replace-modal")
-         )}
-      </AnimatePresence> */}
-
-      {/* this calendar is only for form  */}
-      {activeCalendar ? <Backdrop onClick={setActiveCalendar} /> : null}
+      <CalendarBackdropPortal />
 
       <AnimatePresence>
-        {activeReplace ? <ReplaceModal /> : null}
-        {activeMenu ? <MenuModal /> : null}
+        {activeReplace ? <ReplaceContent /> : null}
+        {activeMenu ? <MenuContent /> : null}
       </AnimatePresence>
+
       <Todo />
 
-      {ReactDOM.createPortal(<Footer />, document.querySelector("footer"))}
+      <FooterPortal />
     </>
   );
 }

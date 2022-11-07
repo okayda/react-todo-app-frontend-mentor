@@ -2,9 +2,9 @@ import { AnimatePresence } from "framer-motion";
 import { useContext } from "react";
 import { TodoContext } from "./Methods/Context/TodoContext";
 
-import ShowMenu from "./MenuModal/Show/ShowMenu";
-import ToggleMenu from "./MenuModal/Toggle/ToggleMenu";
-import DeleteMenu from "./MenuModal/Delete/DeleteMenu";
+import ShowMenu from "./MenuContent/Show/ShowMenu";
+import ToggleMenu from "./MenuContent/Toggle/ToggleMenu";
+import DeleteMenu from "./MenuContent/Delete/DeleteMenu";
 
 import Nav from "./Nav/Nav";
 import TodoForm from "./TodoForm/TodoForm";

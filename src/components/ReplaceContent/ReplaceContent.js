@@ -1,0 +1,166 @@
+import { useState, useContext, useEffect, useRef } from "react";
+import { TodoContext } from "../Methods/Context/TodoContext";
+import { FaTimes } from "react-icons/fa";
+import Modal from "../Modal/Modal";
+
+import { modalAnimation } from "../Animation/Animation";
+
+import style from "./ReplaceContent.module.css";
+
+const ReplaceContent = function () {
+  const ref = useRef(null);
+
+  const {
+    todo: { dispatch },
+    replace: {
+      hideChange,
+
+      taskId,
+      setTaskId,
+
+      currentReplaceText,
+      setCurrentReplaceText,
+
+      currentReplaceDate,
+      setCurrentReplaceDate,
+    },
+
+    calendar: { flatpickr, FlatpickrConfigReplace },
+  } = useContext(TodoContext);
+
+  const [textEmpty, setTextEmpty] = useState(false);
+
+  const clearFocus = function () {
+    setCurrentReplaceText("");
+    ref.current.focus();
+  };
+
+  const textAreaValue = function (e) {
+    setCurrentReplaceText(e.target.value);
+  };
+
+  const resetReplaceCalendarValue = function () {
+    setCurrentReplaceDate("");
+  };
+
+  const submitReplace = function (e) {
+    e.preventDefault();
+
+    // guard clause
+    const submitter = e.nativeEvent.submitter.name;
+    if (submitter !== "save") return;
+    if (currentReplaceText.trim() === "") {
+      setTextEmpty(true);
+      return;
+    }
+
+    // it will changed the specific task in the localStorage using the id
+    dispatch({
+      type: "replace-text",
+      payload: {
+        id: taskId,
+        text: currentReplaceText,
+        date: currentReplaceDate,
+      },
+    });
+    setTaskId(null);
+    resetReplaceCalendarValue();
+    hideChange();
+  };
+
+  // is used for executing the calendar library to the calendar input
+  useEffect(() => {
+    const calendar = flatpickr(`#replaceCalendar`, FlatpickrConfigReplace);
+
+    // it will execute only this if the date on the specific task is existed
+    if (currentReplaceDate) calendar.setDate(currentReplaceDate);
+  }, []);
+
+  return (
+    <Modal
+      obj={{
+        className: style.change,
+        onClick: (e) => e.stopPropagation(),
+        variants: modalAnimation,
+        initial: "hidden",
+        animate: "visible",
+        exit: "exit",
+      }}
+      portalElement="replace-container"
+      removeModal={hideChange}
+    >
+      <div className={style.change__box}>
+        <div className={style.change__title}>
+          <h2>Replacing</h2>
+
+          <button className={style.change__exit} onClick={hideChange}>
+            <FaTimes />
+          </button>
+        </div>
+
+        <form onSubmit={submitReplace} className={style.change__form}>
+          <textarea
+            className={`${style.change__textarea} ${
+              textEmpty ? style.change__textareaInvalid : null
+            }`}
+            onChange={textAreaValue}
+            value={currentReplaceText}
+            ref={ref}
+          />
+
+          <p
+            className={`${style.change__msg} ${
+              textEmpty ? style.change__errorMsg : null
+            }`}
+          >
+            The text area should not be empty
+          </p>
+
+          <div className={style.change__clearCalendarContainer}>
+            <button
+              type="button"
+              onClick={clearFocus}
+              name="clear"
+              className={style.change__button}
+            >
+              Clear
+            </button>
+
+            <div
+              className={style.change__calendarContainer}
+              id="replaceCalendar"
+            >
+              <input type="text" placeholder="Calendar" data-input />
+
+              <button
+                type="button"
+                name="remove-date"
+                data-clear
+                onClick={resetReplaceCalendarValue}
+              >
+                <FaTimes />
+              </button>
+            </div>
+          </div>
+
+          <div className={style.change__editContainer}>
+            <button type="submit" className={style.change__button} name="save">
+              Save
+            </button>
+
+            <button
+              type="button"
+              name="cancel"
+              onClick={hideChange}
+              className={style.change__button}
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </Modal>
+  );
+};
+
+export default ReplaceContent;
