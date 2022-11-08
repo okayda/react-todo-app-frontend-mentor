@@ -1,4 +1,4 @@
-import { useState, createContext, useEffect, useReducer } from "react";
+import { useState, useRef, createContext, useEffect, useReducer } from "react";
 
 import flatpickr from "flatpickr";
 import {
@@ -136,7 +136,9 @@ export const TodoProvider = function (prop) {
   // <================>
 
   // replace modal state
+  const focusTextArea = useRef(null);
   const [taskId, setTaskId] = useState(null);
+  const [replaceTextEmpty, setReplaceTextEmpty] = useState(false);
   const [currentReplaceText, setCurrentReplaceText] = useState("");
   const [currentReplaceDate, setCurrentReplaceDate] = useState("");
   // <================>
@@ -249,8 +251,13 @@ export const TodoProvider = function (prop) {
           showChange,
           hideChange,
 
+          focusTextArea,
+
           taskId,
           setTaskId,
+
+          replaceTextEmpty,
+          setReplaceTextEmpty,
 
           currentReplaceText,
           setCurrentReplaceText,

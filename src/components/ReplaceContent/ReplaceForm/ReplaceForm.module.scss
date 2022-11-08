@@ -1,0 +1,86 @@
+@import "../../../scss/variables";
+@import "../../../scss/mixins";
+
+.replaceForm {
+  @include flexColumnGap(1rem);
+
+  &__textarea {
+    border: 1px solid $very-shade-green;
+    background-color: rgba($color: $light, $alpha: 0.5);
+    border-radius: 6px;
+    padding: 1rem;
+    font-size: 1.5rem;
+    height: 15rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__textareaInvalid {
+    border-color: $very-shade-orange;
+  }
+
+  &__msg {
+    font-weight: bold;
+    font-size: 1.45rem;
+  }
+
+  &__errorMsg {
+    color: $very-shade-orange;
+  }
+
+  &__button {
+    cursor: pointer;
+    color: $dark;
+    background-color: $shade-green;
+    border: 1px solid $very-shade-green;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 0.6rem 1.2rem;
+
+    &:hover {
+      background-color: darken($shade-green, 10%);
+    }
+  }
+
+  &__clearCalendarContainer {
+    display: flex;
+    gap: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  &__calendarContainer {
+    display: flex;
+
+    input {
+      background-color: $shade-green;
+      border-radius: 6px 0 0 6px;
+      width: 45%;
+      border: 1px solid $dark-shade-green;
+
+      &:hover {
+        background-color: darken($shade-green, 10%);
+      }
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    button {
+      cursor: pointer;
+      color: $light;
+      background-color: $very-shade-green;
+      border-radius: 0 6px 6px 0;
+      border: none;
+      line-height: 0;
+      padding: 0.4rem 0.6rem;
+    }
+  }
+
+  &__editContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+}
