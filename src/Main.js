@@ -42,7 +42,7 @@ function Main() {
     },
   };
 
-  // this backdrop is only for form
+  // this backdrop is only for calendar
   const CalendarBackdropPortal = function () {
     return activeCalendar
       ? ReactDOM.createPortal(
