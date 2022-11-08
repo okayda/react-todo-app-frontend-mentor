@@ -137,6 +137,11 @@ const TodoList = function () {
     >
       <AnimatePresence>
         {loaderShow ? list : <ContentLoad />}
+
+        {/* 
+        if there is no todo and the user clicked the Visualization
+        in the show menu it will not be displayed 
+        */}
         {showTask === "counted-todo" && todos.length !== 0 ? listChart : null}
       </AnimatePresence>
     </Reorder.Group>

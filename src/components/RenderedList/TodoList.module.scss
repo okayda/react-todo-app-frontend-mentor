@@ -57,6 +57,10 @@
     padding: 0;
     border-right: none;
 
+    &__list {
+      width: 34rem;
+    }
+
     &__chartContainer {
       display: none;
     }

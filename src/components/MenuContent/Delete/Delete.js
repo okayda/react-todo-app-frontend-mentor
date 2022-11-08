@@ -25,11 +25,11 @@ const Delete = function (prop) {
 
     if (selectedDelete === "delete-completed") str = "Completed";
 
-    toast.success(`${str} successfully deleted`, { duration: 3000 });
+    toast.success(`${str} successfully deleted`, { duration: 4000 });
   };
 
   const notifyClearTodos = function () {
-    toast.success("Successfully cleared", { duration: 3000 });
+    toast.success("Successfully cleared", { duration: 4000 });
   };
 
   // specific delete functionalities
@@ -66,20 +66,6 @@ const Delete = function (prop) {
 
   return (
     <>
-      <Toaster
-        position="top-center"
-        reverseOrder={false}
-        toastOptions={{
-          style: {
-            fontWeight: "bold",
-            fontSize: "15px",
-          },
-        }}
-        containerStyle={{
-          top: -50,
-        }}
-      />
-
       <div
         className={`${style.delete__content} ${
           prop.deleteIsActive && style.delete__active

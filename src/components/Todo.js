@@ -28,6 +28,7 @@ const Todo = function () {
       <div className={style.todo__formMenu}>
         <TodoForm />
 
+        {/* Only for tablet & desktop layout */}
         <div className={style.todo__menuContainer}>
           <AnimatePresence>
             {activeNav === "show" ? <ShowMenu animationAllowed={true} /> : null}

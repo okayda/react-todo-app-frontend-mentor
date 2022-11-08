@@ -52,6 +52,9 @@
     padding: 0;
     border-right: none;
   }
+  .taskList__list {
+    width: 34rem;
+  }
   .taskList__chartContainer {
     display: none;
   }

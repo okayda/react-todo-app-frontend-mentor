@@ -2,6 +2,7 @@ import ReactDOM from "react-dom";
 import { AnimatePresence } from "framer-motion";
 import { useContext } from "react";
 import { TodoContext } from "./components/Methods/Context/TodoContext";
+import { Toaster } from "react-hot-toast";
 
 import Todo from "./components/Todo";
 import Footer from "./components/Footer/Footer";
@@ -25,6 +26,22 @@ function Main() {
     ? root.add("disable-scroll")
     : root.remove("disable-scroll");
 
+  // specific delete toast notification
+  const NotifyObj = {
+    position: "top-center",
+    reverseOrder: false,
+    toastOptions: {
+      style: {
+        fontWeight: "bold",
+        fontSize: "15px",
+      },
+    },
+    containerStyle: {
+      top: 30,
+      zIndex: 50,
+    },
+  };
+
   // this backdrop is only for form
   const CalendarBackdropPortal = function () {
     return activeCalendar
@@ -44,6 +61,8 @@ function Main() {
 
   return (
     <>
+      <Toaster {...NotifyObj} />
+
       <CalendarBackdropPortal />
 
       <AnimatePresence>
